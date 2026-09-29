@@ -12,7 +12,7 @@ It currently contains:
 - Import assumptions, OSM attribution, run instructions, and remaining network-review items.
 - [Traffic data evidence and calibration limits](simulation/astoria-osm-import/TRAFFIC-DATA.md), with screenshot-transcribed 2023–2025 AADT values, complete 15-minute reports from four NYSDOT stations, and a NYC DOT 2026 PM-peak intersection-count reference.
 
-The OSM signal markers do not contain actual NYC phase timings. SUMO generated static timing programs for this initial runnable baseline. The traffic demand is synthetic and has not been calibrated to NYC counts. These runs verify the simulation pipeline; they do not establish congestion reduction or real-world effectiveness.
+The OSM signal markers do not contain actual NYC phase timings, so SUMO's static 90-second programs are assumptions. The two smoke/stress route sets are synthetic; the separate 054474 replay uses an observed count profile but remains a single-stream diagnostic. None of these scenarios is calibrated as a complete Astoria network or establishes congestion reduction.
 
 The supplied NYSDOT screenshots add AADT evidence for Astoria Boulevard and nearby I-278 segments. The package now also records one complete 15-minute count day from each of four NYSDOT stations and NYC DOT's 2026 PM-peak intersection totals at 21st and 31st Streets. The station days are from different years, and one observed daily total differs substantially from its AADT; see the data note before describing demand as calibrated. The next step is to digitize the intersection movement diagram, map stations to SUMO edges, and create conserved directional/time-varying demand.
 
