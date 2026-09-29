@@ -2,12 +2,12 @@
 
 ## Current shared progress
 
-The first runnable SUMO project is in [simulation/astoria-osm-import](simulation/astoria-osm-import/README.md). It was generated from the OpenStreetMap extract supplied for the Astoria Boulevard / I-278 study area.
+The SUMO project is in [simulation/astoria-osm-import](simulation/astoria-osm-import/README.md). It was generated from the supplied OpenStreetMap extract for the Astoria Boulevard / I-278 study area and now includes a first observed-profile route replay.
 
 It currently contains:
 
 - The OSM source extract and SUMO-converted road network.
-- Two fixed-time simulation configurations with seeded synthetic traffic routes.
+- Two fixed-time smoke/stress configurations with seeded synthetic routes, plus one 24-hour replay of an observed NYSDOT station profile.
 - Logs and trip, queue, and summary outputs from smoke and higher-volume runs.
 - Import assumptions, OSM attribution, run instructions, and remaining network-review items.
 - [Traffic data evidence and calibration limits](simulation/astoria-osm-import/TRAFFIC-DATA.md), with screenshot-transcribed 2023–2025 AADT values, complete 15-minute reports from four NYSDOT stations, and a NYC DOT 2026 PM-peak intersection-count reference.

@@ -14,6 +14,8 @@ The TDV's Site Data daily reports were also inspected. `traffic-profiles.csv` co
 
 The selected-day totals are 12,677 (054474), 29,228 (053167), 29,024 (053166), and 8,015 (053169) vehicles. The screenshot AADT values for 2025 are 11,523, 26,137, 32,608, and 17,027 respectively. These are different statistics and, for three sites, different years. The 053169 difference is especially large and needs investigation. Check count coverage, direction, station geometry, and report quality rather than silently forcing agreement.
 
+A candidate geometry check used NYSDOT's station line and the OSM source geometry: station 054474 overlaps the Astoria Boulevard South way pieces that SUMO names `5707919#1`, `1459805124`, and `1273808663#0` through `#2`. These edges were used in the first profile replay route. This is a working map match only; the full corridor, lane coverage, stop lines, and signal connections still need visual inspection in NetEdit.
+
 NYC DOT's March 11, 2026 [Astoria Boulevard Safety Enhancements presentation](https://www.nyc.gov/html/dot/downloads/pdf/astoria-blvd-21-st-33-st-mar2026.pdf) covers 21st to 33rd Streets. Its sample-count appendix says the corridor's highest traffic volume occurs in the 4:30–5:30 PM peak hour, reports 1,286 vehicles through Astoria Boulevard & 31st Street with about 2% trucks, and 2,017 vehicles through Astoria Boulevard & 21st Street with about 5% trucks. The presentation includes movement-by-movement arrows at 31st Street; digitize and verify those individual movements from the figure before using turn ratios. The count observation date is not stated in the cited slides.
 
 ## What these numbers can and cannot do
@@ -26,6 +28,8 @@ AADT is an annual daily average for a roadway station/segment. It is useful to a
 - Signal phase plans, cycle lengths, or offsets.
 
 Therefore the current 40-vehicle smoke and 180-vehicle stress routes remain software checks only. Do not distribute each station's AADT independently as SUMO flow: the same vehicles may cross several count stations, which would double-count demand and violate network flow conservation.
+
+The 054474 profile has been run once as a single eastbound route through the imported corridor. This test used the station's observed profile at the upstream boundary and omitted other approaches; it did not reproduce the full station volume within the 24-hour measurement window. Its results are diagnostic only; see `RESULTS.md` before reusing the scenario.
 
 ## Next calibration steps
 

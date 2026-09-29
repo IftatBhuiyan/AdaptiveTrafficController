@@ -28,9 +28,20 @@ Stress inserted and completed 180 of 180 vehicles with none unfinished. Mean tri
 
 These results show the imported network and fixed-time programs can carry two reproducible synthetic demand profiles. The higher-volume profile produced higher waiting and queue measurements. Since the scenarios differ in demand rate and horizon, this is not a controlled controller comparison and does not establish a traffic-control improvement.
 
+## Observed-profile route replay (exploratory, September 29, 2026)
+
+`build_observed_profile_replay.py` generated a 24-hour eastbound route replay from all 96 15-minute bins at NYSDOT station 054474 on May 29, 2025 (12,677 vehicles). It uses a 4% truck share derived from that station's 2025 AADT summary, applied uniformly across intervals because the report did not provide interval-level vehicle classes. The selected OSM route starts west of the count segment, passes through the local Astoria Boulevard corridor, and ends at the 33rd Street boundary. No cross-street or other-approach traffic is included.
+
+SUMO 1.27.1 ran the route to 25 hours, allowing a one-hour drain. Of 12,677 requested vehicles, 10,603 entered the network by the end; 10,570 completed, 33 remained in the network, and 2,074 were still waiting to depart. Completed trips averaged 218.79 s duration, 129.10 s waiting, and 173.11 s time loss. The candidate station proxy edge `1459805124` recorded 10,080 vehicles leaving during the 24-hour measurement window, 20.5% below the observed 12,677. The run reported zero collisions and zero teleports.
+
+This is a diagnostic route replay, not a calibrated-area result. It applies a measured count at the upstream boundary as a simplification; its route-edge/station match still needs visual review. It omits side-street traffic, turns, pedestrians, and other measured profiles, and it uses heuristic 90-second signal programs. The insertion backlog and count mismatch show that the current network/path/signal assumptions do not yet reproduce the observed day. Do not present its delays or queues as real Astoria performance or evidence of improvement. Reconcile the 31st Street movement diagram, station geometry, and signal phases before building the multi-approach scenario.
+
+The generated vehicle definitions are in `scenario-observed-054474.rou.xml`; rerun `python3 build_observed_profile_replay.py` to rebuild them. `runs/observed-054474-tripinfo.xml` and `runs/observed-054474-edge-data.xml` preserve per-trip and 15-minute candidate-edge measurements. The bulky per-second SUMO summary was parsed for the aggregate insertion/collision counts above and then discarded; the run can recreate it if needed.
+
 ## Generated outputs
 
 - Smoke: runs/smoke.log, runs/smoke-tripinfo.xml, runs/smoke-queue.xml, runs/smoke-summary.xml.
 - Stress: runs/stress.log, runs/stress-tripinfo.xml, runs/stress-queue.xml, runs/stress-summary.xml.
+- Observed-profile replay: runs/observed-054474-tripinfo.xml and runs/observed-054474-edge-data.xml.
 
 The GUI app was not visually inspected in this execution session. Headless SUMO 1.27.1 successfully loaded each SUMO configuration and completed each configured horizon.
