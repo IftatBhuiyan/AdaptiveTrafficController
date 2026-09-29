@@ -1,0 +1,13 @@
+station_id,roadway,from_description,to_description,direction_as_shown,year,aadt,single_unit_aadt,combination_unit_aadt,truck_percent,evidence
+054474,ASTORIA BLVD,31ST ST,33RD ST,AADT(E),2023,6357,382,40,7,"User screenshot 1; NYSDOT Traffic Data Viewer"
+054474,ASTORIA BLVD,31ST ST,33RD ST,AADT(E),2024,6010,361,38,7,"User screenshot 1; NYSDOT Traffic Data Viewer"
+054474,ASTORIA BLVD,31ST ST,33RD ST,AADT(E),2025,11523,460,36,4,"User screenshot 1; NYSDOT Traffic Data Viewer"
+053167,I278 EB at 31st St,I278 EB (OFF),ASTORIA BLVD N,West,2023,26475,,,,"User screenshot 2; NYSDOT Traffic Data Viewer"
+053167,I278 EB at 31st St,I278 EB (OFF),ASTORIA BLVD N,West,2024,26051,,,,"User screenshot 2; NYSDOT Traffic Data Viewer"
+053167,I278 EB at 31st St,I278 EB (OFF),ASTORIA BLVD N,West,2025,26137,,,,"User screenshot 2; NYSDOT Traffic Data Viewer"
+053166,I278 at 31st St,ASTORIA BLVD S,I278 WB (ON),,2023,33030,,,,"User screenshot 3; NYSDOT Traffic Data Viewer"
+053166,I278 at 31st St,ASTORIA BLVD S,I278 WB (ON),,2024,32501,,,,"User screenshot 3; NYSDOT Traffic Data Viewer"
+053166,I278 at 31st St,ASTORIA BLVD S,I278 WB (ON),,2025,32608,,,,"User screenshot 3; NYSDOT Traffic Data Viewer"
+053169,I278 at 31st St,I278 WB (OFF),HOYT AVE S,West,2023,17247,,,,"User screenshot 4; NYSDOT Traffic Data Viewer"
+053169,I278 at 31st St,I278 WB (OFF),HOYT AVE S,West,2024,16971,,,,"User screenshot 4; NYSDOT Traffic Data Viewer"
+053169,I278 at 31st St,I278 WB (OFF),HOYT AVE S,West,2025,17027,,,,"User screenshot 4; NYSDOT Traffic Data Viewer"

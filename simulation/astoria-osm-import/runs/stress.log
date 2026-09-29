@@ -1,0 +1,22 @@
+Loading net-file from 'astoria.net.xml' ... done (43ms).
+Loading route-files incrementally from 'scenario-stress.rou.xml'
+Loading done.
+Simulation version 1.27.1 started with time: 0.00.
+Simulation ended at time: 1800.00.
+Reason: The final simulation step has been reached.
+Performance:
+ Duration: 0.12s
+ Real time factor: 14876
+ UPS: 318611.570248
+Vehicles:
+ Inserted: 180
+ Running: 0
+ Waiting: 0
+Statistics (avg of 180):
+ RouteLength: 1386.38
+ Speed: 7.11
+ Duration: 214.18
+ WaitingTime: 80.47
+ TimeLoss: 112.36
+ DepartDelay: 0.00
+ DepartDelayWaiting: 0.00

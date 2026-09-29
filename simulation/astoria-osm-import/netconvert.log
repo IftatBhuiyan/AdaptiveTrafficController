@@ -1,0 +1,91 @@
+Warning: Discarding unknown compound 'usage.main' in type 'railway.rail|usage.main' (first occurrence for edge '5703514').
+Warning: Discarding unknown compound 'cycleway.lane' in type 'cycleway.lane|highway.residential' (first occurrence for edge '25419457').
+Warning: Discarding unknown compound 'cycleway.lane' in type 'cycleway.lane|highway.secondary' (first occurrence for edge '46140174').
+Warning: Discarding unknown compound 'usage.industrial' in type 'railway.rail|usage.industrial' (first occurrence for edge '340283552').
+Warning: Discarding unusable type 'railway.platform' (first occurrence for edge '426480938').
+Warning: Removing pt stop '3576026968' on non existing edge '220086611'.
+Warning: Removing pt stop '3576026969' on non existing edge '220086611'.
+Warning: Removing pt stop '3576077811' on non existing edge '387036794'.
+Warning: Removing pt stop '3576192672' on non existing edge '351865807'.
+Warning: Removing pt stop '4257817846' on non existing edge '387036794'.
+Warning: Invalid color value 'sienna' in relation 1359387
+Warning: PT line in relation 1359387 with no stops ignored. Probably OSM file is incomplete.
+Warning: Invalid color value 'chocolate' in relation 4799100
+Warning: PT line in relation 4799100 with no stops ignored. Probably OSM file is incomplete.
+Warning: Invalid color value 'chocolate' in relation 4799101
+Warning: PT line in relation 4799101 with no stops ignored. Probably OSM file is incomplete.
+Warning: Ignoring restriction relation '7298495' with unknown type.
+Warning: Ignoring restriction relation '7298526' with unknown type.
+Warning: Ignoring restriction relation '7485659' with unknown type.
+Warning: Ignoring restriction relation '7585459' with unknown type.
+Warning: No way found for reference '516692963' in relation '8220114'
+Warning: No way found for reference '220642952' in relation '8220114'
+Warning: Ignoring restriction relation '8220114' with unknown type.
+Warning: Ignoring restriction relation '8220114' with unknown from-way.
+Warning: Ignoring restriction relation '8220114' with unknown to-way.
+Warning: PT line in relation 9796293 with no stops ignored. Probably OSM file is incomplete.
+Warning: PT line in relation 9796352 with no stops ignored. Probably OSM file is incomplete.
+Warning: Invalid color value 'sienna' in relation 10322744
+Warning: No way found for reference '516825823' in relation '11262983'
+Warning: Ignoring restriction relation '11262983' with unknown to-way.
+Warning: No way found for reference '5704754' in relation '11263009'
+Warning: No way found for reference '5707137' in relation '11263009'
+Warning: Ignoring restriction relation '11263009' with unknown from-way.
+Warning: Ignoring restriction relation '11263009' with unknown to-way.
+Warning: Invalid color value 'sienna' in relation 11921087
+Warning: Ignoring restriction relation '21437125' with unknown from-way.
+Warning: Ignoring restriction relation '21437125' with unknown to-way.
+Warning: Could not assign stop '4257817848' to pt line '11256100' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '4257818062' to pt line '11256100' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '4257817852' to pt line '11256100' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '3576192672' to pt line '11256100' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Could not assign stop '4257818066' to pt line '11256100' (closest edge 'NULL', distance 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.00). Ignoring!
+Warning: Removed invalid stop '4257817848' from line '11256100'.
+Warning: Removed invalid stop '4257818062' from line '11256100'.
+Warning: Removed invalid stop '4257817852' from line '11256100'.
+Warning: Removed invalid stop '3576192672' from line '11256100'.
+Warning: Removed invalid stop '4257818066' from line '11256100'.
+Warning: PT stop '4960208247' has been moved to edge '-25419449#15'.
+Warning: PT stop '4960208244' has been moved to edge '-25419449#14'.
+Warning: PT stop '4960208240' has been moved to edge '-25419449#10'.
+Warning: PT stop '4931658237' has been moved to edge '-25419449#7'.
+Warning: PT stop '4925178949' has been moved to edge '-25419449#7'.
+Warning: Reducing junction cluster 13098035648,276209270,42898289,6406731462,6406731463,7659376752,7659376755,7659376764,7732086302,8765434967,8765434968,9179198070 (parallel incoming 1273808663#0,560353398#0).
+Warning: Reducing junction cluster 13399317581,13399317582,42849703,5104280319,6406731013,7732086301,7784017526,7784017558 (parallel incoming 421845655#0,683926428#0).
+Warning: Not joining junctions 3778729670,3778729677,9242368779 (long edge).
+Warning: Not joining junctions 42817456,6450635294,6450635295 (long edge).
+Warning: Not joining junctions 42817460,6450635166,6450635167 (long edge).
+Warning: Not joining junctions 42841786,9847944002,9847944011 (long edge).
+Warning: Not joining junctions 42841790,9776150542,9776150546 (long edge).
+Warning: Shape for junction '5104280319' has distance 21.39 to its given position.
+Warning: Shape for junction '588175755' has distance 32.38 to its given position.
+Warning: The traffic light '42865836' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '42865836'
+Warning: The traffic light '42874057' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '42874057'
+Warning: Minor green from edge '-25348048#15' to edge '683931309#0' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: The traffic light '42912776' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '42912776'
+Warning: The traffic light 'cluster_3570249980_42841755' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light 'cluster_3570249980_42841755'
+Warning: The traffic light 'cluster_3570249988_42874060' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light 'cluster_3570249988_42874060'
+Warning: Minor green from edge '-25419449#7' to edge '-954569523#16' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '5703719#12' to edge '46140179#4' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '-5703719#16' to edge '-46140179#1' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Minor green from edge '25419449#1' to edge '5703220#1' exceeds 19.44m/s. Maybe a left-turn lane is missing.
+Warning: Speed of straight connection '375324638_0->1200765971#1_0' reduced by 13.16 due to turning radius of 25.49 (length=17.50, angle=55.62).
+Warning: Removed 10 pt stops because they could not be assigned to the network
+Warning: 40 total messages of type: Could not assign stop '%' to pt line '%' (closest edge '%', distance %). Ignoring!
+Warning: 12 total messages of type: Could not build program '%' for traffic light '%'
+Warning: 8 total messages of type: Ignoring restriction relation '%' with unknown type.
+Warning: 49 total messages of type: Invalid color value '%' in relation %
+Warning: 20 total messages of type: Minor green from edge '%' to edge '%' exceeds %m/s. Maybe a left-turn lane is missing.
+Warning: 9 total messages of type: No way found for reference '%' in relation '%'
+Warning: 17 total messages of type: Not joining junctions % (%).
+Warning: 60 total messages of type: PT line in relation % with no stops ignored. Probably OSM file is incomplete.
+Warning: 16 total messages of type: PT stop '%' has been moved to edge '%'.
+Warning: 40 total messages of type: Removed invalid stop '%' from line '%'.
+Warning: 22 total messages of type: Removing pt stop '%' on non existing edge '%'.
+Warning: 12 total messages of type: The traffic light '%' does not control any links; it will not be build.
+Success.
