@@ -12,7 +12,7 @@ This project imports the supplied OpenStreetMap extract and provides two reprodu
 - netconvert.log: conversion output and warnings.
 - runs/: simulation outputs (trip information, queue traces, and SUMO summaries).
 - RESULTS.md: import counts, run settings, measured outputs, and limitations.
-- TRAFFIC-DATA.md and traffic-counts.csv: provenance and limits for AADT evidence transcribed from the supplied NYSDOT screenshots.
+- TRAFFIC-DATA.md, traffic-counts.csv, and traffic-profiles.csv: NYSDOT AADT summaries and complete 15-minute station profiles, plus NYC DOT peak-hour intersection evidence and calibration limits.
 
 The OSM source declares ODbL 1.0 and contains the standard OpenStreetMap attribution. Keep that attribution if the data or derived map is redistributed: © OpenStreetMap contributors, https://www.openstreetmap.org/copyright.
 
@@ -57,6 +57,6 @@ This rebuild reproduces the import settings used for the generated network. Insp
 4. Replace uniform random trips with controlled directional and ramp-demand scenarios only after selecting the exact source/destination edges together.
 5. Use matched network, routes, time window, and seed when comparing future controllers.
 
-NYSDOT AADT summaries for nearby Astoria Boulevard/I-278 stations are recorded in traffic-counts.csv. These daily averages do not specify hourly arrivals or intersection turns; see TRAFFIC-DATA.md before using them to build demand. The existing smoke/stress runs remain preliminary pipeline checks, not realistic peak-traffic scenarios.
+NYSDOT AADT summaries and complete 15-minute count-day profiles for nearby Astoria Boulevard/I-278 stations are recorded in traffic-counts.csv and traffic-profiles.csv. NYC DOT's 2026 study also provides PM-peak intersection-volume evidence. See TRAFFIC-DATA.md for source dates, an unresolved AADT/profile discrepancy at one station, and remaining work to build conserved routes and turning flows. The existing smoke/stress runs remain preliminary pipeline checks, not calibrated peak-traffic scenarios.
 
 The current project intentionally stops at an imported network plus fixed-time synthetic smoke/stress inputs. It does not claim a calibrated Astoria digital twin or a measured traffic improvement.

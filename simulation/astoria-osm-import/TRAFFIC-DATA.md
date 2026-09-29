@@ -8,7 +8,13 @@ The screenshots supplied with the project show the New York State Department of 
 - [NYSDOT TDV map](https://nysdottrafficdata.drakewell.com/publicmultinodemap.asp)
 - [NYSDOT Highway Data Services](https://www.dot.ny.gov/highway-data-services)
 
-The values in `traffic-counts.csv` are transcribed from the five screenshots supplied for this project on September 29, 2026. They are recorded as screenshot evidence, not yet independently reconciled with the downloadable station records. Four visible station summaries include 2023, 2024, and 2025 AADT for Astoria Boulevard and I-278 links near 31st Street. The Astoria Boulevard screenshot also shows single-unit/combo-unit AADT and truck percentages. Blank fields mean the screenshot did not show a value; they are not zeroes.
+The values in `traffic-counts.csv` are transcribed from the five screenshots supplied for this project on September 29, 2026, and were checked against the NYSDOT viewer popups. Blank fields mean the screenshot did not show a value; they are not zeroes.
+
+The TDV's Site Data daily reports were also inspected. `traffic-profiles.csv` contains the 96 observed 15-minute total-flow bins from one complete count day for each station. The source report links are [054474, May 29 2025](https://nysdottrafficdata.drakewell.com/tfdayreport.asp?node=NYSDOT_SC&cosit=054474000000&reportdate=2025-05-29&enddate=2025-05-29), [053167, March 29 2023](https://nysdottrafficdata.drakewell.com/tfdayreport.asp?node=NYSDOT_SC&cosit=053167000000&reportdate=2023-03-29&enddate=2023-03-29), [053166, June 17 2026](https://nysdottrafficdata.drakewell.com/tfdayreport.asp?node=NYSDOT_SC&cosit=053166000000&reportdate=2026-06-17&enddate=2026-06-17), and [053169, June 17 2026](https://nysdottrafficdata.drakewell.com/tfdayreport.asp?node=NYSDOT_SC&cosit=053169000000&reportdate=2026-06-17&enddate=2026-06-17). Each report identified an all-lane, 15-minute total-flow series. Adjacent available days were partial (fewer than 96 intervals), so only the complete day per station is included. The observations are not contemporaneous across all four locations.
+
+The selected-day totals are 12,677 (054474), 29,228 (053167), 29,024 (053166), and 8,015 (053169) vehicles. The screenshot AADT values for 2025 are 11,523, 26,137, 32,608, and 17,027 respectively. These are different statistics and, for three sites, different years. The 053169 difference is especially large and needs investigation. Check count coverage, direction, station geometry, and report quality rather than silently forcing agreement.
+
+NYC DOT's March 11, 2026 [Astoria Boulevard Safety Enhancements presentation](https://www.nyc.gov/html/dot/downloads/pdf/astoria-blvd-21-st-33-st-mar2026.pdf) covers 21st to 33rd Streets. Its sample-count appendix says the corridor's highest traffic volume occurs in the 4:30–5:30 PM peak hour, reports 1,286 vehicles through Astoria Boulevard & 31st Street with about 2% trucks, and 2,017 vehicles through Astoria Boulevard & 21st Street with about 5% trucks. The presentation includes movement-by-movement arrows at 31st Street; digitize and verify those individual movements from the figure before using turn ratios. The count observation date is not stated in the cited slides.
 
 ## What these numbers can and cannot do
 
@@ -23,10 +29,10 @@ Therefore the current 40-vehicle smoke and 180-vehicle stress routes remain soft
 
 ## Next calibration steps
 
-1. In the TDV, open each station's Site Data/Site Dashboard and export the underlying count history/report, including collection dates, hourly or interval volumes, and direction where available. Store the downloaded source file and its retrieval date with the project.
-2. Identify the closest usable hourly/continuous count profile. If the ramp stations only provide annualized counts, ask NYSDOT Highway Data Services Bureau whether hourly reports or count records are available for those station IDs.
-3. Inventory the imported SUMO boundary edges and map each count station to its matching road segment and direction. Do not assume the OSM network's guessed signal timings are real.
-4. Obtain turning movement counts or defensible turn ratios for the signalized Astoria Boulevard intersections. Use station AADT to constrain/check approach totals, not to invent turns.
-5. Build a conserved set of boundary OD/route flows, use observed temporal profiles, and validate simulated counts at held-out stations/time intervals before comparing signal controllers.
+1. Map each station segment to SUMO edges and verify direction and lane coverage against the OSM network and route descriptions.
+2. Transcribe the NYC DOT 31st Street movement diagram into an audited movement matrix; check whether the 21st Street counts also help constrain the network boundary.
+3. Explain and resolve the observed-vs-AADT discrepancy for 053169; ask NYSDOT if the station report does not explain it.
+4. Build a conserved boundary OD/route matrix. Do not inject each station count independently, because a vehicle may cross multiple counted links.
+5. Match the 15-minute station profiles and PM-peak intersection totals, report any missing inputs, and only then compare controllers.
 
-Until those checks are complete, describe the model as an OSM-based SUMO network with preliminary NYSDOT AADT evidence—not a calibrated digital twin. Preserve screenshot-to-record provenance and report any unavailable inputs explicitly.
+Until those checks are complete, describe the model as an OSM-based SUMO network with NYSDOT 15-minute station profiles and NYC DOT peak-hour intersection evidence—not a calibrated digital twin. Preserve report links, retrieval dates, station IDs, and the stated data limitations.
