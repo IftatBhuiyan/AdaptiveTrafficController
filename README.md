@@ -1,33 +1,149 @@
-# Astoria traffic simulation
+# Astoria Traffic Simulation
 
-A browser view of a real SUMO simulation, using our downloaded Astoria / I-278 street network and four collected traffic-count profiles. Vehicles use lanes, obey signals, queue, and travel between outer-map entrances and exits. The simulation currently uses fixed-time signals.
+Our traffic simulation for the Astoria Boulevard / I-278 area.
 
-## Run it
+It runs SUMO in the background and shows the cars, roads, and traffic lights in your browser. You can watch the simulation and edit the scenario.
 
-Install **Python 3.10 or newer** and **SUMO 1.27.1**. If SUMO is already installed, the launcher finds it automatically through `SUMO_HOME`, your PATH, or its standard installation folder.
+## 1. First-time setup
 
-After cloning this branch:
+You need:
+
+- **Python 3.10 or newer:** [Download Python](https://www.python.org/downloads/)
+- **SUMO 1.27.1:** [Download SUMO](https://sumo.dlr.de/docs/Downloads.php)
+- **Git** to clone the project: [Download Git](https://git-scm.com/downloads)
+
+If you already have these installed, skip to the next step.
+
+You do **not** need Node.js or an API key. XQuartz is not needed for the browser simulation. On a Mac, it is only needed if you open SUMO’s separate graphical tools, such as NetEdit.
+
+## 2. Download the project
+
+Open **PowerShell on Windows** or **Terminal on Mac**, then run:
 
 ```sh
-git clone --branch codex/astoria-osm-import https://github.com/IftatBhuiyan/AdaptiveTrafficController.git
+git clone https://github.com/IftatBhuiyan/AdaptiveTrafficController.git
 cd AdaptiveTrafficController
 ```
 
-On Windows, double-click **Start simulation.bat**, or run:
+This downloads the shared version from the main branch, including the simulation and editor.
+
+## 3. Start the simulation
+
+### Windows
+
+Double-click **Start simulation.bat** in the project folder.
+
+Or run this command from that folder:
 
 ```sh
 py -3 run.py
 ```
 
-On macOS or Linux:
+### Mac
+
+Run this command from the project folder:
 
 ```sh
 python3 run.py
 ```
 
-The browser opens at **http://127.0.0.1:8011**. Keep the terminal open; press Ctrl+C there to stop. Use `--port 8012` if that port is occupied, or `--no-browser` to start without opening a tab. No Node.js, frontend build, or browser API key is required. The browser simulation uses headless SUMO, so it does not require XQuartz.
+You can also double-click **Start simulation.command**.
 
-If you prefer installing SUMO through Python, create a virtual environment and install the pinned packages in `requirements.txt`. For example on Windows:
+### What happens next?
+
+Your browser opens at **http://127.0.0.1:8011**. Give it a few seconds to load the map and bring vehicles into the area.
+
+**Keep the terminal window open while using the simulation.** To stop it, return to the terminal and press **Ctrl+C**.
+
+The next time you want to use it, just start it again. You do not need to clone or install everything again.
+
+## 4. Use the simulation
+
+- **Pause / Play:** stop or resume playback.
+- **Speed:** choose how quickly simulation time passes.
+- **Restart:** start the simulation over.
+- **Drag the map:** move around.
+- **Scroll or use + / −:** zoom in or out.
+- **Study area:** return to the main area.
+- **All roads:** see the full imported network.
+
+Blue vehicles are moving. Orange vehicles are stopped or queued.
+
+## 5. Edit roads, lights, and traffic
+
+Click **Edit map**. The simulation pauses so you can work.
+
+Choose a tool:
+
+- **Roads:** click a road to change its lane count, speed limit, or close it.
+- **Routes:** select a route or click a car. Change its entrance, exit, and waypoints. **Add traffic route** lets you add vehicles at a rate you choose.
+- **Lights:** click a junction to add or remove a light, or adjust its timing. **Move control** changes which junction controls traffic. **Move marker** only changes where the light is drawn.
+- **Shapes:** click a junction surface, building, or terrain shape. Drag its corners, move it, or hide a map artifact.
+
+When you are ready, click **Save & restart simulation**. The app checks the changes, saves them, and restarts the run.
+
+If an edit is rejected, read the message in the editor. For example, a route must connect through valid roads and finish at an outer exit.
+
+### Where are edits saved?
+
+Browser edits are saved in:
+
+```text
+simulation/astoria-osm-import/scenario-edits.json
+```
+
+They load automatically the next time you run the project.
+
+### Need to draw or reconnect roads?
+
+Open **Advanced network editing → Open NetEdit**.
+
+Make your changes in NetEdit, save **user-network.net.xml**, then return to the browser and click **Reload saved network**. Browser overrides still apply over that network, so reset any overlapping browser edits if necessary.
+
+Deleting entrances, exits, or roads used by the traffic counts may also require updating the routes.
+
+## 6. Share changes with your partner
+
+Each computer runs its own copy. Saving in the editor does **not** automatically update your partner’s computer.
+
+To share browser edits, run these commands from the project folder:
+
+```sh
+git add simulation/astoria-osm-import/scenario-edits.json
+git commit -m "Update traffic scenario"
+git push
+```
+
+If you used NetEdit, also add `simulation/astoria-osm-import/user-network.net.xml` before committing.
+
+Your partner can get the update with:
+
+```sh
+git pull --ff-only
+```
+
+Then restart the simulation. Save and commit your own work before pulling your partner’s changes.
+
+## Common problems
+
+- **The browser did not open:** visit **http://127.0.0.1:8011** yourself.
+- **The page cannot connect:** make sure the simulation is running and its terminal is still open.
+- **“SUMO was not found”:** install SUMO, reopen the terminal, and try again. The launcher checks its normal installation folder and `SUMO_HOME`.
+- **The port is already in use:** another copy may already be running. Use that copy, stop it with Ctrl+C, or start on another port with `py -3 run.py --port 8012` on Windows or `python3 run.py --port 8012` on Mac.
+- **`py` or `python3` is not found:** install Python and reopen the terminal.
+
+## About the data
+
+We use our downloaded OpenStreetMap network and four collected traffic-count profiles. The profiles come from different dates, and some connecting traffic, routes, and signal settings are estimated.
+
+This is a working research baseline with **fixed-time lights**. It still needs calibration before we can treat its delays or queues as real-world measurements.
+
+See [traffic data and sources](simulation/astoria-osm-import/TRAFFIC-DATA.md) for details.
+
+<details>
+<summary>Optional: install through Python or regenerate the baseline</summary>
+
+If SUMO is not already installed, Windows users can install the pinned Python packages in a separate environment:
 
 ```sh
 py -3 -m venv .venv
@@ -35,36 +151,19 @@ py -3 -m venv .venv
 .venv\Scripts\python run.py
 ```
 
-On macOS, the official SUMO installer is the simplest dependency setup; the Python binary package can still require system libraries.
+Use that last command for later runs with this environment. On Mac, the official SUMO installer is the simpler setup because the Python package can require additional system libraries.
 
-## Edit the scenario
-
-Click **Edit map**. Playback pauses while you make changes.
-
-- **Roads:** select a road, change lane count or speed, or close it. Lane connections are rebuilt and affected routes are checked.
-- **Routes:** select a route or click a car, choose an entrance and exit, and add waypoints by clicking roads. Add a custom traffic stream with a vehicles-per-hour rate.
-- **Lights:** click a junction to add or remove signal control, move the control to another junction, adjust its cycle and offset, or reposition its displayed markers. Moving a marker alone does not change where vehicles stop.
-- **Shapes:** select a junction surface, building, or terrain polygon. Drag corner handles, add/remove corners, move the shape, or hide/recolour a map artifact.
-
-Click **Save & restart simulation** to apply. Invalid or disconnected routes are rejected before saving. Edits are stored in `simulation/astoria-osm-import/scenario-edits.json`; share that file with the rest of the project so both partners use the same scenario.
-
-For drawing or reconnecting roads and editing individual lane connections, expand **Advanced network editing → Open NetEdit**. Save `user-network.net.xml` in NetEdit, then click **Reload saved network**. Share that network file too. The native NetEdit application needs XQuartz on macOS. Large topology changes, particularly deleting an entrance, exit, or counted link, can require updating the demand and station mapping.
-
-## What the model represents
-
-The 4–6 pm demand combines saved 15-minute profiles from stations 054474, 053167, 053166, and 053169. Those profiles come from different dates. Routes are fitted jointly to the four requested counts so a trip crossing two stations is not injected twice. Additional traffic on uncounted connections is estimated. The initial route choice, 4% truck share, and signal timing are modelling assumptions; queues and achieved station throughput still need calibration.
-
-The reviewed base network includes the two-lane eastbound segment between 31st and 33rd Streets, consolidated junction controls at 31st/33rd, the corrected paved junction shape, and additional fixed-time control at surrounding surface intersections. Added signal locations outside the reviewed intersections are inferred scenario controls, not a claim of a complete field survey. Their list and provenance are in `intersection-controls.json`.
-
-The original `map.osm` and `astoria.net.xml` are retained. The reusable correction inputs are `site-corrections.nod.xml`, `site-corrections.edg.xml`, and `site-corrections.con.xml`. To rebuild the reviewed base and its demand:
+You do not need to regenerate the map or routes for normal use. If you are deliberately rebuilding the baseline, run these from the project folder:
 
 ```sh
 python simulation/rebuild_network.py
 python simulation/build_full_area.py
 ```
 
-The browser and standalone `astoria-full-area.sumocfg` use the same corrected SUMO model. The demand generator uses seed 42 and records its inputs, count reconciliation, and assumptions in `full-area-demand.json`. See [traffic sources](simulation/astoria-osm-import/TRAFFIC-DATA.md). Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL 1.0.
+Use `py -3` or `python3` instead of `python` if that is how you normally start Python.
 
-## Earlier runs
+The original map and earlier runs remain in [simulation/astoria-osm-import](simulation/astoria-osm-import/README.md).
 
-The original smoke/stress scenarios and the single-station replay remain in [simulation/astoria-osm-import](simulation/astoria-osm-import/README.md), with their recorded outputs and limitations. They are earlier pipeline checks; use `run.py` for the current full-area model and saved browser edits.
+</details>
+
+Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL 1.0.
