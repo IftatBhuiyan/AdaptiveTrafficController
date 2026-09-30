@@ -1,0 +1,26 @@
+<configuration>
+    <input>
+        <net-file value="astoria.net.xml"/>
+        <route-files value="scenario-smoke.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="900"/>
+        <step-length value="1"/>
+    </time>
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+    <output>
+        <tripinfo-output value="runs/smoke-tripinfo.xml"/>
+        <tripinfo-output.write-unfinished value="true"/>
+        <summary-output value="runs/smoke-summary.xml"/>
+        <queue-output value="runs/smoke-queue.xml"/>
+    </output>
+    <random_number>
+        <seed value="42"/>
+    </random_number>
+    <report>
+        <no-step-log value="true"/>
+    </report>
+</configuration>

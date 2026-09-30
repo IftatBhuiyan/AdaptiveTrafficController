@@ -1,0 +1,9 @@
+<edges>
+    <!-- User field review: two eastbound lanes continuously between 31st
+         and 33rd Streets, including the section imported with one lane. -->
+    <edge id="5707919#1" numLanes="2"/>
+    <edge id="1459805124" numLanes="2"/>
+    <edge id="1273808663#0" numLanes="2"/>
+    <edge id="1273808663#1" numLanes="2"/>
+    <edge id="1273808663#2" numLanes="2"/>
+</edges>

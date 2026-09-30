@@ -1,0 +1,8 @@
+<additional>
+    <edgeData id="observed-profile"
+              file="runs/observed-054474-edge-data.xml"
+              begin="0"
+              end="86400"
+              period="900"
+              edges="516825822#1 516825822#4 516825822#5 139919646#1 722441539#0 5707919#1 1459805124 1273808663#0 1273808663#1 1273808663#2" />
+</additional>

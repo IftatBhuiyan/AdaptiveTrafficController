@@ -1,0 +1,22 @@
+Loading net-file from 'astoria.net.xml' ... done (43ms).
+Loading route-files incrementally from 'scenario-smoke.rou.xml'
+Loading done.
+Simulation version 1.27.1 started with time: 0.00.
+Simulation ended at time: 900.00.
+Reason: The final simulation step has been reached.
+Performance:
+ Duration: 0.04s
+ Real time factor: 23076.9
+ UPS: 193512.820513
+Vehicles:
+ Inserted: 40
+ Running: 0
+ Waiting: 0
+Statistics (avg of 40):
+ RouteLength: 1458.15
+ Speed: 8.34
+ Duration: 188.68
+ WaitingTime: 58.67
+ TimeLoss: 85.50
+ DepartDelay: 0.00
+ DepartDelayWaiting: 0.00

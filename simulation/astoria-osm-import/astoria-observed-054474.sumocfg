@@ -1,0 +1,25 @@
+<configuration>
+    <input>
+        <net-file value="astoria.net.xml" />
+        <route-files value="scenario-observed-054474.rou.xml" />
+        <additional-files value="observed-profile-edge-data.add.xml" />
+    </input>
+    <time>
+        <begin value="0" />
+        <end value="90000" />
+        <step-length value="1" />
+    </time>
+    <processing>
+        <time-to-teleport value="-1" />
+    </processing>
+    <output>
+        <tripinfo-output value="runs/observed-054474-tripinfo.xml" />
+        <tripinfo-output.write-unfinished value="true" />
+    </output>
+    <random_number>
+        <seed value="42" />
+    </random_number>
+    <report>
+        <no-step-log value="true" />
+    </report>
+</configuration>

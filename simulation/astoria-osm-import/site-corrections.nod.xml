@@ -1,0 +1,17 @@
+<nodes>
+    <!-- This approach marker belongs to the 33rd Street intersection, not
+         to a separate stop with its own 79/6/5-second signal cycle. -->
+    <node id="8765434968" type="priority"/>
+    <!-- The north/south 31st Street intersections were also split into
+         adjacent artificial junctions with 0.2 m and 6.3 m connecting links. -->
+    <join id="astoria_31st_north" nodes="6406731013 cluster_42849703_7732086301"
+          type="traffic_light" tlType="static"/>
+    <join id="astoria_31st_south" nodes="276209340 cluster_2447553715_42849714_6406731467_6406731477_#1more"
+          type="traffic_light" tlType="static"/>
+    <!-- User field review, 2026-09-29: the south end of the 33rd Street
+         crossing is one paved intersection. The import split it into two
+         signals separated by a 0.2 m link and invented a triangular island. -->
+    <join id="astoria_33rd" nodes="276209270 cluster_13098035648_42898289_6406731463_7659376752_#3more"
+          type="traffic_light" tlType="static"
+          shape="494.90,1863.52 501.36,1874.56 513.20,1871.63 522.28,1868.48 553.13,1849.60 553.52,1843.21 552.51,1838.96 521.91,1846.50 517.17,1846.21 509.45,1838.81 501.08,1843.52 499.99,1845.89 501.24,1852.17 504.75,1854.21 501.51,1858.76"/>
+</nodes>

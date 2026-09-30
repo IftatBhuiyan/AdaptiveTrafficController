@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nodes>
+  <node id="13399317581" type="priority" />
+  <node id="13399317582" type="priority" />
+  <node id="42917830" type="priority" />
+  <node id="4927558981" type="priority" />
+  <node id="cluster_42849719_6406731721" type="priority" />
+  <node id="42818215" type="traffic_light" tlType="static" />
+  <node id="42818224" type="traffic_light" tlType="static" />
+  <node id="42818227" type="traffic_light" tlType="static" />
+  <node id="42832976" type="traffic_light" tlType="static" />
+  <node id="42833271" type="traffic_light" tlType="static" />
+  <node id="42833397" type="traffic_light" tlType="static" />
+  <node id="42842303" type="traffic_light" tlType="static" />
+  <node id="42842481" type="traffic_light" tlType="static" />
+  <node id="42849685" type="traffic_light" tlType="static" />
+  <node id="42881052" type="traffic_light" tlType="static" />
+  <node id="42905182" type="traffic_light" tlType="static" />
+  <node id="42917848" type="traffic_light" tlType="static" />
+  <node id="42932473" type="traffic_light" tlType="static" />
+  <node id="42935204" type="traffic_light" tlType="static" />
+</nodes>
