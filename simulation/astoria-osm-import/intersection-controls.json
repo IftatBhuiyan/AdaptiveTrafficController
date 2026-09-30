@@ -1,0 +1,33 @@
+{
+  "added_fixed_time_controls": [
+    "42818215",
+    "42818224",
+    "42818227",
+    "42832976",
+    "42833271",
+    "42833397",
+    "42842303",
+    "42842481",
+    "42849685",
+    "42881052",
+    "42905182",
+    "42917848",
+    "42932473",
+    "42935204"
+  ],
+  "removed_approach_controls": [
+    "13399317581",
+    "13399317582",
+    "42917830",
+    "4927558981",
+    "cluster_42849719_6406731721"
+  ],
+  "approach_to_intersection": {
+    "42917830": "7780992284",
+    "cluster_42849719_6406731721": "42842303",
+    "13399317582": "astoria_31st_north",
+    "13399317581": "astoria_31st_north",
+    "4927558981": "42910587"
+  },
+  "basis": "OSM approach-marker relocation and inferred control for multi-approach surface junctions; field verification and real timing plans remain needed."
+}

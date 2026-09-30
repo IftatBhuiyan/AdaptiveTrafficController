@@ -1,0 +1,14 @@
+<viewsettings>
+    <scheme name="Astoria traffic">
+        <background backgroundColor="238,240,234"/>
+        <edges laneEdgeMode="0" laneShowBorders="1" showLinkDecals="1" showLinkRules="1"
+               streetName_show="0" streetName_size="35" streetName_color="40,45,48"
+               streetName_bgColor="245,245,240,230" streetName_constantSize="1"/>
+        <vehicles vehicleMode="0" vehicleQuality="2" vehicle_minSize="2"
+                  vehicle_exaggeration="1.6" vehicle_constantSize="0" showBlinker="1"/>
+        <junctions junctionMode="0" drawShape="1"/>
+        <pois poiName_show="0" poiName_size="50" poiName_color="20,50,80"
+              poiName_bgColor="255,255,255,230" poiName_constantSize="1"/>
+    </scheme>
+    <delay value="50"/>
+</viewsettings>

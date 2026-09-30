@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Astoria · Traffic simulation</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f5ef;color:#202d2c;font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{padding:23px 30px 18px;border-bottom:1px solid #d8ddd5;background:#fbfcf8;display:flex;align-items:center;justify-content:space-between;gap:20px}h1{font-size:26px;letter-spacing:-1px;margin:0 0 5px;font-weight:650}.subtitle{font-size:13px;color:#65716c}.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}button,select{font:inherit;border:1px solid #cbd3ca;border-radius:7px;background:#fff;color:#243731;padding:9px 13px;cursor:pointer}button:hover{background:#edf3eb}button.primary{background:#244e3e;color:#fff;border-color:#244e3e;min-width:90px}button:focus-visible,select:focus-visible{outline:3px solid #80b3a0;outline-offset:2px}.clock{font-size:25px;font-variant-numeric:tabular-nums;font-weight:600;min-width:114px}.scene{height:calc(100vh - 237px);min-height:360px;position:relative;overflow:hidden}canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}.map-tools{position:absolute;right:22px;top:20px;display:flex;gap:6px}.status{position:absolute;left:24px;top:20px;padding:8px 12px;background:#ffffffed;border-radius:6px;font-size:12px;box-shadow:0 1px 5px #0000000b}.dot{width:7px;height:7px;border-radius:50%;background:#3b9565;display:inline-block;margin-right:7px}.route-note{position:absolute;left:24px;bottom:20px;background:#ffffffed;padding:12px 15px;border-radius:7px;font-size:13px;line-height:1.6;max-width:400px}.route-note strong{display:block;font-weight:600}.legend{display:flex;gap:16px;margin-top:4px;color:#65716c;font-size:12px}.legend i{display:inline-block;width:13px;height:7px;background:#2686bb;border-radius:2px;margin-right:5px}.legend i.stopped{background:#ce7243}.metrics{padding:16px 30px;display:flex;gap:42px;border-top:1px solid #d8ddd5;background:#fbfcf8}.metric b{display:block;font-size:26px;font-variant-numeric:tabular-nums;font-weight:600;line-height:1.1}.metric span{font-size:12px;color:#66746d}.note{font-size:12px;line-height:1.5;padding:0 30px 15px;color:#65716c;background:#fbfcf8}.note a{color:inherit}#error{display:none;color:#a92c2c;margin-left:24px} @media(max-width:760px){header{padding:15px 18px;flex-wrap:wrap}h1{font-size:23px}.clock{font-size:21px}.scene{height:55vh}.metrics{padding:14px 18px;gap:24px;flex-wrap:wrap}.metric b{font-size:22px}.note{padding:0 18px 14px}.route-note{font-size:12px;max-width:75%;left:14px;bottom:12px}.map-tools{right:12px}.status{left:14px}}
+
+#editor[hidden],section[hidden],[hidden]{display:none!important}
+#editor{position:absolute;right:20px;top:65px;width:340px;max-height:calc(100% - 85px);overflow:auto;background:#fbfcf9f7;border:1px solid #ced7cb;border-radius:10px;padding:16px;box-shadow:0 8px 30px #233c2920;font-size:13px}
+.editor-title{display:flex;justify-content:space-between;align-items:center;font-size:17px;margin-bottom:12px}.editor-title button{padding:3px 10px;font-size:20px}
+.editor-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:12px}.editor-tabs button{padding:8px 4px;font-size:12px}.editor-tabs button.selected{background:#244e3e;color:white}
+#editor label{display:flex;flex-direction:column;gap:5px;margin:12px 0;font-size:12px;color:#4b5e52}
+#editor input:not([type=checkbox]),#editor select{width:100%;padding:8px;border:1px solid #cbd3ca;border-radius:5px;font:inherit;background:white;color:#253a2f}
+#editor label.check{flex-direction:row;align-items:center;gap:8px}#editor button{font-size:12px;padding:8px 10px}#editor .row{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}
+.help{font-size:12px;line-height:1.5;color:#6b776e}.small{font-size:11px}.selection{font-size:12px;font-weight:600;overflow-wrap:anywhere;padding:8px 0;border-bottom:1px solid #dce2d8}
+#editor-message{font-size:12px;line-height:1.45;min-height:34px;color:#375f49;white-space:pre-wrap}#editor-message.error{color:#a34235}#editor-apply{width:100%;margin-bottom:12px}#editor details{padding-top:12px;border-top:1px solid #dce2d8}#editor summary{cursor:pointer;font-size:12px}.editing .route-note{display:none}button:disabled{opacity:.5;cursor:default}.pick-mode{cursor:crosshair!important}
+@media(max-width:760px){#editor{width:300px;right:10px;top:62px}.editing .scene{min-height:600px}}
+
+</style>
+<header><div><h1>Astoria traffic</h1><div class="subtitle">Full study area · your downloaded map · four traffic-count profiles</div></div><div class="controls"><time class="clock" id="clock">16:00:00</time><button id="toggle" class="primary">Pause</button><select id="speed" aria-label="Playback speed"><option value="1">1× speed</option><option value="4" selected>4× speed</option><option value="10">10× speed</option><option value="20">20× speed</option></select><button id="restart">Restart</button><button id="editor-toggle">Edit map</button></div></header>
+<main class="scene"><canvas id="map" aria-label="Live SUMO traffic simulation across the full Astoria study area. Blue vehicles are moving, orange vehicles are stopped."></canvas><div class="status"><i class="dot" id="dot"></i><span id="status">Starting SUMO…</span></div><div class="map-tools"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Study area</button><button id="all-roads">All roads</button></div><div class="route-note"><strong>Traffic continues through the intersections</strong>Trips connect the outer approaches and exits. Pan or zoom to follow a vehicle.<div class="legend"><span><i></i>Moving</span><span><i class="stopped"></i>Stopped / queued</span></div></div>
+<aside id="editor" hidden aria-label="Scenario editor">
+  <div class="editor-title"><strong>Scenario editor</strong><button id="editor-close" aria-label="Close editor">×</button></div>
+  <nav class="editor-tabs" aria-label="Editor tools">
+    <button data-tool="roads" class="selected">Roads</button><button data-tool="routes">Routes</button><button data-tool="signals">Lights</button><button data-tool="shapes">Shapes</button>
+  </nav>
+  <button id="editor-apply" class="primary">Save & restart simulation</button>
+  <section id="panel-roads">
+    <p class="help">Click a road to change its lanes, speed, or availability.</p>
+    <p id="road-selected" class="selection">No road selected</p>
+    <label>Lanes in this direction<input id="road-lanes" type="number" min="1" max="8" value="2"></label>
+    <label>Speed limit (mph)<input id="road-speed" type="number" min="3" max="89" value="25"></label>
+    <label class="check"><input id="road-closed" type="checkbox">Close this road to vehicles</label>
+    <div class="row"><button id="road-stage">Keep road change</button><button id="road-reset">Reset road</button></div>
+  </section>
+  <section id="panel-routes" hidden>
+    <p class="help">Select a route, or click a car to inspect its path. Entrances and exits stay outside the study area.</p>
+    <label>Find a route<input id="route-search" placeholder="Street name or route ID"></label>
+    <label>Route<select id="route-select" aria-label="Route"></select></label>
+    <button id="route-new">Add traffic route</button>
+    <label>Entrance<select id="route-from"></select></label>
+    <label>Exit<select id="route-to"></select></label>
+    <label id="route-rate-label" hidden>Vehicles per hour<input id="route-rate" type="number" min="1" max="3000" value="60"></label>
+    <div class="row"><button id="route-waypoint">Pick waypoint</button><button id="route-clear">Clear waypoints</button></div>
+    <p id="route-details" class="help"></p>
+    <div class="row"><button id="route-stage">Keep route change</button><button id="route-reset">Reset route</button></div>
+  </section>
+  <section id="panel-signals" hidden>
+    <p class="help">Click a junction or signal. Small outlined circles mark editable junctions.</p>
+    <p id="signal-selected" class="selection">No junction selected</p>
+    <label class="check"><input id="signal-enabled" type="checkbox">Traffic light at this junction</label>
+    <div class="row"><button id="signal-move">Move control</button><button id="signal-marker">Move marker</button></div>
+    <button id="signal-marker-reset">Reset marker position</button>
+    <label>Cycle length (seconds)<input id="signal-cycle" type="number" min="30" max="240" value="90"></label>
+    <label>Offset (seconds)<input id="signal-offset" type="number" min="0" max="239" value="0"></label>
+    <button id="signal-timing">Keep timing change</button>
+    <p class="help">Move control transfers the actual stop control to another junction. Move marker only adjusts its drawing. Yellow and clearance phases are preserved.</p>
+  </section>
+  <section id="panel-shapes" hidden>
+    <label>Shape type<select id="shape-kind"><option value="junction">Junction paved area</option><option value="artifact">Building / terrain</option></select></label>
+    <p class="help">Click a shape. Drag its corner handles to reshape it.</p>
+    <p id="shape-selected" class="selection">No shape selected</p>
+    <div class="row"><button id="shape-move">Move shape</button><button id="shape-add">Add corner</button><button id="shape-remove">Remove corner</button></div>
+    <div id="artifact-fields" hidden>
+      <label class="check"><input id="artifact-hidden" type="checkbox">Hide this map artifact</label>
+      <label>Fill colour<input id="artifact-color" type="color" value="#d5d7cb"></label>
+    </div>
+    <button id="shape-reset">Reset this shape</button>
+  </section>
+  <p id="editor-message" role="status" aria-live="polite">Changes are staged until you save.</p>
+  <details><summary>Advanced network editing</summary><p class="help">Use SUMO NetEdit to draw, delete, or reconnect roads and edit lane connections. Save there, then reload here.</p><div class="row"><button id="open-netedit">Open NetEdit</button><button id="reload-network">Reload saved network</button></div></details>
+  <p class="help small">Saved in scenario-edits.json. Share that file with the network and route files so both partners run the same scenario.</p>
+</aside>
+
+</main>
+<div class="metrics"><div class="metric"><b id="active">—</b><span>vehicles on the road</span></div><div class="metric"><b id="waiting">—</b><span>stopped vehicles</span></div><div class="metric"><b id="entered">—</b><span>entered the simulation</span></div><div class="metric"><b id="arrived">—</b><span>completed their route</span></div><div class="metric"><b id="observed">—</b><span>planned trips, 4–6 pm</span></div></div>
+<div class="note">Live SUMO · Fixed-time signals · Original downloaded OSM area.<br>Traffic uses four collected station profiles plus estimated connecting traffic. Counts come from different dates; routes and signal timings are assumptions. This is a working baseline, not a calibrated reconstruction of one day.<span id="error"></span></div>
+<script src="/traffic_view.js"></script>
+</html>

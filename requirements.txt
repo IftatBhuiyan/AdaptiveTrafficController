@@ -1,0 +1,4 @@
+# Optional when SUMO 1.27.1 is already installed with its Python tools.
+eclipse-sumo==1.27.1
+traci==1.27.1
+sumolib==1.27.1

@@ -1,0 +1,23 @@
+<configuration>
+    <input>
+        <net-file value="astoria-corrected.net.xml"/>
+        <route-files value="scenario-full-area.rou.xml"/>
+        <additional-files value="astoria.poly.xml"/>
+        <route-steps value="0"/>
+    </input>
+    <time>
+        <begin value="57600"/>
+        <end value="66600"/>
+        <step-length value="0.2"/>
+    </time>
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+    <random_number><seed value="42"/></random_number>
+    <report><no-step-log value="true"/></report>
+    <gui_only>
+        <gui-settings-file value="observed-live.view.xml"/>
+        <start value="true"/>
+        <window-size value="1400,900"/>
+    </gui_only>
+</configuration>

@@ -1,0 +1,7 @@
+<connections>
+    <!-- Both eastbound lanes are continuous and reachable at 31st Street. -->
+    <connection from="722441539#0" to="5707919#1" fromLane="0" toLane="1"/>
+    <connection from="497263586#1" to="5707919#1" fromLane="1" toLane="1"/>
+    <delete from="5707919#1" to="1459805124" fromLane="0" toLane="1"/>
+    <connection from="5707919#1" to="1459805124" fromLane="1" toLane="1"/>
+</connections>
