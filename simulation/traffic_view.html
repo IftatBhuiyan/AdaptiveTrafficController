@@ -8,7 +8,7 @@
 #editor[hidden],section[hidden],[hidden]{display:none!important}
 #editor{position:absolute;right:20px;top:65px;width:340px;max-height:calc(100% - 85px);overflow:auto;background:#fbfcf9f7;border:1px solid #ced7cb;border-radius:10px;padding:16px;box-shadow:0 8px 30px #233c2920;font-size:13px}
 .editor-title{display:flex;justify-content:space-between;align-items:center;font-size:17px;margin-bottom:12px}.editor-title button{padding:3px 10px;font-size:20px}
-.editor-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:12px}.editor-tabs button{padding:8px 4px;font-size:12px}.editor-tabs button.selected{background:#244e3e;color:white}
+.editor-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:12px}.editor-tabs button{padding:8px 4px;font-size:12px}.editor-tabs button.selected{background:#244e3e;color:white}
 #editor label{display:flex;flex-direction:column;gap:5px;margin:12px 0;font-size:12px;color:#4b5e52}
 #editor input:not([type=checkbox]),#editor select{width:100%;padding:8px;border:1px solid #cbd3ca;border-radius:5px;font:inherit;background:white;color:#253a2f}
 #editor label.check{flex-direction:row;align-items:center;gap:8px}#editor button{font-size:12px;padding:8px 10px}#editor .row{display:flex;gap:6px;flex-wrap:wrap;margin:9px 0}
@@ -16,26 +16,100 @@
 #editor-message{font-size:12px;line-height:1.45;min-height:34px;color:#375f49;white-space:pre-wrap}#editor-message.error{color:#a34235}#editor-apply{width:100%;margin-bottom:12px}#editor details{padding-top:12px;border-top:1px solid #dce2d8}#editor summary{cursor:pointer;font-size:12px}.editing .route-note{display:none}button:disabled{opacity:.5;cursor:default}.pick-mode{cursor:crosshair!important}
 @media(max-width:760px){#editor{width:300px;right:10px;top:62px}.editing .scene{min-height:600px}}
 
+
+#map-tool-hint{position:absolute;left:20px;top:62px;max-width:calc(100% - 395px);min-width:170px;pointer-events:none;z-index:3}
+.editing #map-tool-hint{left:84px;max-width:calc(100% - 460px)}
+#palette{display:none;position:absolute;left:16px;top:62px;z-index:4;flex-direction:column;gap:3px;padding:6px;background:#fbfcf9f7;border:1px solid #ced7cb;border-radius:10px;box-shadow:0 8px 30px #233c2920}
+.editing #palette{display:flex}
+#palette button{width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:8px;position:relative;font-size:11px;min-height:0}
+#palette button svg{width:22px;height:22px;stroke:#243731;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#palette button.active-tool svg{stroke:#263528}#palette button kbd{position:absolute;right:3px;bottom:2px;font:600 9px -apple-system,sans-serif;color:#7a867f}
+#palette hr{width:100%;border:0;border-top:1px solid #dce2d8;margin:3px 0}
+#palette button:disabled{opacity:.35}
+#palette button::after{content:attr(data-tip);position:absolute;left:52px;top:50%;transform:translateY(-50%);white-space:nowrap;background:#243731;color:#fff;padding:5px 8px;border-radius:5px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .12s}
+#palette button:hover::after{opacity:1}
+#panel-geometry .inline{margin:6px 0}#geo-widths{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}#geo-splits{display:flex;flex-direction:column;gap:4px;margin:6px 0}
+#panel-geometry .coords{display:grid;grid-template-columns:1fr 1fr;gap:8px}#panel-geometry .coords label{margin:4px 0}
+.surface-effect{padding:9px;background:#e6f1ea;border-radius:5px;color:#285640;line-height:1.45;font-size:12px}.surface-effect.display-only{background:#f2f0dc;color:#665120}
+.geo-section{padding-top:10px;margin-top:10px;border-top:1px solid #dce2d8}.geo-section h4{margin:0 0 4px;font-size:12px;color:#38503f}
+#map-instruction{display:block;background:#fffef4f2;border:1px solid #dcc981;border-radius:7px;padding:10px 13px;line-height:1.45;font-size:13px;color:#38472c;box-shadow:0 2px 10px #00000010}
+#map-instruction.error{color:#933a2e;border-color:#dc9a8b}
+#cancel-tool{pointer-events:auto;margin-top:6px;background:#fff;font-size:12px}
+#editor button,#editor select,#editor input:not([type=checkbox]){min-height:40px}
+#editor .active-tool{background:#e7ba48;color:#263528;border-color:#c28e16}
+#road-preview-info{padding:9px;background:#f2f0dc;border-radius:5px;color:#665120}
+@media(prefers-reduced-motion:no-preference){#editor button{transition:background-color .12s,scale .12s}#editor button:active:not(:disabled){scale:.96}}
+#control-inspector{margin:0 30px 12px;font-size:12px;color:#37564b;max-width:1100px;line-height:1.6}
+#control-inspector summary{cursor:pointer;font-weight:600}#controller-detail{display:flex;gap:24px;flex-wrap:wrap;margin-top:8px}
+.controller-junction{max-width:310px}.controller-junction strong{display:block;color:#263e32}
 </style>
-<header><div><h1>Astoria traffic</h1><div class="subtitle">Full study area · your downloaded map · four traffic-count profiles</div></div><div class="controls"><time class="clock" id="clock">16:00:00</time><button id="toggle" class="primary">Pause</button><select id="speed" aria-label="Playback speed"><option value="1">1× speed</option><option value="4" selected>4× speed</option><option value="10">10× speed</option><option value="20">20× speed</option></select><button id="restart">Restart</button><button id="editor-toggle">Edit map</button></div></header>
-<main class="scene"><canvas id="map" aria-label="Live SUMO traffic simulation across the full Astoria study area. Blue vehicles are moving, orange vehicles are stopped."></canvas><div class="status"><i class="dot" id="dot"></i><span id="status">Starting SUMO…</span></div><div class="map-tools"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Study area</button><button id="all-roads">All roads</button></div><div class="route-note"><strong>Traffic continues through the intersections</strong>Trips connect the outer approaches and exits. Pan or zoom to follow a vehicle.<div class="legend"><span><i></i>Moving</span><span><i class="stopped"></i>Stopped / queued</span></div></div>
+<header><div><h1>Astoria traffic</h1><div class="subtitle">Interchange and surrounding streets · coordinated traffic control</div></div><div class="controls"><select id="controller-mode" aria-label="Signal controller"><option value="intelligent" selected>Intelligent coordinator</option><option value="coordinated">Coordinated adaptive (previous)</option><option value="local">Local capacity-aware</option><option value="fixed">Fixed time</option></select><select id="peak-hour" aria-label="Observation time"><option value="16">4 pm</option><option value="17">5 pm</option></select><select id="traffic-mode" aria-label="Traffic scenario"><option value="merge">Constrained merge · assumed</option><option value="baseline">Count-based baseline</option><option value="disorder">Low cooperation · assumed</option><option value="surge">Demand surge · assumed</option><option value="incident">60 s blockage · assumed</option></select><time class="clock" id="clock">15:45:00</time><button id="toggle" class="primary">Pause</button><select id="speed" aria-label="Playback speed"><option value="1">1× speed</option><option value="4" selected>4× speed</option><option value="10">10× speed</option><option value="20">20× speed</option></select><button id="restart">Restart</button><button id="editor-toggle">Edit map</button></div></header>
+<main class="scene"><canvas id="map" aria-label="Live SUMO traffic simulation across the full Astoria study area. Blue vehicles are moving, orange vehicles are stopped."></canvas><nav id="palette" aria-label="Map editing tools">
+<button data-ptool="select" data-tip="Select & move points · V"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-6 1 3 6-2 1-3-6-4 5z"/></svg><kbd>V</kbd></button>
+<button data-ptool="add" data-tip="Add point · A"><svg viewBox="0 0 24 24"><path d="M3 18c4-9 10-11 18-11"/><circle cx="12" cy="11.5" r="2.4" fill="#fff"/><path d="M18 17v6M15 20h6"/></svg><kbd>A</kbd></button>
+<button data-ptool="remove" data-tip="Delete point · X"><svg viewBox="0 0 24 24"><path d="M3 18c4-9 10-11 18-11"/><circle cx="12" cy="11.5" r="2.4" fill="#fff"/><path d="M15 20h6"/></svg><kbd>X</kbd></button>
+<button data-ptool="split" data-tip="Split road at a precise distance · S"><svg viewBox="0 0 24 24"><path d="M3 9h18M3 15h18"/><path d="M12 4v16" stroke-dasharray="2 2"/><path d="M9 2l3 3 3-3"/></svg><kbd>S</kbd></button>
+<button data-ptool="draw" data-tip="Draw sidewalk / median / plaza · D"><svg viewBox="0 0 24 24"><path d="M4 6l7-2 9 4-3 10-8 2-5-5z"/><circle cx="4" cy="6" r="1.5" fill="#fff"/><circle cx="11" cy="4" r="1.5" fill="#fff"/><circle cx="20" cy="8" r="1.5" fill="#fff"/><circle cx="17" cy="18" r="1.5" fill="#fff"/><circle cx="9" cy="20" r="1.5" fill="#fff"/><circle cx="4" cy="15" r="1.5" fill="#fff"/></svg><kbd>D</kbd></button>
+<button data-ptool="sidewalk" data-tip="Sidewalk along a road · W"><svg viewBox="0 0 24 24"><path d="M4 16c5-6 11-6 16-10"/><path d="M4 20c5-6 11-6 16-10" stroke-dasharray="3 2"/><path d="M4 12c5-6 11-6 16-10" stroke-dasharray="3 2"/></svg><kbd>W</kbd></button>
+<button data-ptool="measure" data-tip="Measure · M"><svg viewBox="0 0 24 24"><path d="M3 17L17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/></svg><kbd>M</kbd></button>
+<button data-ptool="hand" data-tip="Pan · H"><svg viewBox="0 0 24 24"><path d="M8 13V5a1.5 1.5 0 013 0v6V4a1.5 1.5 0 013 0v7V6a1.5 1.5 0 013 0v8l2.5-3a1.4 1.4 0 012.2 1.8L17 20a5 5 0 01-4 2h-2a5 5 0 01-4-2l-3.5-5a1.5 1.5 0 012.4-1.8z"/></svg><kbd>H</kbd></button>
+<hr>
+<button id="palette-snap" data-tip="Snap to road edges, junctions, surfaces, grid · G"><svg viewBox="0 0 24 24"><path d="M6 4v8a6 6 0 0012 0V4"/><path d="M4 4h4M16 4h4"/><path d="M6 10h4M14 10h4"/></svg><kbd>G</kbd></button>
+<button id="palette-undo" data-tip="Undo · ⌘Z" disabled><svg viewBox="0 0 24 24"><path d="M9 7H4V2"/><path d="M4 7a9 9 0 1 1 2 10"/></svg></button>
+<button id="palette-redo" data-tip="Redo · ⇧⌘Z" disabled><svg viewBox="0 0 24 24"><path d="M15 7h5V2"/><path d="M20 7a9 9 0 1 0-2 10"/></svg></button>
+</nav><div id="map-tool-hint"><span id="map-instruction" hidden></span><button id="cancel-tool" hidden>Cancel tool · Esc</button></div><div class="status"><i class="dot" id="dot"></i><span id="status">Starting SUMO…</span></div><div class="map-tools"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Study area</button><button id="all-roads">All roads</button></div><div class="route-note"><strong>Traffic continues through the intersections</strong>Trips connect the outer approaches and exits. Pan or zoom to follow a vehicle.<div class="legend"><span><i></i>Moving</span><span><i class="stopped"></i>Stopped / queued</span></div></div>
 <aside id="editor" hidden aria-label="Scenario editor">
   <div class="editor-title"><strong>Scenario editor</strong><button id="editor-close" aria-label="Close editor">×</button></div>
   <nav class="editor-tabs" aria-label="Editor tools">
-    <button data-tool="roads" class="selected">Roads</button><button data-tool="routes">Routes</button><button data-tool="signals">Lights</button><button data-tool="shapes">Shapes</button>
+    <button data-tool="geometry" class="selected">Precision</button><button data-tool="roads">Roads</button><button data-tool="routes">Routes</button><button data-tool="signals">Controls</button><button data-tool="shapes">Shapes</button>
   </nav>
-  <button id="editor-apply" class="primary">Save & restart simulation</button>
-  <section id="panel-roads">
-    <p class="help">Click a road to change its lanes, speed, or availability.</p>
+  <button id="editor-apply" class="primary" disabled>No changes to apply</button>
+  <section id="panel-geometry">
+    <p class="help">Pick a tool on the left palette, then click a road, junction, paved area, building, or drawn surface. Every point becomes a handle you can drag, type, nudge with the arrow keys, add to, or delete. Moving a junction moves every road attached to it.</p>
+    <p id="geo-selected" class="selection">Nothing selected</p>
+    <p id="geo-points" class="help">Pick an object on the map with a palette tool.</p>
+    <div class="row"><button id="geo-zoom">Zoom to selection</button><button id="geo-undo" disabled>Undo</button><button id="geo-redo" disabled>Redo</button></div>
+    <div id="geo-point-fields" hidden><h4 id="geo-point-title" class="small">Point</h4><div class="coords"><label>X (m east)<input id="geo-x" type="number" step="0.01"></label><label>Y (m north)<input id="geo-y" type="number" step="0.01"></label></div><p class="help small">Arrow keys nudge 0.1 m; Shift + arrow 1 m. Shift-click handles to select several.</p></div>
+    <div id="geo-refine" class="geo-section" hidden><h4>Refine points</h4>
+      <div class="coords"><label>Spacing (m)<input id="geo-spacing" type="number" min="0.1" step="0.1" value="2"></label><label>Tolerance (m)<input id="geo-tolerance" type="number" min="0" step="0.1" value="0.3"></label></div>
+      <div class="row"><button id="geo-densify">Add points evenly</button><button id="geo-simplify">Reduce points</button><button id="geo-smooth">Smooth curve</button><button id="geo-straighten">Straighten</button></div>
+      <p class="help small">Add points evenly gives finer control along a curve. Reduce removes points that are within the tolerance of a straight line. Smooth rounds corners.</p>
+    </div>
+    <div id="geo-road" class="geo-section" hidden><h4>Road</h4><p id="geo-road-info" class="help"></p>
+      <div id="geo-widths"></div>
+      <h4 style="margin-top:8px">Precise cut</h4>
+      <div class="row"><input id="geo-split-at" type="number" min="2" step="0.01" value="10" style="width:120px" aria-label="Cut position in metres from the road start"><button id="geo-split-button">Cut at this distance</button></div>
+      <div id="geo-splits"></div>
+      <label class="check"><input id="geo-removed" type="checkbox">Remove this road</label>
+    </div>
+    <div id="geo-drawing" class="geo-section" hidden><h4>Drawn surface</h4>
+      <label>Type<select id="geo-draw-kind-edit"><option value="sidewalk">Sidewalk</option><option value="median">Median</option><option value="plaza">Plaza</option><option value="crosswalk">Crosswalk</option><option value="custom">Custom</option></select></label>
+      <p id="geo-draw-effect" class="surface-effect">Checking what this surface does in SUMO…</p>
+      <label id="geo-ped-label" hidden>Pedestrians crossing per hour<input id="geo-draw-peds" type="number" min="0" max="2000" step="10" value="120"></label>
+      <label>Colour<input id="geo-draw-color" type="color" value="#d9d6cc"></label>
+      <label>Label<input id="geo-draw-label" maxlength="60" placeholder="e.g. 33rd St west sidewalk"></label>
+      <button id="geo-draw-delete">Delete surface</button>
+      <p class="help small">Sidewalk: a pedestrian lane on the road whose edge it covers. Crosswalk: a real crossing at that junction, with sidewalks and walkers; at a light it gets a pedestrian phase. Median: closes lanes it covers and blocks turns through it. Plaza: roads it covers become pedestrian-only. Custom: display only.</p>
+    </div>
+    <div class="geo-section"><h4>Drawing &amp; snapping</h4>
+      <div class="coords"><label>New surface type<select id="geo-draw-kind"><option value="sidewalk">Sidewalk</option><option value="median">Median</option><option value="plaza">Plaza</option><option value="crosswalk">Crosswalk</option><option value="custom">Custom</option></select></label><label>Grid (m, 0 = off)<input id="geo-grid" type="number" min="0" max="10" step="0.1" value="0.5"></label></div>
+      <div class="coords"><label>Sidewalk width (m)<input id="geo-walk-width" type="number" min="0.5" max="10" step="0.1" value="2"></label><label>Sidewalk side<select id="geo-walk-side"><option value="right">Right of travel</option><option value="left">Left of travel</option></select></label></div>
+      <label class="check"><input id="geo-snap" type="checkbox" checked>Snap to road edges, junctions, surfaces, then grid (hold Alt to drag freely)</label>
+    </div>
+    <button id="geo-reset" disabled>Restore original geometry</button>
+    <p class="help small">Apply changes rebuilds the SUMO network: lanes, junction shapes, and connections follow your points. Routes through removed or cut roads are re-planned.</p>
+  </section>
+  <section id="panel-roads" hidden>
+    <p class="help">Click a road, then change its lane count. The map previews the new width immediately.</p>
     <p id="road-selected" class="selection">No road selected</p>
-    <label>Lanes in this direction<input id="road-lanes" type="number" min="1" max="8" value="2"></label>
-    <label>Speed limit (mph)<input id="road-speed" type="number" min="3" max="89" value="25"></label>
+    <label>Lanes in this direction<input id="road-lanes" required type="number" min="1" max="8" value="2"></label>
+    <label>Speed limit (mph)<input id="road-speed" required type="number" min="3" max="89" value="25"></label>
     <label class="check"><input id="road-closed" type="checkbox">Close this road to vehicles</label>
-    <div class="row"><button id="road-stage">Keep road change</button><button id="road-reset">Reset road</button></div>
+    <p id="road-preview-info" class="help">Select a road to preview changes.</p><button id="road-reset" disabled>Restore original road</button>
   </section>
   <section id="panel-routes" hidden>
     <p class="help">Select a route, or click a car to inspect its path. Entrances and exits stay outside the study area.</p>
-    <label>Find a route<input id="route-search" placeholder="Street name or route ID"></label>
+    <label>Find a route<input id="route-search" placeholder="Try Hoyt, Astoria, 33rd, or a route ID"></label><p id="route-search-results" class="help"></p>
     <label>Route<select id="route-select" aria-label="Route"></select></label>
     <button id="route-new">Add traffic route</button>
     <label>Entrance<select id="route-from"></select></label>
@@ -43,29 +117,30 @@
     <label id="route-rate-label" hidden>Vehicles per hour<input id="route-rate" type="number" min="1" max="3000" value="60"></label>
     <div class="row"><button id="route-waypoint">Pick waypoint</button><button id="route-clear">Clear waypoints</button></div>
     <p id="route-details" class="help"></p>
-    <div class="row"><button id="route-stage">Keep route change</button><button id="route-reset">Reset route</button></div>
+    <div class="row"><button id="route-stage">Preview route</button><button id="route-reset">Reset route</button></div>
   </section>
   <section id="panel-signals" hidden>
     <p class="help">Click a junction or signal. Small outlined circles mark editable junctions.</p>
     <p id="signal-selected" class="selection">No junction selected</p>
-    <label class="check"><input id="signal-enabled" type="checkbox">Traffic light at this junction</label>
-    <div class="row"><button id="signal-move">Move control</button><button id="signal-marker">Move marker</button></div>
+    <label>Intersection control<select id="control-type"><option value="traffic_light">Traffic light</option><option value="allway_stop">All-way stop</option><option value="priority_stop">Stop on minor approaches</option><option value="priority">Priority / yield (no light)</option></select></label>
+    <p id="control-source" class="help"></p><button id="control-reset">Restore original control</button>
+    <div class="row"><button id="signal-move" data-mode="move-control">Move to another junction</button><button id="signal-marker" data-mode="move-marker">Drag marker</button></div>
     <button id="signal-marker-reset">Reset marker position</button>
-    <label>Cycle length (seconds)<input id="signal-cycle" type="number" min="30" max="240" value="90"></label>
-    <label>Offset (seconds)<input id="signal-offset" type="number" min="0" max="239" value="0"></label>
-    <button id="signal-timing">Keep timing change</button>
-    <p class="help">Move control transfers the actual stop control to another junction. Move marker only adjusts its drawing. Yellow and clearance phases are preserved.</p>
+    <label>Reference cycle (seconds)<input id="signal-cycle" required type="number" min="30" max="240" value="90"></label>
+    <label>Offset (seconds)<input id="signal-offset" required type="number" min="0" max="239" value="0"></label>
+    <p class="help">These timings set the reference greens. Protected turns and occupied-box clearance can extend the fixed cycle; adaptive control chooses its own green durations.</p>
+    <p class="help">Move to another junction: click or drag to an outlined target. Drag marker: reposition the display without changing the stop control. Apply changes to save.</p>
   </section>
   <section id="panel-shapes" hidden>
     <label>Shape type<select id="shape-kind"><option value="junction">Junction paved area</option><option value="artifact">Building / terrain</option></select></label>
-    <p class="help">Click a shape. Drag its corner handles to reshape it.</p>
+    <p class="help">Step 1: click an outlined paved area, building, or green area. Step 2: drag its numbered corner handles or use a tool below.</p>
     <p id="shape-selected" class="selection">No shape selected</p>
-    <div class="row"><button id="shape-move">Move shape</button><button id="shape-add">Add corner</button><button id="shape-remove">Remove corner</button></div>
+    <div class="row"><button id="shape-zoom">Zoom to shape</button><button id="shape-move" data-mode="move-shape">Move shape</button><button id="shape-add" data-mode="add-corner">Add corner</button><button id="shape-remove" data-mode="remove-corner">Remove corner</button><button id="shape-cut" data-mode="cut-start">Cut shape</button><button id="shape-undo" disabled>Undo shape</button></div>
     <div id="artifact-fields" hidden>
       <label class="check"><input id="artifact-hidden" type="checkbox">Hide this map artifact</label>
       <label>Fill colour<input id="artifact-color" type="color" value="#d5d7cb"></label>
     </div>
-    <button id="shape-reset">Reset this shape</button>
+    <button id="shape-reset" disabled>Restore original shape</button>
   </section>
   <p id="editor-message" role="status" aria-live="polite">Changes are staged until you save.</p>
   <details><summary>Advanced network editing</summary><p class="help">Use SUMO NetEdit to draw, delete, or reconnect roads and edit lane connections. Save there, then reload here.</p><div class="row"><button id="open-netedit">Open NetEdit</button><button id="reload-network">Reload saved network</button></div></details>
@@ -73,7 +148,8 @@
 </aside>
 
 </main>
-<div class="metrics"><div class="metric"><b id="active">—</b><span>vehicles on the road</span></div><div class="metric"><b id="waiting">—</b><span>stopped vehicles</span></div><div class="metric"><b id="entered">—</b><span>entered the simulation</span></div><div class="metric"><b id="arrived">—</b><span>completed their route</span></div><div class="metric"><b id="observed">—</b><span>planned trips, 4–6 pm</span></div></div>
-<div class="note">Live SUMO · Fixed-time signals · Original downloaded OSM area.<br>Traffic uses four collected station profiles plus estimated connecting traffic. Counts come from different dates; routes and signal timings are assumptions. This is a working baseline, not a calibrated reconstruction of one day.<span id="error"></span></div>
-<script src="/traffic_view.js"></script>
+<div class="metrics"><div class="metric"><b id="active">—</b><span>vehicles on the road</span></div><div class="metric"><b id="waiting">—</b><span>stopped vehicles</span></div><div class="metric"><b id="pending">—</b><span>waiting to enter</span></div><div class="metric"><b id="ramp-waiting">—</b><span>queued on ramp / merge</span></div><div class="metric"><b id="arrived">—</b><span>completed their route</span></div></div>
+<details id="control-inspector"><summary id="controller-summary">Preparing controller…</summary><p>Decisions use observed queues, recent transfers, approaching vehicles, and downstream space. Green outlines mark the controlled neighbourhood. Yellow and clearance phases remain enforced.</p><div id="controller-detail"></div><p id="controller-diagnostics"></p></details>
+<div class="note"><span id="scenario-note">Loading scenario…</span><br>Red octagons = stop signs. Purple ? = control needs review (select it under Controls). Profiles combine different count dates; signal timings and OD routes are assumptions, not a calibrated real-day reconstruction.<span id="error"></span></div>
+<script type="module" src="/traffic_view.js"></script>
 </html>
