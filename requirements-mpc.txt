@@ -1,0 +1,3 @@
+# Optional MPC/forecast training environment (Python 3.12+).
+# SUMO can use the installed framework, as with the base launcher.
+numpy==2.5.4

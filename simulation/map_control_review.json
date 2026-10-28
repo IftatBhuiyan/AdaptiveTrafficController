@@ -1,0 +1,459 @@
+{
+  "reviewed_on": "2026-10-21",
+  "scope": "Review of all five junctions previously marked review_needed. No control types, network geometry, or assumed signal timings changed. Incoming signatures are [lane count, SUMO priority]; changed types or approaches invalidate the corresponding review.",
+  "junctions": {
+    "588175755": {
+      "type": "priority",
+      "incoming": {
+        "1001721292": [
+          3,
+          9
+        ],
+        "226829069": [
+          2,
+          11
+        ]
+      },
+      "outgoing": [
+        "497263582#0"
+      ],
+      "basis": "OSM lane-addition junction: the 3-lane RFK exit joins 2-lane Hoyt Avenue South into 5 lanes before the separate 31st Street signal. No crossing street at this node; existing SUMO road priority retained.",
+      "review_needed": false,
+      "sources": [
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/1001721292",
+          "id": "1001721292",
+          "version": "1",
+          "timestamp": "2021-11-12T11:13:03Z",
+          "tags": {
+            "hgv": "designated",
+            "highway": "motorway_link",
+            "lanes": "3",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "toll": "no"
+          },
+          "nodes": [
+            "9245816963",
+            "9179198033",
+            "588175755"
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/226829069",
+          "id": "226829069",
+          "version": "7",
+          "timestamp": "2026-05-06T02:33:41Z",
+          "tags": {
+            "hgv": "designated",
+            "highway": "secondary",
+            "lanes": "2",
+            "maxspeed": "25 mph",
+            "name": "Hoyt Avenue South",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "nodes": [
+            "42796436",
+            "3778245590",
+            "3778245576",
+            "588175755"
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/497263582",
+          "id": "497263582",
+          "version": "9",
+          "timestamp": "2026-05-06T02:33:41Z",
+          "tags": {
+            "hgv": "designated",
+            "highway": "secondary",
+            "lanes": "5",
+            "lanes:bus:forward": "1",
+            "maxspeed": "25 mph",
+            "name": "Hoyt Avenue South",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "turn:lanes": "through|through|through|through|right"
+          },
+          "nodes": [
+            "588175755",
+            "7784004949",
+            "279603573"
+          ]
+        }
+      ],
+      "limitations": "Topology classification only; no field verification of signs, lane markings, or timings. The 0.2 m imported ramp segment remains a separate geometry issue."
+    },
+    "1934650076": {
+      "type": "priority",
+      "incoming": {
+        "1459805124": [
+          2,
+          11
+        ],
+        "25345883#2": [
+          1,
+          6
+        ]
+      },
+      "outgoing": [
+        "1273808663#0"
+      ],
+      "basis": "OSM channelized merge: the unnamed 31st Street slip road joins eastbound Astoria Boulevard South before the separate 33rd Street signal. Existing major-road priority 11 over slip-road priority 6 retained.",
+      "review_needed": false,
+      "sources": [
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/25345883",
+          "id": "25345883",
+          "version": "15",
+          "timestamp": "2023-08-26T23:26:48Z",
+          "tags": {
+            "foot": "yes",
+            "highway": "secondary_link",
+            "lanes": "1",
+            "maxspeed": "20 mph",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "nodes": [
+            "276209340",
+            "6406731473",
+            "42905218",
+            "9627846462",
+            "1934650076"
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/1459805124",
+          "id": "1459805124",
+          "version": "2",
+          "timestamp": "2026-05-06T02:33:41Z",
+          "tags": {
+            "foot": "yes",
+            "hgv": "designated",
+            "highway": "secondary",
+            "lanes": "2",
+            "maxspeed": "25 mph",
+            "name": "Astoria Boulevard South",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "wikidata": "Q4811095",
+            "wikipedia": "en:Astoria Boulevard"
+          },
+          "nodes": [
+            "13388597589",
+            "1934650076"
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/1273808663",
+          "id": "1273808663",
+          "version": "2",
+          "timestamp": "2026-05-06T02:33:41Z",
+          "tags": {
+            "foot": "yes",
+            "hgv": "designated",
+            "highway": "secondary",
+            "lanes": "2",
+            "name": "Astoria Boulevard South",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "wikidata": "Q4811095",
+            "wikipedia": "en:Astoria Boulevard"
+          },
+          "nodes": [
+            "1934650076",
+            "8765434968",
+            "6406731462",
+            "276209270"
+          ]
+        }
+      ],
+      "limitations": "Topology classification only; current yield-sign presence is unverified. No signal or stop inferred at this merge."
+    },
+    "cluster_42818218_9776116426_9776116432_9776116443_#1more": {
+      "type": "traffic_light",
+      "incoming": {
+        "-298611917#4": [
+          1,
+          3
+        ],
+        "298611917#0": [
+          1,
+          3
+        ],
+        "847872091#6": [
+          1,
+          3
+        ]
+      },
+      "outgoing": [
+        "-298611917#1",
+        "298611917#4",
+        "847872091#12"
+      ],
+      "basis": "NYC DOT Accessible Pedestrian Signal Locations: 24 Avenue and 33 Street, APS installed 2021-09-14. Signalized intersection confirmed; conflicting older OSM stop marker 5866672576 is superseded by this source.",
+      "review_needed": false,
+      "sources": [
+        {
+          "title": "NYC DOT Accessible Pedestrian Signal Locations",
+          "url": "https://data.cityofnewyork.us/Transportation/Accessible-Pedestrian-Signal-Locations/de3m-c5p4",
+          "query_url": "https://data.cityofnewyork.us/resource/de3m-c5p4.json?%24where=borough%3D%27Queens%27+AND+location%3D%2724+Avenue+and++33+Street%27&%24limit=100",
+          "records": [
+            {
+              "the_geom": {
+                "type": "Point",
+                "coordinates": [
+                  -73.91430457674323,
+                  40.771511728742105
+                ]
+              },
+              "borocode": "4",
+              "boroname": "Queens",
+              "borocd": "401",
+              "coundist": "22",
+              "assemdist": "36",
+              "stsendist": "59",
+              "congdist": "14",
+              "location": "24 Avenue and  33 Street",
+              "borough": "Queens",
+              "date_insta": "2021-09-14T00:00:00.000",
+              "point_x": "-73.914306",
+              "point_y": "40.77152",
+              "femafldz": "X",
+              "femafldt": "AREA OF MINIMAL FLOOD HAZARD",
+              "ntaname": "Astoria (North)-Ditmars-Steinway"
+            }
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/node/5866672576",
+          "id": "5866672576",
+          "version": "2",
+          "timestamp": "2020-06-27T20:41:06Z",
+          "tags": {
+            "direction": "forward",
+            "highway": "stop",
+            "stop": "minor"
+          }
+        }
+      ],
+      "resolved_osm_nodes": [
+        "5866672576"
+      ],
+      "limitations": "Signal presence verified from the official inventory; phase plan and timing remain simulation assumptions."
+    },
+    "42842481": {
+      "type": "allway_stop",
+      "incoming": {
+        "-5703220#3": [
+          1,
+          3
+        ],
+        "5703220#1": [
+          1,
+          3
+        ],
+        "607436523#16": [
+          1,
+          3
+        ]
+      },
+      "outgoing": [
+        "-5703220#2",
+        "5703220#3",
+        "607436523#17"
+      ],
+      "basis": "NYC DOT current STOP-sign work order C-01688681 (2024-01-06): 25 Avenue / 41 Street signs face South, East, and West, covering all three retained incoming approaches. Existing all-way stop confirmed.",
+      "review_needed": false,
+      "sources": [
+        {
+          "title": "NYC DOT Street Sign Work Orders",
+          "url": "https://data.cityofnewyork.us/Transportation/Street-Sign-Work-Orders/qt6m-xctn",
+          "query_url": "https://data.cityofnewyork.us/resource/qt6m-xctn.json?%24where=borough%3D%27Queens%27+AND+record_type%3D%27Current%27+AND+sign_code%3D%27R1-1%27+AND+on_street%3D%2725+AVENUE%27+AND+from_street%3D%2741+STREET%27&%24limit=100",
+          "records": [
+            {
+              "order_number": "C-01688681",
+              "record_type": "Current",
+              "order_type": "C-",
+              "borough": "Queens",
+              "on_street": "25 AVENUE",
+              "from_street": "41 STREET",
+              "side_of_street": "@",
+              "order_completed_on_date": "2024-01-06T00:00:00.000",
+              "sign_code": "R1-1",
+              "sign_description": "STOP",
+              "sign_size": "030 X 030",
+              "sign_location": "S/W C",
+              "distance_from_intersection": "0",
+              "facing_direction": "South",
+              "sheeting_type": "TIII",
+              "support": "DR",
+              "sign_x_coord": "1008934",
+              "sign_y_coord": "218939"
+            },
+            {
+              "order_number": "C-01688681",
+              "record_type": "Current",
+              "order_type": "C-",
+              "borough": "Queens",
+              "on_street": "25 AVENUE",
+              "from_street": "41 STREET",
+              "side_of_street": "@",
+              "order_completed_on_date": "2024-01-06T00:00:00.000",
+              "sign_code": "R1-1",
+              "sign_description": "STOP",
+              "sign_size": "030 X 030",
+              "sign_location": "S/W C",
+              "distance_from_intersection": "0",
+              "facing_direction": "West",
+              "sheeting_type": "TIII",
+              "support": "SAME",
+              "sign_x_coord": "1008907",
+              "sign_y_coord": "218931"
+            },
+            {
+              "order_number": "C-01688681",
+              "record_type": "Current",
+              "order_type": "C-",
+              "borough": "Queens",
+              "on_street": "25 AVENUE",
+              "from_street": "41 STREET",
+              "side_of_street": "@",
+              "order_completed_on_date": "2024-01-06T00:00:00.000",
+              "sign_code": "R1-1",
+              "sign_description": "STOP",
+              "sign_size": "030 X 030",
+              "sign_location": "S/E C",
+              "distance_from_intersection": "0",
+              "facing_direction": "South",
+              "sheeting_type": "TIII",
+              "support": "DR",
+              "sign_x_coord": "1008938",
+              "sign_y_coord": "218911"
+            },
+            {
+              "order_number": "C-01688681",
+              "record_type": "Current",
+              "order_type": "C-",
+              "borough": "Queens",
+              "on_street": "25 AVENUE",
+              "from_street": "41 STREET",
+              "side_of_street": "@",
+              "order_completed_on_date": "2024-01-06T00:00:00.000",
+              "sign_code": "R1-1",
+              "sign_description": "STOP",
+              "sign_size": "030 X 030",
+              "sign_location": "N/E C",
+              "distance_from_intersection": "0",
+              "facing_direction": "East",
+              "sheeting_type": "TIII",
+              "support": "DR",
+              "sign_x_coord": "1008961",
+              "sign_y_coord": "218949"
+            }
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/node/42842481",
+          "id": "42842481",
+          "version": "6",
+          "timestamp": "2020-10-18T04:31:26Z",
+          "tags": {
+            "highway": "stop"
+          }
+        }
+      ],
+      "resolved_osm_nodes": [
+        "42842481"
+      ],
+      "limitations": "Source verification from records marked Current on retrieval; no on-street inspection."
+    },
+    "42833271": {
+      "type": "priority",
+      "incoming": {
+        "-5710042#1": [
+          1,
+          3
+        ],
+        "46140173#1": [
+          1,
+          10
+        ]
+      },
+      "outgoing": [
+        "46140173#2",
+        "5710042#0"
+      ],
+      "basis": "Private gated Dorothy Place access to 29th Street (OSM access=private and gate 2802664430). NYC DOT STOP order C-860307 is Historical (1990-10-02); current stop/yield scope remains unverified, so existing priority is provisional.",
+      "review_needed": true,
+      "sources": [
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/way/5710042",
+          "id": "5710042",
+          "version": "5",
+          "timestamp": "2026-05-06T02:33:41Z",
+          "tags": {
+            "access": "private",
+            "highway": "residential",
+            "name": "Dorothy Place"
+          },
+          "nodes": [
+            "42833271",
+            "11591692596",
+            "2802664430",
+            "42935698"
+          ]
+        },
+        {
+          "path": "astoria-osm-import/map.osm",
+          "url": "https://www.openstreetmap.org/node/2802664430",
+          "id": "2802664430",
+          "version": "1",
+          "timestamp": "2014-04-20T02:17:03Z",
+          "tags": {
+            "barrier": "gate"
+          }
+        },
+        {
+          "title": "NYC DOT Street Sign Work Orders",
+          "url": "https://data.cityofnewyork.us/Transportation/Street-Sign-Work-Orders/qt6m-xctn",
+          "query_url": "https://data.cityofnewyork.us/resource/qt6m-xctn.json?%24where=borough%3D%27Queens%27+AND+sign_code%3D%27R1-1%27+AND+on_street%3D%27DOROTHY+PLACE%27+AND+from_street%3D%2729+STREET%27&%24limit=100",
+          "records": [
+            {
+              "order_number": "C-860307",
+              "record_type": "Historical",
+              "order_type": "C-",
+              "borough": "Queens",
+              "on_street": "DOROTHY PLACE",
+              "from_street": "29 STREET",
+              "side_of_street": "@",
+              "order_completed_on_date": "1990-10-02T00:00:00.000",
+              "sign_code": "R1-1",
+              "sign_description": "STOP",
+              "sign_size": "030 X 030",
+              "sign_location": "N/E C",
+              "distance_from_intersection": "0",
+              "facing_direction": "East",
+              "sheeting_type": "ENGG",
+              "support": "SAME",
+              "sign_x_coord": "1007200",
+              "sign_y_coord": "220656"
+            }
+          ]
+        }
+      ],
+      "limitations": "A historical sign does not establish a present sign. Verify the private-access exit before changing its control type."
+    }
+  }
+}

@@ -13,7 +13,7 @@ import time
 import xml.etree.ElementTree as ET
 
 from sumo_runtime import configure
-from traffic_behavior import apply_behavior, receiving_constraint, demand_surge
+from traffic_behavior import apply_behavior, apply_driver_variation, receiving_constraint, demand_surge
 
 SUMO_DIR, SUMO = configure()
 import sumolib
@@ -84,10 +84,113 @@ def samples(line, count=9):
     return result
 
 
+def repair_portal_geometry(root):
+    """Remove the measured backwards fold at a geometry-only portal split.
+
+    Apply AFTER netconvert: a conversion recreates the imported bad cutback.
+    IDs, lane counts, connections, priorities and signal permissions are retained.
+    This repairs a reproduced body-overlap fixture, not every sublane collision.
+    """
+    def lane(edge, index):
+        return root.find(f"edge[@id='{edge}']/lane[@index='{index}']")
+    def points(item):
+        return [tuple(map(float, point.split(','))) for point in item.get('shape').split()]
+    previous = [lane('683926427#0', i) for i in (0, 1)]
+    bridge = [lane(':7784017558_0', i) for i in (0, 1)]
+    tiny = [lane('683926427#1', i) for i in (0, 1)]
+    fan = [lane(':5104280319_5', i) for i in (0, 1, 2)]
+    exits = [lane('46139826#2', i) for i in (2, 3, 4)]
+    if any(item is None for item in previous + bridge + tiny + fan + exits):
+        raise ValueError('Portal geometry repair requires the reviewed lane catalogue')
+    def unit(a, b):
+        distance = math.dist(a, b)
+        if distance < .001:
+            raise ValueError('Degenerate portal tangent')
+        return tuple((b[k] - a[k]) / distance for k in (0, 1))
+    before, changed, starts = {}, [], {}
+    folds = []
+    for i in (0, 1):
+        prior = points(previous[i])
+        tangent = unit(prior[-2], prior[-1])
+        old = points(bridge[i])
+        direction = unit(old[0], old[-1])
+        folds.append(sum(a*b for a, b in zip(tangent, direction)) < -.5)
+        if float(tiny[i].get('length')) > 1 or float(bridge[i].get('length')) > 8:
+            raise ValueError('Portal geometry no longer matches the reviewed short-link defect')
+    if not any(folds):
+        return {'portal_geometry': 'no_backwards_fold_detected', 'changed_lanes': []}
+    if not all(folds):
+        raise ValueError('Portal is partially edited; inspect it before applying a geometry repair')
+    def put(item, shape):
+        before[item.get('id')] = {'shape': item.get('shape'), 'length': item.get('length')}
+        item.set('shape', ' '.join(f'{x:.5f},{y:.5f}' for x, y in shape))
+        item.set('length', f'{polyline_length(shape):.5f}')
+        changed.append(item.get('id'))
+    for i in (0, 1):
+        prior = points(previous[i]); end = prior[-1]; tangent = unit(prior[-2], end)
+        a = tuple(end[k] + .3*tangent[k] for k in (0, 1))
+        b = tuple(a[k] + .2*tangent[k] for k in (0, 1))
+        put(bridge[i], [end, a]); put(tiny[i], [a, b]); starts[i] = b, tangent
+    for i, source in ((0, 0), (1, 1), (2, 1)):
+        out = points(exits[i]); a, tangent = starts[source]; b = out[0]
+        end_tangent = unit(out[0], out[1]); span = math.dist(a, b)
+        c = tuple(a[k] + tangent[k]*span/3 for k in (0, 1))
+        d = tuple(b[k] - end_tangent[k]*span/3 for k in (0, 1))
+        curve = []
+        for step in range(13):
+            t = step/12
+            curve.append(tuple((1-t)**3*a[k] + 3*(1-t)**2*t*c[k] + 3*(1-t)*t*t*d[k] + t**3*b[k] for k in (0, 1)))
+        put(fan[i], curve)
+    return {'portal_geometry': 'reviewed_backwards_fold_removed', 'changed_lanes': changed,
+            'original_lanes': before, 'scope': 'seven shape/length fields; no topology or control changes'}
+
+
 class ScenarioEditor:
     netedit_process = None
-    def __init__(self):
+    def __init__(self, network_variant="original"):
+        if network_variant not in {"original", "route-safe"}:
+            raise ValueError("Unknown network variant")
+        self.network_variant = network_variant
         self.base_net = USER_NET if USER_NET.exists() else BASE_NET
+        if network_variant == "route-safe":
+            # Explicit diagnostic variant; never overwrite the user's network.
+            # This ingress feeds a lane with no outgoing connector. Keep
+            # every physical lane and all actual road-to-road movements.
+            self._variant_directory = tempfile.TemporaryDirectory(prefix="astoria-route-safe-")
+            folder = Path(self._variant_directory.name)
+            connections = ET.Element("connections")
+            for source, target, lane in (("683926428#0", "683926428#1", "2"),):
+                ET.SubElement(connections, "delete", **{"from": source, "to": target,
+                                                         "fromLane": lane, "toLane": lane})
+            source_root = ET.parse(self.base_net).getroot()
+            road_nodes = {e.get("id"): (e.get("from"), e.get("to"))
+                          for e in source_root.findall("edge") if not e.get("function")}
+            for a, b in (("1273808663#0", "1273808663#1"), ("1273808663#1", "1273808663#2")):
+                jid = road_nodes[a][1]
+                incoming = {eid for eid, (_, end) in road_nodes.items() if end == jid}
+                outgoing = {eid for eid, (start, _) in road_nodes.items() if start == jid}
+                if incoming != {a} or outgoing != {b}:
+                    raise ValueError("Continuation repair requires a geometry-only single-road node")
+                # A 5 m car cannot reserve a full-car gap in the next 4 m
+                # geometry segment. These are road continuations, not street
+                # intersections: retain ordinary car following and all real
+                # junction conflict/keep-clear checks.
+                for lane in ("0", "1"):
+                    ET.SubElement(connections, "connection", **{"from": a, "to": b,
+                        "fromLane": lane, "toLane": lane, "keepClear": "false"})
+            patch = folder / "repair.con.xml"
+            ET.ElementTree(connections).write(patch, encoding="utf-8", xml_declaration=True)
+            repaired = folder / "route-safe.net.xml"
+            result = subprocess.run([str(SUMO.with_name("netconvert" + SUMO.suffix)),
+                                     "-s", str(self.base_net), "-x", str(patch), "-o", str(repaired)],
+                                    capture_output=True, text=True, timeout=45)
+            if result.returncode:
+                raise ValueError("Route-safe diagnostic network failed: " + result.stderr[-1200:])
+            original, changed = ET.parse(self.base_net).getroot(), ET.parse(repaired).getroot()
+            programs = lambda root: {p.get("id"): ET.tostring(p) for p in root.findall("tlLogic")}
+            if programs(original) != programs(changed):
+                raise ValueError("Diagnostic repair unexpectedly changed a traffic-light program")
+            self.base_net = repaired
         self.net = sumolib.net.readNet(str(self.base_net))
         self.plan = json.loads((DATA / "full-area-demand.json").read_text())
         self.routes = ET.parse(BASE_ROUTES).getroot()
@@ -567,7 +670,7 @@ class ScenarioEditor:
                 ET.SubElement(flow, "walk", edges=f"{a} {b}", arrivalPos=f"{arrive:.1f}")
         return routes
 
-    def build(self, edits, directory, traffic_mode="baseline", start_time=56700, seed=42):
+    def build(self, edits, directory, traffic_mode="baseline", start_time=56700, seed=42, driver_profile="nominal"):
         edits = self.validate(edits)
         directory = Path(directory)
         directory.mkdir(parents=True, exist_ok=True)
@@ -700,10 +803,16 @@ class ScenarioEditor:
                 program.set("offset", str(spec["offset"]))
             network = directory / "timed.net.xml"
             tree.write(network, encoding="utf-8", xml_declaration=True)
+        model_repairs = {'variant': self.network_variant}
+        if self.network_variant == "route-safe":
+            tree = ET.parse(network)
+            model_repairs.update(repair_portal_geometry(tree.getroot()))
+            network = directory / "model-repaired.net.xml"
+            tree.write(network, encoding="utf-8", xml_declaration=True)
         edited_net = sumolib.net.readNet(str(network))
         root = ET.parse(BASE_ROUTES).getroot()
         lookup = {r.get("id"): r for r in root.findall("route")}
-        if structural or self.base_net == USER_NET:
+        if structural or self.base_net == USER_NET or self.network_variant != "original":
             for rid, route in lookup.items():
                 edges = route.get("edges").split()
                 vclass = "truck" if rid in self.truck_routes else "passenger"
@@ -726,6 +835,8 @@ class ScenarioEditor:
                               begin="57600", end="64800", number=str(round(spec["rate"] * 2)),
                               departLane="best", departSpeed="desired")
         apply_behavior(root, traffic_mode, seed=seed)
+        if driver_profile not in {"nominal", "varied"}:
+            raise ValueError("Unknown driver profile")
         if traffic_mode == "surge":
             demand_surge(root, start_time + 900)
         definitions = [e for e in root if e.tag in ("vType", "route")]
@@ -742,6 +853,10 @@ class ScenarioEditor:
         traffic = sorted(traffic,
                          key=lambda e: float(e.get("depart", e.get("begin", "0"))))
         root[:] = definitions + traffic
+        # Sample the final offered population so surge copies get independent
+        # profiles and receipts describe exactly the traffic written below.
+        variation = (apply_driver_variation(root, network, self.plan, seed, fixed_routes=edits["routes"])
+                     if driver_profile == "varied" else {"profile": "nominal"})
         routes = directory / "edited.rou.xml"
         ET.ElementTree(root).write(routes, encoding="utf-8", xml_declaration=True)
         route_files = str(routes)
@@ -758,7 +873,8 @@ class ScenarioEditor:
         if check.returncode:
             raise ValueError("SUMO rejected those edits: " + check.stderr[-1200:])
         return {"network": network, "routes": routes, "args": args,
-                "edits": edits, "planned": planned}
+                "edits": edits, "planned": planned, "driver_profile": driver_profile, "driver_variation": variation,
+                "model_repairs": model_repairs, "boundary_exits": list(self.plan["exits"])}
 
     def open_netedit(self):
         if ScenarioEditor.netedit_process is not None and ScenarioEditor.netedit_process.poll() is None:

@@ -584,13 +584,13 @@ $('reload-network').onclick = async () => { try { await control('reload-network'
 $('toggle').onclick = () => control(state?.running ? 'pause' : 'play'); $('restart').onclick = () => control('restart');
 $('speed').onchange = event => control('speed', Number(event.target.value)); $('fit').onclick = () => fit(); $('all-roads').onclick = () => fit(true);
 async function changeTraffic(){
-  if(dirty){$('peak-hour').value=state.target_hour;$('traffic-mode').value=state.traffic_mode;return message('Apply your staged map changes before switching the traffic scenario.',true);}
-  requestedTraffic={hour:Number($('peak-hour').value),mode:$('traffic-mode').value};
-  $('peak-hour').disabled=$('traffic-mode').disabled=true;
+  if(dirty){$('peak-hour').value=state.target_hour;$('traffic-mode').value=state.traffic_mode;$('driver-profile').value=state.driver_profile;return message('Apply your staged map changes before switching the traffic scenario.',true);}
+  requestedTraffic={hour:Number($('peak-hour').value),mode:$('traffic-mode').value,driver_profile:$('driver-profile').value};
+  $('driver-profile').disabled=$('peak-hour').disabled=$('traffic-mode').disabled=true;
   try{await control('traffic',requestedTraffic);$('status').textContent='Building scenario and warming up…';}
-  catch(error){requestedTraffic=null;$('peak-hour').disabled=$('traffic-mode').disabled=false;$('error').textContent=error.message;$('error').style.display='inline';}
+  catch(error){requestedTraffic=null;$('driver-profile').disabled=$('peak-hour').disabled=$('traffic-mode').disabled=false;$('error').textContent=error.message;$('error').style.display='inline';}
 }
-$('peak-hour').onchange=changeTraffic;$('traffic-mode').onchange=changeTraffic;
+$('peak-hour').onchange=changeTraffic;$('traffic-mode').onchange=changeTraffic;$('driver-profile').onchange=changeTraffic;
 $('controller-mode').onchange=async()=>{
   if(dirty){$('controller-mode').value=state.controller_mode;return message('Apply your staged map changes before comparing controllers.',true);}
   requestedController=$('controller-mode').value;$('controller-mode').disabled=true;
@@ -611,7 +611,7 @@ window.addEventListener('keydown',event=>{
 function showEngineFailure(text) {
   engineUnavailable=true;requestedTraffic=requestedController=null;busy=false;
   $('status').textContent=text;$('dot').style.background='#b94837';
-  for(const id of ['toggle','restart','controller-mode','peak-hour','traffic-mode'])$(id).disabled=true;
+  for(const id of ['toggle','restart','controller-mode','peak-hour','traffic-mode','driver-profile'])$(id).disabled=true;
   $('error').textContent='Start the simulation launcher again. Any unapplied map changes are still staged in this page.';
   $('error').style.display='inline';updateTools();
 }
@@ -632,9 +632,9 @@ async function poll() {
       if(next.safety_stop){$('status').textContent='Safety check stopped this run. Restart or choose another scenario.';$('toggle').disabled=true;}else $('toggle').disabled=false;
       $('restart').disabled=false;
       if (document.activeElement !== $('speed')) $('speed').value = next.speed;
-      if(requestedTraffic&&((next.target_hour===requestedTraffic.hour&&next.traffic_mode===requestedTraffic.mode)||next.edit_error))requestedTraffic=null;
-      $('peak-hour').disabled=$('traffic-mode').disabled=!!requestedTraffic;
-      if(!requestedTraffic&&!next.updating){$('peak-hour').value=String(next.target_hour);$('traffic-mode').value=next.traffic_mode;}
+      if(requestedTraffic&&((next.target_hour===requestedTraffic.hour&&next.traffic_mode===requestedTraffic.mode&&next.driver_profile===requestedTraffic.driver_profile)||next.edit_error))requestedTraffic=null;
+      $('driver-profile').disabled=$('peak-hour').disabled=$('traffic-mode').disabled=!!requestedTraffic;
+      if(!requestedTraffic&&!next.updating){$('peak-hour').value=String(next.target_hour);$('traffic-mode').value=next.traffic_mode;$('driver-profile').value=next.driver_profile;}
       if(requestedController===next.controller_mode)requestedController=null;
       $('controller-mode').disabled=!!requestedController;
       if(!requestedController)$('controller-mode').value=next.controller_mode;
@@ -642,16 +642,17 @@ async function poll() {
       $('ramp-waiting').textContent = next.ramp_waiting ?? 0;
       $('pending').textContent=next.pending;
       $('scenario-note').textContent = next.traffic_mode!=='baseline' ? 'Assumed stress scenario: heavy mainline demand and a constrained receiving lane. Driver cooperation, demand bursts, and blockages are experimental settings. The next exit is outside this map.' : 'Count-informed baseline: collected station profiles and estimated connecting traffic.';
+      if(next.driver_profile==='varied')$('scenario-note').textContent+=' Seeded legal route and driver variation; not calibrated driver behavior.';
       for (const key of ['waiting', 'arrived']) $(key).textContent = next[key].toLocaleString();
       const c=next.controller;
       if(c){
-        const label=next.controller_mode==='intelligent'?'Intelligent coordinator':next.controller_mode==='coordinated'?'Coordinated adaptive':next.controller_mode==='local'?'Local capacity-aware control':'Fixed-time control';
+        const label=next.controller_mode==='mpc'?'Network MPC (experimental)':next.controller_mode==='intelligent'?'Intelligent coordinator':next.controller_mode==='coordinated'?'Coordinated adaptive':next.controller_mode==='local'?'Local capacity-aware control':'Fixed-time control';
         $('controller-summary').textContent=`${label} · ${c.signal_count} signals · ${next.warming?'collecting warm-up history':`${c.decisions} adaptive changes`}`;
         $('controller-diagnostics').textContent=next.warming?`Common fixed-control warm-up; the selected controller starts at ${next.target_hour===17?'5 pm':'4 pm'}. Collecting arrival, queue, and discharge history.`:`${c.horizon} s lookahead · ${c.blocked_receivers} blocked receiving links · merge discharge model estimate ${c.merge_discharge_vehicles_per_hour} vehicles/hour · ${c.neighbour_messages} neighbour messages · ${c.decision_ms} ms for the last decision · stock forecast error ${c.forecast_mae_vehicles??'—'} vehicles per observed approach. A split red/green marker means only some turns can go. All figures refer to this simulation.`;
         const names={astoria_31st_north:'31st Street · north',astoria_31st_south:'31st Street · south',astoria_33rd:'33rd Street · ramp entry'};
         $('controller-detail').replaceChildren(...Object.entries(names).filter(([id])=>c.signals[id]).map(([id,name])=>{
           const s=c.signals[id],div=document.createElement('div');div.className='controller-junction';const title=document.createElement('strong');title.textContent=name;
-          const text=document.createElement('span');text.textContent=next.warming?`Fixed-control warm-up · ${s.queued_vehicles} queued. Collecting traffic history before the selected start time.`:next.controller_mode==='fixed'?'Repeating protected greens at fixed times, with yellow and occupied-box clearance.':`${s.stage} · phase ${s.phase+1}. ${s.queued_vehicles} queued; ${s.expected_arrivals} approaching (detector estimate). ${s.reason}. Estimated service: ${s.predicted_service} vehicles.`;
+          const text=document.createElement('span');text.textContent=next.warming?`Fixed-control warm-up · ${s.queued_vehicles} queued. Collecting traffic history before the selected start time.`:next.controller_mode==='fixed'?'Repeating protected greens at fixed times, with yellow and occupied-box clearance.':`${s.stage} · phase ${s.phase+1}. ${s.queued_vehicles} queued; ${s.expected_arrivals} approaching (detector estimate). ${s.reason}. ${next.controller_mode==='mpc'?'':`Estimated service: ${s.predicted_service} vehicles.`}`;
           div.append(title,text);return div;
         }));
       }

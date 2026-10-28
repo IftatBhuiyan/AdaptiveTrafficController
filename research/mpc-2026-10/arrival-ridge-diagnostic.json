@@ -1,0 +1,372 @@
+{
+  "alpha": 0.1,
+  "censoring": "Congestion can block insertion: observed insertions do not reveal latent offered demand. Features use current/past observations only; no routes or future departure schedule. Internal arrivals are derived by the conserved traffic model, not independently forecast.",
+  "coefficients": [
+    -0.11683201579799475,
+    0.03725749676202968,
+    0.0006912684084364151,
+    0.49947740466418455,
+    0.03644849182993761,
+    -0.04179820450806628,
+    -0.03032991794135694,
+    -0.3651668974336415,
+    -0.31712529911898935
+  ],
+  "domain_policy": "TRAIN feature min/max, tolerance 1e-9; otherwise EWMA fallback",
+  "feature_max": [
+    4.0,
+    4.0,
+    4.0,
+    3.0,
+    82.0,
+    58.0,
+    13.030303030303031,
+    -0.8316796443258963,
+    -0.4765067533334885
+  ],
+  "feature_mean": [
+    0.30991273810790676,
+    0.3078642119825476,
+    0.30610833244652547,
+    0.32210358192055644,
+    3.7722943492604024,
+    1.0052144301372778,
+    2.780940725763588,
+    -0.8493345901741504,
+    -0.5274160515632494
+  ],
+  "feature_min": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.8791708104956499,
+    -0.5552557691856526
+  ],
+  "feature_names": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "rolling_mean",
+    "entry_occupancy",
+    "entry_queue",
+    "pending_per_entry",
+    "time_sin",
+    "time_cos"
+  ],
+  "feature_scale": [
+    0.6264034262055913,
+    0.6247995387564695,
+    0.6234039432862301,
+    0.48965288989522004,
+    10.505054940119104,
+    5.329858353702535,
+    3.1766159662629643,
+    0.011235393101204475,
+    0.018352886120736454
+  ],
+  "history_bins": 12,
+  "intercept": 0.30437905714589764,
+  "interval_seconds": 5,
+  "kind": "ridge",
+  "metadata": {
+    "alpha_candidates": [
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "data_split": {
+      "train": {
+        "episode_ids": [
+          "intelligent:baseline:101:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:baseline:101:16:150:fixed:policy:True:route-safe",
+          "intelligent:baseline:102:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:baseline:102:16:150:fixed:policy:True:route-safe",
+          "intelligent:merge:101:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:merge:101:16:150:fixed:policy:True:route-safe",
+          "intelligent:merge:102:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:merge:102:16:150:fixed:policy:True:route-safe"
+        ],
+        "episode_metadata": {
+          "intelligent:baseline:101:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57419.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:baseline:101:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57794.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:baseline:102:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57139.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:baseline:102:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57502.6,
+            "invalid_reasons": [
+              "receipt_marked_unsafe",
+              "incomplete_run",
+              "collision_vehicle_reports",
+              "incomplete_observation_window"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:101:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57454.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:101:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57409.0,
+            "invalid_reasons": [
+              "receipt_marked_unsafe",
+              "incomplete_run",
+              "lane_change_deadlocks",
+              "collision_vehicle_reports",
+              "incomplete_observation_window"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:102:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 56846.4,
+            "invalid_reasons": [
+              "receipt_marked_unsafe",
+              "incomplete_run",
+              "collision_vehicle_reports",
+              "incomplete_observation_window"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:102:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57979.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          }
+        },
+        "record_count": 37588,
+        "sources": [
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/baseline-16-101-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "731e245b26d77830dbd47e50dbec4ae2cfbef950a11a4f985d808f41f804faff"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/baseline-16-102-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "2bd893081307cda9b80ee45657f5c76129deeb25d6682259ed9def3dcfaeb622"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/merge-16-101-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "4acf649c0f12bdb03e6ed2bbaacbf66bd20bac4d56b26893d42f9cd721b2e896"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/merge-16-102-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "53c9e026abea9a8672c7f9d03a67cae5869191efdff1e287d8c5fd23c5927216"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/baseline-16-101-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "9ea4f96ecacb70d635176b3f4db36abea2c5b0db283857205d8235835334486f"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/baseline-16-102-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "9d9e196b7b42e20d59517abae3088d8ee045af293575915573e3f41a5b795edb"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/merge-16-101-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "9c7ed413061efe2c32e9352e072cc135e0c074a0e8b31e257fbfd7193993814f"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/merge-16-102-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "6f924ce47a3078a44d6e9bbb8775a174ac1a5011acc86a9f6d2e2d39fd7b38af"
+          }
+        ]
+      },
+      "validation": {
+        "episode_ids": [
+          "intelligent:baseline:103:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:baseline:103:16:150:fixed:policy:True:route-safe",
+          "intelligent:merge:103:16:10:fixed:policy:True:route-safe:varied",
+          "intelligent:merge:103:16:150:fixed:policy:True:route-safe"
+        ],
+        "episode_metadata": {
+          "intelligent:baseline:103:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57309.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:baseline:103:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57414.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:103:16:10:fixed:policy:True:route-safe:varied": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57154.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          },
+          "intelligent:merge:103:16:150:fixed:policy:True:route-safe": {
+            "diagnostic_prefix": true,
+            "episode_valid": false,
+            "failure_time": 57594.0,
+            "invalid_reasons": [
+              "lane_change_deadlocks"
+            ],
+            "valid": false
+          }
+        },
+        "record_count": 16740,
+        "sources": [
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/baseline-16-103-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "b0cb8eadd2eb94679d8d31da2dd3b4727d4776976e504a1fb86d9734f2b1c0b6"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection/merge-16-103-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "f9e8fbcf1740277030c93b1fd77931e230a578b8b89735f03c105fd9009f07ea"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/baseline-16-103-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "fb9380530c4fcb984f555e8edbd9c7539ea0acfdccab86ca017c16741606a768"
+          },
+          {
+            "feature_reconstruction": "causal observed-entry population",
+            "path": "/Users/iftatbhuiyan/Desktop/Traffice Control/worktrees/network-mpc/experiments/mpc-20261021/collection-varied/merge-16-103-fixed/forecast-samples.json",
+            "reconstruction_sha256": "027ae68f26a4fe63db27c9b1ed2c2a7683e687de7fb49c3c6b5ff9a3085262d6",
+            "sha256": "0f1da523a4268f222b476a599a4a533d6c0ff57ab148b0e0097c39c3731512fe"
+          }
+        ]
+      }
+    },
+    "numpy_version": "2.5.4",
+    "selection": "Lowest validation RMSE with deployed support guard; TRAIN fit only",
+    "test_used_for_fit_or_selection": false,
+    "validation_scores": [
+      {
+        "alpha": 0.1,
+        "bias": 0.002422210060526254,
+        "fallback_out_of_domain": 0,
+        "learned_predictions": 16740,
+        "mae": 0.2936344704723948,
+        "nonzero_prediction_count": 15699,
+        "nonzero_target_count": 4014,
+        "nonzero_target_mae": 0.6479497788476584,
+        "observed_total": 5314.0,
+        "predicted_total": 5354.54779641321,
+        "record_count": 16740,
+        "rmse": 0.42269532001819704,
+        "zero_target_count": 12726
+      },
+      {
+        "alpha": 1.0,
+        "bias": 0.0023794942537169227,
+        "fallback_out_of_domain": 0,
+        "learned_predictions": 16740,
+        "mae": 0.2936115124107788,
+        "nonzero_prediction_count": 15701,
+        "nonzero_target_count": 4014,
+        "nonzero_target_mae": 0.6479800256779886,
+        "observed_total": 5314.0,
+        "predicted_total": 5353.832733807221,
+        "record_count": 16740,
+        "rmse": 0.42269769008178887,
+        "zero_target_count": 12726
+      },
+      {
+        "alpha": 10.0,
+        "bias": 0.002169687059258808,
+        "fallback_out_of_domain": 0,
+        "learned_predictions": 16740,
+        "mae": 0.29352254304609526,
+        "nonzero_prediction_count": 15716,
+        "nonzero_target_count": 4014,
+        "nonzero_target_mae": 0.6481557936648951,
+        "observed_total": 5314.0,
+        "predicted_total": 5350.320561371993,
+        "record_count": 16740,
+        "rmse": 0.4227155693651092,
+        "zero_target_count": 12726
+      },
+      {
+        "alpha": 100.0,
+        "bias": 0.001655245238080301,
+        "fallback_out_of_domain": 0,
+        "learned_predictions": 16740,
+        "mae": 0.2936338762386583,
+        "nonzero_prediction_count": 15774,
+        "nonzero_target_count": 4014,
+        "nonzero_target_mae": 0.648962729090845,
+        "observed_total": 5314.0,
+        "predicted_total": 5341.708805285463,
+        "record_count": 16740,
+        "rmse": 0.42280716974256877,
+        "zero_target_count": 12726
+      }
+    ]
+  },
+  "schema_version": 1,
+  "target_definition": "Observed vehicle insertion count at one boundary entry lane in the next 5 seconds."
+}

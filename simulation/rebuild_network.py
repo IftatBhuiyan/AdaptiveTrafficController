@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 from sumo_runtime import configure
 
 HERE = Path(__file__).resolve().parent / "astoria-osm-import"
+MAP_REVIEW = Path(__file__).resolve().parent / "map_control_review.json"
 
 
 def road_edges(node):
@@ -20,6 +21,46 @@ def is_intersection(node):
     neighbours = {e.getFromNode().getID() for e in edges} | {e.getToNode().getID() for e in edges}
     neighbours.discard(node.getID())
     return len(neighbours) >= 3
+
+
+def apply_map_reviews(audit, net, reviews):
+    """Apply saved source findings only while the reviewed junction still matches.
+
+    A merge review must not silently clear a warning after its approaches or
+    priorities change. Historical signs and absent tags are not proof of a
+    present control; their review records keep review_needed true.
+    """
+    for jid, review in reviews["junctions"].items():
+        if jid not in audit["junctions"] or not net.hasNode(jid):
+            continue
+        node = net.getNode(jid)
+        incoming = {e.getID(): [e.getLaneNumber(), e.getPriority()]
+                    for e in node.getIncoming() if e.allows("passenger")}
+        outgoing = sorted(e.getID() for e in node.getOutgoing() if e.allows("passenger"))
+        record = audit["junctions"][jid]
+        if (node.getType() != review["type"] or incoming != review["incoming"]
+                or outgoing != review["outgoing"]):
+            record["review_needed"] = True
+            record["basis"] += "; Saved source review no longer matches the imported approaches; review again."
+            continue
+        if any(item.get("junction") == jid
+               and item["osm_node"] not in review.get("resolved_osm_nodes", [])
+               for item in audit["unresolved"]):
+            record["review_needed"] = True
+            record["basis"] += "; An unresolved source item is not covered by the saved review."
+            continue
+        record.update(basis=review["basis"], review_needed=review["review_needed"],
+                      source_review="map_control_review.json#" + jid)
+        remaining = []
+        for item in audit["unresolved"]:
+            if (item.get("junction") == jid and not review["review_needed"]
+                    and item["osm_node"] in review.get("resolved_osm_nodes", [])):
+                audit.setdefault("resolved_source_conflicts", []).append(
+                    {**item, "resolution": review["basis"], "source_review": record["source_review"]})
+            else:
+                remaining.append(item)
+        audit["unresolved"] = remaining
+    return audit
 
 
 def main():
@@ -148,11 +189,12 @@ def main():
                 basis += "; " + " ".join(conflicts)
             inventory[jid] = {"type": node.getType(), "streets": streets, "basis": basis,
                               "review_needed": bool(conflicts) or (basis.startswith("OSM road priority") and is_intersection(node))}
-        audit = {"basis": "No traffic lights inferred solely from intersection size. Controls come from saved OSM tags and reviewed site corrections; timings remain assumed.",
+        audit = {"basis": "No traffic lights inferred solely from intersection size. Controls come from saved OSM tags, reviewed site corrections, and saved NYC DOT source reviews; timings remain assumed.",
                  "approach_to_intersection": transfers, "stop_sources": stop_sources,
                  "unresolved": unresolved, "junctions": inventory}
+        apply_map_reviews(audit, final, json.loads(MAP_REVIEW.read_text()))
         (HERE / "intersection-controls.json").write_text(json.dumps(audit, indent=2) + "\n")
-        print(f"Relocated {len(transfers)} approach signals; restored {len(stop_sources)} stop controls; {len(unresolved)} source ambiguities.")
+        print(f"Relocated {len(transfers)} approach signals; restored {len(stop_sources)} stop controls; {len(audit['unresolved'])} source ambiguities.")
 
 
 if __name__ == "__main__":

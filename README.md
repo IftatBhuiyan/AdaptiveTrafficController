@@ -4,6 +4,8 @@ Our traffic simulation for the Astoria Boulevard / I-278 area.
 
 It runs SUMO in the background and shows the cars, roads, and traffic lights in your browser. You can watch the simulation and edit the scenario.
 
+The next controller version adds experimental network MPC and seeded driver/route variation. See [the model, constraints, forecasting experiment, and verification limits](simulation/MPC.md). MPC needs the optional Python 3.12+ NumPy dependency in `requirements-mpc.txt`.
+
 ## 1. First-time setup
 
 You need:
@@ -63,7 +65,8 @@ The next time you want to use it, just start it again. You do not need to clone 
 - **Speed:** choose how quickly simulation time passes.
 - **Restart:** start the simulation over.
 - **4 pm / 5 pm:** run a 15-minute warm-up before the selected time, so you see an already-loaded network. Each selection is an independent scenario, not a continuation of the earlier run. Warm-up may take a minute or more.
-- **Signal controller:** intelligent coordinator is selected by default; you can also choose the previous coordinated adaptive controller, local capacity-aware, or fixed time. Changing it restarts the same traffic scenario with a common fixed-control warm-up.
+- **Signal controller:** intelligent coordinator is selected by default; you can also choose experimental Network MPC, the previous coordinated adaptive controller, local capacity-aware, or fixed time. Network MPC needs the optional numeric dependency described below. Changing it restarts the same traffic scenario with a common fixed-control warm-up.
+- **Driver behavior:** seeded variation is the browser default. It varies legal route choices, desired speeds, acceleration/gaps, cooperation, and small lateral alignment preferences. The original driver preset remains available. The seed is repeatable for matched comparisons; the distributions are assumptions, not calibrated Astoria behavior.
 - **Traffic scenario:** choose count-based baseline, constrained merge, low cooperation, a demand surge, or a temporary receiving-lane blockage. The last four are labeled assumptions, not measured ground truth.
 - **Drag the map:** move around.
 - **Scroll or use + / −:** zoom in or out.
@@ -203,11 +206,11 @@ completions, with system time no more than 105% of reference. This is a declared
 benchmark score, not an accuracy percentage or a probability of safe operation.
 Development cases and held-out cases must be reported separately.
 
-Known reporting gap: the evaluator also records strategic lane-change deadlocks
-in `lane_change_deadlocks` and sets the run's `valid` flag to false. The current
-scorer does not consult those fields, and the evaluator's final failure exit only
-checks collisions, teleports, and conservation. Inspect deadlock flags separately;
-a nonzero score or a successful process exit does not establish a valid run.
+The scorer and evaluator share one validity check. Strategic lane-change deadlocks,
+collisions, teleports/removals, incomplete observation windows, changed source or
+generated inputs, and failed vehicle accounting invalidate a run. Invalid candidates
+or fixed references score zero and cause a failing CLI exit. Historical receipts
+without current validity instrumentation remain historical evidence.
 
 Two evaluation protocols answer different questions. The default
 `--initialization fixed` gives every policy 15 minutes of fixed-control traffic,
