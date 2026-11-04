@@ -6,12 +6,13 @@
         <route-steps value="0"/>
     </input>
     <time>
-        <begin value="57600"/>
+        <begin value="56700"/>
         <end value="66600"/>
         <step-length value="0.2"/>
     </time>
     <processing>
         <time-to-teleport value="-1"/>
+        <lateral-resolution value="0.4"/>
     </processing>
     <random_number><seed value="42"/></random_number>
     <report><no-step-log value="true"/></report>

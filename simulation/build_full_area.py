@@ -30,7 +30,7 @@ STATIONS = [
     ("053166", "2026-06-17", {"25345887"}),
     ("053169", "2026-06-17", {"375324638", "375324639"}),
 ]
-BEGIN, END = 57600, 64800
+BEGIN, END = 56700, 64800  # 15-minute warm-up before the 4 pm observation
 
 
 def main():

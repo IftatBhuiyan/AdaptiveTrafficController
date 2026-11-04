@@ -2,21 +2,28 @@
 <nodes>
   <node id="13399317581" type="priority" />
   <node id="13399317582" type="priority" />
-  <node id="42917830" type="priority" />
+  <node id="42818215" type="priority_stop" />
+  <node id="42818224" type="allway_stop" />
+  <node id="42818227" type="allway_stop" />
+  <node id="42832976" type="priority_stop" />
+  <node id="42833397" type="priority_stop" />
+  <node id="42841803" type="traffic_light" />
+  <node id="42842303" type="traffic_light" />
+  <node id="42842306" type="priority_stop" />
+  <node id="42842481" type="allway_stop" />
+  <node id="42849685" type="priority_stop" />
+  <node id="42881052" type="priority_stop" />
+  <node id="42897727" type="priority_stop" />
+  <node id="42905182" type="priority_stop" />
+  <node id="42905218" type="traffic_light" />
+  <node id="42910587" type="traffic_light" />
+  <node id="42912774" type="priority_stop" />
+  <node id="42932473" type="priority_stop" />
   <node id="4927558981" type="priority" />
+  <node id="4927558982" type="priority" />
+  <node id="6406731473" type="priority" />
+  <node id="7659362778" type="priority_stop" />
+  <node id="9236657445" type="priority" />
+  <node id="astoria_31st_north" type="traffic_light" />
   <node id="cluster_42849719_6406731721" type="priority" />
-  <node id="42818215" type="traffic_light" tlType="static" />
-  <node id="42818224" type="traffic_light" tlType="static" />
-  <node id="42818227" type="traffic_light" tlType="static" />
-  <node id="42832976" type="traffic_light" tlType="static" />
-  <node id="42833271" type="traffic_light" tlType="static" />
-  <node id="42833397" type="traffic_light" tlType="static" />
-  <node id="42842303" type="traffic_light" tlType="static" />
-  <node id="42842481" type="traffic_light" tlType="static" />
-  <node id="42849685" type="traffic_light" tlType="static" />
-  <node id="42881052" type="traffic_light" tlType="static" />
-  <node id="42905182" type="traffic_light" tlType="static" />
-  <node id="42917848" type="traffic_light" tlType="static" />
-  <node id="42932473" type="traffic_light" tlType="static" />
-  <node id="42935204" type="traffic_light" tlType="static" />
 </nodes>

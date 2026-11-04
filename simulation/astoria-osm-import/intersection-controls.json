@@ -1,33 +1,1839 @@
 {
-  "added_fixed_time_controls": [
-    "42818215",
-    "42818224",
-    "42818227",
-    "42832976",
-    "42833271",
-    "42833397",
-    "42842303",
-    "42842481",
-    "42849685",
-    "42881052",
-    "42905182",
-    "42917848",
-    "42932473",
-    "42935204"
-  ],
-  "removed_approach_controls": [
-    "13399317581",
-    "13399317582",
-    "42917830",
-    "4927558981",
-    "cluster_42849719_6406731721"
-  ],
+  "basis": "No traffic lights inferred solely from intersection size. Controls come from saved OSM tags and reviewed site corrections; timings remain assumed.",
   "approach_to_intersection": {
-    "42917830": "7780992284",
+    "9236657445": "42910587",
     "cluster_42849719_6406731721": "42842303",
+    "6406731473": "42905218",
     "13399317582": "astoria_31st_north",
     "13399317581": "astoria_31st_north",
+    "4927558982": "42841803",
     "4927558981": "42910587"
   },
-  "basis": "OSM approach-marker relocation and inferred control for multi-approach surface junctions; field verification and real timing plans remain needed."
+  "stop_sources": {
+    "42818224": [
+      "42818224"
+    ],
+    "42818227": [
+      "42818227"
+    ],
+    "42842481": [
+      "42842481"
+    ],
+    "42912774": [
+      "3570193178"
+    ],
+    "42897727": [
+      "3778263944"
+    ],
+    "42849685": [
+      "5866656855"
+    ],
+    "42881052": [
+      "5866656856"
+    ],
+    "42818215": [
+      "5866672577"
+    ],
+    "42842306": [
+      "6228232692"
+    ],
+    "7659362778": [
+      "7006826108"
+    ],
+    "42905182": [
+      "7784017485"
+    ],
+    "42833397": [
+      "8032268634"
+    ],
+    "42832976": [
+      "8549559015"
+    ],
+    "42932473": [
+      "9845161122"
+    ]
+  },
+  "unresolved": [
+    {
+      "osm_node": "42842481",
+      "junction": "42842481",
+      "reason": "Stop present; approach scope unspecified. All-way stop is a provisional assumption."
+    },
+    {
+      "osm_node": "42842491",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "42842496",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "4971238097",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "5116199182",
+      "junction": "42927013",
+      "reason": "Intersecting street is absent from retained network; stop not moved to an unrelated location."
+    },
+    {
+      "osm_node": "5866672576",
+      "junction": "cluster_42818218_9776116426_9776116432_9776116443_#1more",
+      "reason": "OSM stop marker conflicts with mapped signal; signal retained pending field review."
+    },
+    {
+      "osm_node": "5866672687",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "5866682092",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "5866682093",
+      "junction": "42865831",
+      "reason": "Intersecting street is absent from retained network; stop not moved to an unrelated location."
+    },
+    {
+      "osm_node": "5866682094",
+      "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
+    },
+    {
+      "osm_node": "5866705996",
+      "junction": "42877842",
+      "reason": "Intersecting street is absent from retained network; stop not moved to an unrelated location."
+    },
+    {
+      "osm_node": "7776763777",
+      "junction": "42888629",
+      "reason": "Intersecting street is absent from retained network; stop not moved to an unrelated location."
+    }
+  ],
+  "junctions": {
+    "42935204": {
+      "type": "right_before_left",
+      "streets": [
+        "30th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "Road continuation with a side exit; priority turns (not a missing signal)",
+      "review_needed": false
+    },
+    "cluster_42833306_6453002246_6453002247_6453002248": {
+      "type": "traffic_light",
+      "streets": [
+        "29th Street",
+        "Astoria Boulevard",
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42912771_4927558979_4927558980_6406731431": {
+      "type": "traffic_light",
+      "streets": [
+        "Astoria Boulevard South",
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "597443952": {
+      "type": "priority",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "Road continuation with a side exit; priority turns (not a missing signal)",
+      "review_needed": false
+    },
+    "42833400": {
+      "type": "priority",
+      "streets": [
+        "29th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42833397": {
+      "type": "priority_stop",
+      "streets": [
+        "29th Street",
+        "Astoria Boulevard"
+      ],
+      "basis": "OSM stop markers 8032268634",
+      "review_needed": false
+    },
+    "cluster_13399317574_13399317576_13399317577_279603573_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street",
+        "Hoyt Avenue South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "astoria_31st_north": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street",
+        "Astoria Boulevard North",
+        "Hoyt Avenue North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42866647_6406731040_6406731043_6406731443": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3778263938_42866632_6406731037_7841135103": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7780992284": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42917830": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9236657437": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42917848": {
+      "type": "priority",
+      "streets": [
+        "23rd Road",
+        "Steinway Street"
+      ],
+      "basis": "Road continuation with a side exit; priority turns (not a missing signal)",
+      "review_needed": false
+    },
+    "cluster_42877856_9236643611_9236657434_9236657435_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Avenue",
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9236657445": {
+      "type": "priority",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "Approach signal relocated to 42910587",
+      "review_needed": false
+    },
+    "42910587": {
+      "type": "traffic_light",
+      "streets": [
+        "Astoria Boulevard North",
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42908911": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9236657439": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9236657425": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42874628": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9236657428": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42842479_4925175867_4925175868_4925175869": {
+      "type": "traffic_light",
+      "streets": [
+        "25th Avenue",
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "5635677659": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570249963_42874062": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7661684402": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42856556": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7661684403": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6228232697": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_2275868395_42882996": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250001_3570250005_3570250006_42832999": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3570249970": {
+      "type": "traffic_light",
+      "streets": [
+        "Steinway Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42881052": {
+      "type": "priority_stop",
+      "streets": [
+        "24th Road",
+        "32nd Street"
+      ],
+      "basis": "OSM stop markers 5866656856",
+      "review_needed": false
+    },
+    "3025003084": {
+      "type": "priority",
+      "streets": [
+        "32nd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "3025003085": {
+      "type": "priority",
+      "streets": [
+        "32nd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42818215": {
+      "type": "priority_stop",
+      "streets": [
+        "24th Avenue",
+        "32nd Street"
+      ],
+      "basis": "OSM stop markers 5866672577",
+      "review_needed": false
+    },
+    "cluster_42818218_9776116426_9776116432_9776116443_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "24th Avenue",
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction; OSM stop marker conflicts with mapped signal; signal retained pending field review.",
+      "review_needed": true
+    },
+    "42818227": {
+      "type": "allway_stop",
+      "streets": [
+        "24th Avenue",
+        "37th Street"
+      ],
+      "basis": "OSM stop markers 42818227",
+      "review_needed": false
+    },
+    "42818224": {
+      "type": "allway_stop",
+      "streets": [
+        "24th Avenue",
+        "36th Street"
+      ],
+      "basis": "OSM stop markers 42818224",
+      "review_needed": false
+    },
+    "cluster_42818222_7659293844_7841135133_9776116423_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "24th Avenue",
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42872042_6452994996_6452994999_6452995000": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street",
+        "Astoria Boulevard"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_1398606012_3778245588_42800613_6453007741_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street",
+        "Hoyt Avenue South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42802627_4535961903_7714984332_7787345582_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street",
+        "Hoyt Avenue North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_7829710749_9776150587": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Avenue"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42877849_9242368762_9242368764_9242368766": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Avenue",
+        "36th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42877851_9242368806_9242368807_9242368809_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Avenue",
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778729682": {
+      "type": "priority",
+      "streets": [
+        "23rd Avenue"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_42841795_9776150531_9776150533_9776150535_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Avenue",
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42818209_6450635178_7784017492_7784017598_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "24th Avenue",
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42818207_6450635174_6450635175": {
+      "type": "traffic_light",
+      "streets": [
+        "24th Avenue",
+        "29th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "astoria_31st_south": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42832976": {
+      "type": "priority_stop",
+      "streets": [
+        "28th Avenue",
+        "32nd Street"
+      ],
+      "basis": "OSM stop markers 8549559015",
+      "review_needed": false
+    },
+    "cluster_42832974_4971244239_4971244240_6406731792": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42842303": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Road",
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42818487_5044706875": {
+      "type": "traffic_light",
+      "streets": [
+        "Astoria Boulevard"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42849719_6406731721": {
+      "type": "priority",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "Approach signal relocated to 42842303",
+      "review_needed": false
+    },
+    "42842481": {
+      "type": "allway_stop",
+      "streets": [
+        "25th Avenue",
+        "41st Street"
+      ],
+      "basis": "OSM stop markers 42842481; Stop present; approach scope unspecified. All-way stop is a provisional assumption.",
+      "review_needed": true
+    },
+    "3570224405": {
+      "type": "traffic_light",
+      "streets": [
+        "25th Avenue"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570224404_42842492": {
+      "type": "traffic_light",
+      "streets": [
+        "25th Avenue"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570224395_42807781": {
+      "type": "traffic_light",
+      "streets": [
+        "25th Avenue"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9776116481": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "2295056673": {
+      "type": "priority",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42849658": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42849673_6450658436_7784004984_7784017535_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "23rd Road",
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42849685": {
+      "type": "priority_stop",
+      "streets": [
+        "24th Road",
+        "31st Street"
+      ],
+      "basis": "OSM stop markers 5866656855",
+      "review_needed": false
+    },
+    "9776116484": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778416707": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3778416706_5616281072": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7784017620": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42849669": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7784004977": {
+      "type": "traffic_light",
+      "streets": [
+        "31st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42833268": {
+      "type": "priority",
+      "streets": [
+        "23rd Road"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42905182": {
+      "type": "priority_stop",
+      "streets": [
+        "23rd Road",
+        "32nd Street"
+      ],
+      "basis": "OSM stop markers 7784017485",
+      "review_needed": false
+    },
+    "42932473": {
+      "type": "priority_stop",
+      "streets": [
+        "23rd Road",
+        "33rd Street"
+      ],
+      "basis": "OSM stop markers 9845161122",
+      "review_needed": false
+    },
+    "42935698": {
+      "type": "priority",
+      "streets": [
+        "Dorothy Place"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42833271": {
+      "type": "priority",
+      "streets": [
+        "29th Street",
+        "Dorothy Place"
+      ],
+      "basis": "OSM road priority; control not field-verified",
+      "review_needed": true
+    },
+    "cluster_42888656_6406731390_6406731393_6406731437": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6406731008": {
+      "type": "priority",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "Road continuation with a side exit; priority turns (not a missing signal)",
+      "review_needed": false
+    },
+    "cluster_3570250039_3570250040_3570250041_3570250042_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_597443933_6406731387_6406731396_6406731415": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250035_3570250036_3570250037_3570250038_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "34th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250019_3570250022_3570250024_3570250026_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250027_3570250028_3570250029_3570250030_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "36th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250010_3570250012_3570250014_3570250015_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570250031_3570250032_3570250033_3570250034_#1more": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Avenue",
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "588175753": {
+      "type": "priority",
+      "streets": [],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "9245816963": {
+      "type": "priority",
+      "streets": [],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "588175755": {
+      "type": "priority",
+      "streets": [
+        "Hoyt Avenue South"
+      ],
+      "basis": "OSM road priority; control not field-verified",
+      "review_needed": true
+    },
+    "276210711": {
+      "type": "priority",
+      "streets": [
+        "Grand Central Parkway",
+        "Robert F. Kennedy Bridge"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "11685092477": {
+      "type": "dead_end",
+      "streets": [
+        "Robert F. Kennedy Bridge"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "276209383": {
+      "type": "priority",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "9179198087": {
+      "type": "priority",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "cluster_42796436_8612091312": {
+      "type": "traffic_light",
+      "streets": [
+        "29th Street",
+        "Hoyt Avenue South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "11133577137": {
+      "type": "priority",
+      "streets": [
+        "29th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "13174823088": {
+      "type": "dead_end",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "1934650076": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM road priority; control not field-verified",
+      "review_needed": true
+    },
+    "8765434968": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "6406731462": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "astoria_33rd": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street",
+        "Astoria Boulevard South",
+        "Hoyt Avenue South"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "13388597589": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "7746623259": {
+      "type": "priority",
+      "streets": [
+        "36th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "6406731473": {
+      "type": "priority",
+      "streets": [],
+      "basis": "Approach signal relocated to 42905218",
+      "review_needed": false
+    },
+    "42905218": {
+      "type": "traffic_light",
+      "streets": [
+        "32nd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9179198043": {
+      "type": "priority",
+      "streets": [],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "cluster_42833276_7714984328": {
+      "type": "traffic_light",
+      "streets": [
+        "29th Street",
+        "Hoyt Avenue North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "13174827123": {
+      "type": "dead_end",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "106138663": {
+      "type": "priority",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "5403881050": {
+      "type": "priority",
+      "streets": [
+        "Hoyt Avenue South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_42905185_6406731053_7732086305": {
+      "type": "traffic_light",
+      "streets": [
+        "32nd Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778245570": {
+      "type": "dead_end",
+      "streets": [
+        "Grand Central Parkway"
+      ],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "42871997": {
+      "type": "dead_end",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "6450635303": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42871990": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6450635304": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6450583529": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42818203_6450583530": {
+      "type": "traffic_light",
+      "streets": [
+        "27th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42817462": {
+      "type": "priority",
+      "streets": [
+        "28th Street",
+        "Hoyt Avenue North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "6450635166": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42817460": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6450635167": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6450635294": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42817456": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "6450635295": {
+      "type": "traffic_light",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42817450_9847967678": {
+      "type": "dead_end",
+      "streets": [
+        "28th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42841783": {
+      "type": "dead_end",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "9847944002": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42841786": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9847944011": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9776150542": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42841790": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9776150546": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778733315": {
+      "type": "priority",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "7659362778": {
+      "type": "priority_stop",
+      "streets": [
+        "36th Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM stop markers 7006826108",
+      "review_needed": false
+    },
+    "3778729688": {
+      "type": "priority",
+      "streets": [
+        "36th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "7813969139": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778729677": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778729670": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9242368779": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9242368798": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42866625": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9242368796": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9242368814": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42866622": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9242380417": {
+      "type": "traffic_light",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42866618": {
+      "type": "dead_end",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "9776150557": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42874625": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "9776150554": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "10744397956": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_10744397942_42888633": {
+      "type": "traffic_light",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42888629": {
+      "type": "dead_end",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42841803": {
+      "type": "traffic_light",
+      "streets": [
+        "38th Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3778245586": {
+      "type": "dead_end",
+      "streets": [],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "276209330": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "13399317582": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Approach signal relocated to astoria_31st_north",
+      "review_needed": false
+    },
+    "7784017526": {
+      "type": "priority",
+      "streets": [
+        "Hoyt Avenue North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "5104280319": {
+      "type": "traffic_light",
+      "streets": [
+        "Hoyt Avenue North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42908487": {
+      "type": "priority",
+      "streets": [
+        "34th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42818232": {
+      "type": "priority",
+      "streets": [
+        "24th Avenue",
+        "Astoria Boulevard North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "7787351804": {
+      "type": "dead_end",
+      "streets": [
+        "Hoyt Avenue North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "4215833539": {
+      "type": "priority",
+      "streets": [
+        "Hoyt Avenue South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42842306": {
+      "type": "priority_stop",
+      "streets": [
+        "28th Road",
+        "33rd Street"
+      ],
+      "basis": "OSM stop markers 6228232692",
+      "review_needed": false
+    },
+    "8879246323": {
+      "type": "priority",
+      "streets": [],
+      "basis": "Freeway lane continuation / merge; no street signal",
+      "review_needed": false
+    },
+    "42877842": {
+      "type": "dead_end",
+      "streets": [
+        "32nd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42898273": {
+      "type": "dead_end",
+      "streets": [
+        "26th Street",
+        "Hoyt Avenue South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42897257": {
+      "type": "dead_end",
+      "streets": [
+        "26th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42865831": {
+      "type": "dead_end",
+      "streets": [
+        "23rd Road"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_42900319_8613811403": {
+      "type": "dead_end",
+      "streets": [
+        "30th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42938567": {
+      "type": "dead_end",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42927013": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3569858151_42824167": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7661200156": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570249951_42874069": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3570249958": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570249993_42833001": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3570249998": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42912774": {
+      "type": "priority_stop",
+      "streets": [
+        "41st Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "OSM stop markers 3570193178",
+      "review_needed": false
+    },
+    "3569858154": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_3570249836_42882999": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "3570249841": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7661200155": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42856560": {
+      "type": "traffic_light",
+      "streets": [
+        "41st Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7784017558": {
+      "type": "priority",
+      "streets": [
+        "Hoyt Avenue North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "9179198063": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "13399317581": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Approach signal relocated to astoria_31st_north",
+      "review_needed": false
+    },
+    "42912776": {
+      "type": "dead_end",
+      "streets": [
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "4927558982": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Approach signal relocated to 42841803",
+      "review_needed": false
+    },
+    "3778263939": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42865836": {
+      "type": "dead_end",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "4927558987": {
+      "type": "traffic_light",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "4927558981": {
+      "type": "priority",
+      "streets": [
+        "Astoria Boulevard North"
+      ],
+      "basis": "Approach signal relocated to 42910587",
+      "review_needed": false
+    },
+    "cluster_42874618_9242380422": {
+      "type": "dead_end",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "9776150528": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "42897727": {
+      "type": "priority_stop",
+      "streets": [
+        "33rd Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM stop markers 3778263944",
+      "review_needed": false
+    },
+    "42877845": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7813969134": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_42874622_9694280293": {
+      "type": "dead_end",
+      "streets": [
+        "36th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "9242368760": {
+      "type": "traffic_light",
+      "streets": [
+        "36th Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "7746623260": {
+      "type": "priority",
+      "streets": [
+        "38th Street",
+        "Astoria Boulevard South"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_3570249980_42841755": {
+      "type": "dead_end",
+      "streets": [
+        "38th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_3570249988_42874060": {
+      "type": "dead_end",
+      "streets": [
+        "37th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_3570249996_42874059": {
+      "type": "dead_end",
+      "streets": [
+        "36th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_3570250004_42866652": {
+      "type": "dead_end",
+      "streets": [
+        "35th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "cluster_3570250013_42874058": {
+      "type": "dead_end",
+      "streets": [
+        "34th Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "42874057": {
+      "type": "dead_end",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "3570250023": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "cluster_6406731015_6406731054_7732086315_8427721092": {
+      "type": "traffic_light",
+      "streets": [
+        "33rd Street",
+        "Astoria Boulevard North"
+      ],
+      "basis": "OSM signal / reviewed junction",
+      "review_needed": false
+    },
+    "8835302348": {
+      "type": "priority",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    },
+    "7732086302": {
+      "type": "priority",
+      "streets": [
+        "33rd Street"
+      ],
+      "basis": "Single incoming approach / road branch; no conflicting incoming street",
+      "review_needed": false
+    }
+  }
 }
