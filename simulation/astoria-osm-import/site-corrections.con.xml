@@ -13,4 +13,13 @@
          into 4-8 m fragments shorter than a car, where SUMO cannot change lanes,
          so a left-turning car entering lane 0 deadlocked the ramp feeder. -->
     <connection from="25345883#2" to="1273808663#0" fromLane="0" toLane="1"/>
+    <!-- Left turn onto 31st St: Astoria Blvd N lanes 2 and 3 both turn left,
+         one into each of the two turn lanes, and both turn lanes continue
+         under the highway (497263586#1) and onto Astoria Blvd S (25649770#1). -->
+    <connection from="683926428#1" to="683926426" fromLane="2" toLane="0"/>
+    <connection from="683926428#1" to="683926426" fromLane="3" toLane="1"/>
+    <connection from="683926426" to="497263586#1" fromLane="0" toLane="0"/>
+    <connection from="683926426" to="497263586#1" fromLane="1" toLane="1"/>
+    <connection from="683926426" to="25649770#1" fromLane="1" toLane="3"/>
+    <connection from="683926426" to="25649770#1" fromLane="1" toLane="4"/>
 </connections>

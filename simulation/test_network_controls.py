@@ -25,6 +25,24 @@ class NetworkControls(unittest.TestCase):
             self.assertEqual({c.get("fromLane") for c in connections if c.get("from") == source and c.get("to") == "25345887"}, {"0", "1"})
         self.assertEqual({c.get("fromLane") for c in connections if c.get("from") == "25345887" and c.get("to") == "964223914"}, {"0", "1"})
 
+    def test_left_turn_onto_31st_street_has_two_lanes(self):
+        # 88% of EB off-ramp traffic turns left from Astoria Blvd N onto 31st St.
+        # One turn lane capped it near 340 cars per 30 min (NYSDOT 053167: ~818),
+        # and Astoria Blvd N lane 2 had no outgoing connection.
+        lanes = [l for e in self.root.findall("edge") if e.get("id") == "683926426"
+                 for l in e.findall("lane")]
+        self.assertEqual(len(lanes), 2)
+        connections = self.root.findall("connection")
+        turn = {(c.get("fromLane"), c.get("toLane")) for c in connections
+                if c.get("from") == "683926428#1" and c.get("to") == "683926426"}
+        self.assertIn(("2", "0"), turn)
+        self.assertIn(("3", "1"), turn)
+        self.assertTrue(any(c.get("from") == "683926428#1" and c.get("fromLane") == "2"
+                            for c in connections), "Astoria Blvd N lane 2 is a dead end")
+        for lane in ("0", "1"):
+            self.assertTrue(any(c.get("from") == "683926426" and c.get("fromLane") == lane
+                                and c.get("to") == "497263586#1" for c in connections))
+
     def test_receiver_observation_reaches_the_actual_forced_merge(self):
         from sumo_runtime import configure
         configure()
