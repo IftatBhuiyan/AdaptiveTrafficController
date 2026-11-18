@@ -1,0 +1,21 @@
+<edges>
+    <!-- User field review: two eastbound lanes continuously between 31st
+         and 33rd Streets, including the section imported with one lane. -->
+    <edge id="5707919#1" numLanes="2"/>
+    <edge id="1459805124" numLanes="2"/>
+    <edge id="1273808663#0" numLanes="2"/>
+    <edge id="1273808663#1" numLanes="2"/>
+    <edge id="1273808663#2" numLanes="2"/>
+    <!-- Left turn from Astoria Blvd N onto 31st St (under I-278): two turn lanes.
+         The import had one turn lane, and Astoria Blvd N lane 2 had no
+         outgoing connection at all, so 88% of off-ramp traffic shared one lane
+         (about 340 cars per 30 min at 34 s green vs. ~818 counted at NYSDOT 053167). -->
+    <edge id="683926426" numLanes="2"/>
+    <!-- Hoyt Ave S past the 31st St junction: OSM lanes:bus:forward=1, and the
+         next piece (560353397) already has a bus-only lane 0. Without this, the
+         2.5 m stub let cars into lane 0, whose only exit is the bus lane, so they
+         waited inside the junction forever (main deadlock under I-278). -->
+    <edge id="25649770#1">
+        <lane index="0" allow="bus bicycle"/>
+    </edge>
+</edges>

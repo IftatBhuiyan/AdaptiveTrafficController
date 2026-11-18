@@ -23,11 +23,14 @@ from traffic_behavior import MODES
 from adaptive_controller import AdaptiveController, MODES as ADAPTIVE_MODES
 from intelligent_coordinator import IntelligentCoordinator
 
-CONTROLLER_MODES = ADAPTIVE_MODES | {"intelligent"}
+CONTROLLER_MODES = ADAPTIVE_MODES | {"intelligent", "mpc"}
 
 
 def make_controller(network, selected):
     """The intelligent coordinator warms up on the imported plan, then decides."""
+    if selected == "mpc":
+        from network_mpc import NetworkMPC
+        return NetworkMPC(traci, network, "fixed", boundary_exits=editor.plan["exits"])
     if selected == "intelligent":
         return IntelligentCoordinator(traci, network, "fixed")
     return AdaptiveController(traci, network, "fixed")
@@ -47,7 +50,7 @@ commands = queue.Queue()
 snapshot = {"ready": False, "running": False, "error": None}
 network_data = None
 stop_event = threading.Event()
-editor = ScenarioEditor()
+editor = ScenarioEditor(network_variant="route-safe")
 edit_job = {"status": "idle", "error": None, "id": 0}
 edit_lock = threading.Lock()
 
@@ -138,9 +141,9 @@ def simulate():
     global snapshot, network_data, editor, edit_job
     temporary = ExitStack()
     try:
-        traffic_mode, target_time = "merge", 57600
+        traffic_mode, target_time, driver_profile = "merge", 57600, "varied"
         controller_mode = "intelligent"
-        candidate = editor.build(editor.read(), temporary.enter_context(tempfile.TemporaryDirectory(prefix="astoria-session-")), traffic_mode)
+        candidate = editor.build(editor.read(), temporary.enter_context(tempfile.TemporaryDirectory(prefix="astoria-session-")), traffic_mode, driver_profile=driver_profile)
         network_data = geometry(candidate["network"], candidate["routes"], candidate["edits"])
         demand = json.loads((DATA / "full-area-demand.json").read_text())
         observed = candidate["planned"]
@@ -148,6 +151,7 @@ def simulate():
         traci.start([str(SUMO_BINARY)] + args)
         controller = make_controller(candidate["network"], controller_mode)
         network_data["control_area"] = controller.topology.metadata()
+        network_data["model_repairs"] = candidate.get("model_repairs", {})
         running, speed = True, 4
         entered, arrived, teleports, collisions = 0, 0, 0, 0
         warmup_until = target_time
@@ -177,13 +181,14 @@ def simulate():
                     edit_job = {"status": "building", "error": None, "id": edit_job["id"]}
                     switched = False
                     try:
-                        new_editor = ScenarioEditor()
+                        new_editor = ScenarioEditor(network_variant=editor.network_variant)
                         edits = command["edits"] if "edits" in command else new_editor.read()
                         folder = temporary.enter_context(tempfile.TemporaryDirectory(prefix="astoria-edit-"))
                         requested = command.get("value", {}) if command.get("action") == "traffic" else {}
                         new_mode = requested.get("mode", traffic_mode)
                         new_time = requested.get("hour", target_time // 3600) * 3600
-                        built = new_editor.build(edits, folder, new_mode, new_time - 900)
+                        new_profile = requested.get("driver_profile", driver_profile)
+                        built = new_editor.build(edits, folder, new_mode, new_time - 900, driver_profile=new_profile)
                         new_geometry = geometry(built["network"], built["routes"], built["edits"])
                         new_args = built["args"] + ["--no-warnings", "true"]
                         traci.load(new_args)
@@ -192,10 +197,11 @@ def simulate():
                         if command.get("action") == "apply-edits":
                             new_editor.save(built["edits"])
                         editor, candidate, args = new_editor, built, new_args
-                        traffic_mode, target_time = new_mode, new_time
+                        traffic_mode, target_time, driver_profile = new_mode, new_time, new_profile
                         network_data = new_geometry
                         controller = new_controller
                         network_data["control_area"] = controller.topology.metadata()
+                        network_data["model_repairs"] = built.get("model_repairs", {})
                         observed = built["planned"]
                         entered = arrived = teleports = collisions = 0
                         visited = set()
@@ -251,7 +257,7 @@ def simulate():
                         "visited_edges": sorted(visited), "scenario": "full-area-corrected",
                         "app": "astoria-traffic-simulation",
                         "revision": network_data["revision"], "updating": False,
-                        "traffic_mode": traffic_mode, "target_hour": target_time // 3600,
+                        "traffic_mode": traffic_mode, "target_hour": target_time // 3600, "driver_profile": driver_profile, "network_variant": editor.network_variant,
                         "controller_mode": controller_mode, "controller": controller.status(),
                         "safety_stop": collisions > 0 or teleports > 0,
                         "edit_error": edit_job["error"] if edit_job["status"] == "failed" else None,
@@ -354,7 +360,7 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Unknown action")
             if command["action"] == "traffic":
                 value = command.get("value")
-                if not isinstance(value, dict) or value.get("mode") not in MODES or value.get("hour") not in {16, 17}:
+                if not isinstance(value, dict) or value.get("mode") not in MODES or value.get("hour") not in {16, 17} or value.get("driver_profile", "nominal") not in {"nominal", "varied"}:
                     raise ValueError("Choose 4 pm or 5 pm and a traffic scenario.")
             if command["action"] == "speed" and command.get("value") not in {1, 4, 10, 20}:
                 raise ValueError("Unsupported speed")
