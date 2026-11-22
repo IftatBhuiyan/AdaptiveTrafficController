@@ -11,7 +11,12 @@ import time
 import xml.etree.ElementTree as ET
 
 MODES = {"fixed", "local", "coordinated"}
-CENTRES = ("astoria_31st_north", "astoria_31st_south", "astoria_33rd")
+# Centre signals of the study area. baseline-v2 joined split junctions, which
+# renamed the two 31st St signals; both names are listed so the same code runs
+# on the original network and on baseline-v2 (ids not in a network are ignored).
+CENTRES = ("astoria_31st_north", "astoria_31st_south", "astoria_33rd",
+           "cluster_5104280319_7784017526_7784017558_astoria_31st_north",
+           "cluster_6406731473_astoria_31st_south")
 
 
 @dataclass(frozen=True)

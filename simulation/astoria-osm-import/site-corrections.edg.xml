@@ -6,4 +6,9 @@
     <edge id="1273808663#0" numLanes="2"/>
     <edge id="1273808663#1" numLanes="2"/>
     <edge id="1273808663#2" numLanes="2"/>
+    <!-- Left turn from Astoria Blvd N onto 31st St (under I-278): two turn lanes.
+         The import had one turn lane, and Astoria Blvd N lane 2 had no
+         outgoing connection at all, so 88% of off-ramp traffic shared one lane
+         (about 340 cars per 30 min at 34 s green vs. ~818 counted at NYSDOT 053167). -->
+    <edge id="683926426" numLanes="2"/>
 </edges>

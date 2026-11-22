@@ -1,0 +1,527 @@
+{
+  "experiment_dates": "2026-10-21/22",
+  "report_audited": "2026-10-27",
+  "base_head": "e6b3aea979100ad2196153a38742a0ff595ab647",
+  "protocol": {
+    "version": 5,
+    "frozen_before_test": true,
+    "initialization": "policy",
+    "network_variants": [
+      "original",
+      "route-safe (diagnostic correction, only after route invariance verification)"
+    ],
+    "policies": [
+      "fixed",
+      "max_pressure",
+      "coordinated",
+      "mpc",
+      "mpc_learned"
+    ],
+    "development": {
+      "seeds": [
+        42
+      ],
+      "scenarios": [
+        "baseline",
+        "merge"
+      ],
+      "minutes": 10,
+      "hour": 16
+    },
+    "forecast_train": {
+      "seeds": [
+        101,
+        102
+      ],
+      "scenarios": [
+        "baseline",
+        "merge"
+      ],
+      "policy": "fixed",
+      "minutes": 150,
+      "additional_varied_minutes": 10
+    },
+    "forecast_validation": {
+      "seeds": [
+        103
+      ],
+      "scenarios": [
+        "baseline",
+        "merge"
+      ],
+      "policy": "fixed",
+      "minutes": 150,
+      "additional_varied_minutes": 10
+    },
+    "heldout_full_peak": {
+      "seeds": [
+        201,
+        202
+      ],
+      "scenarios": [
+        "baseline",
+        "merge"
+      ],
+      "minutes": 150,
+      "hour": 16,
+      "driver_profile": "varied"
+    },
+    "heldout_stress": {
+      "seeds": [
+        203
+      ],
+      "scenarios": [
+        "disorder",
+        "surge",
+        "incident"
+      ],
+      "minutes": 10,
+      "hour": 16,
+      "driver_profile": "varied"
+    },
+    "mpc": {
+      "horizon_seconds": 30,
+      "grid_seconds": 5,
+      "deadline_ms": 250,
+      "candidate_limit": 8,
+      "optimizer": "bounded centralized schedule coordinate descent; feasible local incumbent",
+      "maximum_evaluations": 192
+    },
+    "rules": [
+      "No test tuning. Invalid runs remain in denominators. Keep original and corrected networks separate. Exact same optimizer for simple and learned. Insertion counts are congestion censored. Train/validation whole episodes; test loaded after model freeze. Fullpeak failure remains invalid, no extrapolation after earlystop."
+    ],
+    "user_extension": "Seeded lawful driver variation, requested before held-out evaluation",
+    "forecast_test": {
+      "seeds": [
+        201
+      ],
+      "scenarios": [
+        "baseline",
+        "merge"
+      ],
+      "driver_profile": "varied",
+      "policy": "fixed",
+      "minutes": 150
+    },
+    "verification_snapshot": "acceptance-receiver-mask-snapshot",
+    "network_repair_revision": "dead-lane ingress, four continuation keepClear attributes, seven post-netconvert portal shape/length fields",
+    "forecast_feature_contract": "causally reconstruct observed-entry population from saved histories; no never-observed zero-indegree lane as a source",
+    "pretest_corrections": [
+      "Retain explicit map-editor routes under driver variation",
+      "Sample written population after surge and start-time filtering",
+      "Require occupied-link permission at receiver for no-storage bypass prediction; static review before controller held-out release, without changing learned weights or target features."
+    ]
+  },
+  "model_sha256": "b2bc0a0b2056a0dc9d725d7fc1c4218f18b424b672a7286debbd4922d9a86aa3",
+  "frozen_source_and_data_hashes": {
+    "artifacts/forecast-model": "b2bc0a0b2056a0dc9d725d7fc1c4218f18b424b672a7286debbd4922d9a86aa3",
+    "astoria-corrected.net.xml": "77c1de2a9a7af627e85116f6a563ad14cb993320fe8fd2b5bb19b3396e2861af",
+    "astoria-full-area.sumocfg": "0f9ed51bd24c487dd9cfbe50b1efb8c54b61ab54667ccb5254e7fdef40504bd5",
+    "astoria-observed-054474.sumocfg": "30a993d7b32b567e69e752b45f2c1af54b4edb99d779489639b5bb66f28b1af0",
+    "astoria-smoke.sumocfg": "e3bdc84b291344c7b8a5bec7b0a864ca678a3483224dab89e442dfe523e51557",
+    "astoria-stress.sumocfg": "540509d67c0b172277cea70022f71dded14a83de6588db66b81bc28b8f09cd61",
+    "astoria.net.xml": "0e90a559920605821572b89daac92e582ceea58c91b51ff4997735730f13093b",
+    "astoria.poly.xml": "632d32815223c2932fa76515f6e414d1e2c388fed32ba98ca02eb76078023159",
+    "build_observed_profile_replay.py": "32a5b5142f3567a52af79ced3e456819718190a809a940b92375b34a57039150",
+    "full-area-demand.json": "e3052f392c0419ff31dc0393938bc376b0bfa7cfb7dfead95ee77b26a0b03292",
+    "implementation/adaptive_controller.py": "6e59ec41523d0ce6e2bb3fe06b4506ab5e1e30b8428e44b00e61d060c149c18f",
+    "implementation/browser_simulation.py": "b04f953ba7635b0c27fff9892dccd51fb313e9f31c5101f751f412ba4ffdcfb3",
+    "implementation/build_full_area.py": "ba70e43ddc67d61ef927fa4000d03d07df8a2930c3ffede54ad1699a2aba795f",
+    "implementation/evaluate_controller.py": "638552916436228b1c1d592746ae282ba07fa6282dc57821768b71098ef85956",
+    "implementation/evaluation_validity.py": "044a56b1bf19ff8c61bbb3a606580baaa2c5c1b6a54e504657584efae17569be",
+    "implementation/intelligent_coordinator.py": "45c2cac5c92a96fd90e0640b0c90a27665b603ba1f546925a0cf8bd0b01100fa",
+    "implementation/map_control_review.json": "13bc28f65bf4ddb54b5f29dcd503a53b1582c6c6fbd5d11576b4ac9d578cd8ef",
+    "implementation/network_mpc.py": "a336d938dc564a906af2643d005ba0f0b2e487c87b434755b9621f8a4ba691e1",
+    "implementation/rebuild_network.py": "dba209997fe2fa57dc9c8fd65c2e8247ca2869c614c9b5267ee85337f171aaf5",
+    "implementation/scenario_editor.py": "586cb4cc5c7c2f6da11905e1876955323c43a676a402d9634b771ef1071faa62",
+    "implementation/score_evaluation.py": "f091597c5ba5ecc2934b2b61becca61fd29372a9f95aebadf782234f16d909de",
+    "implementation/signal_groups.py": "1b8f448846d03d829742014807e9be9a5cdfdb1f7e75b62b56981738e4f9efeb",
+    "implementation/sumo_runtime.py": "305bf71e54dc907703b13b3954ec2c8d851612bc8438ee1515f979c98947f1af",
+    "implementation/test_adaptive_controller.py": "1650aed84ec958a7ce714f924d8bc5289cb97dcca58fa0f3a4022f39ac493aec",
+    "implementation/test_driver_variation.py": "0de5d92afe7cd90e6401d809823b04984bb4253755d2f0bf9047d2e20f7f713d",
+    "implementation/test_evaluation_validity.py": "4484fe0edfe29da0b5954421122a09e8a84d45a836c167215d39784ad3c8a885",
+    "implementation/test_network_controls.py": "abc2548e78c921c32e7007fc82f48ced2803502327f7d87ca1c363b16b81d908",
+    "implementation/test_network_mpc.py": "5e6717cfb86ced6e4bde456c15900204a533939fd5c829214aa42b9a0654930b",
+    "implementation/test_scenario_editor.py": "9303f08189698d2bffc062b35b5a974b8fcd2ab158e7064af07562c6cdfcf18c",
+    "implementation/test_traffic_forecasting.py": "3dedde0cb66b61b1803cdac5ada4b2240831ada0b6d1970fa6eeffd194bbd80f",
+    "implementation/traffic_behavior.py": "a9db2e2d03a4ed0dcbd12fab89d697703f169b98b48f335ed44e5224f26cc3bc",
+    "implementation/traffic_forecasting.py": "f3cdceca993ec58fe246865da190a3a5113c72c8d1d560f534fe2f3ece14ac51",
+    "implementation/train_forecaster.py": "17b8f702acc9352dcb145942db12ae58e7c367f82e2d8d725cf6832f872c5e04",
+    "intersection-controls.json": "06a561ee9037efbf0e3278ee8b25c983db5cee17d57009564ab501d199bfb49e",
+    "intersection-controls.nod.xml": "1cb9dfb70bb91c33663b30fc0690b4485c5ebb814d6c144748eb11c0289c9ef9",
+    "intersection-priorities.edg.xml": "10acfc62ef93da0813d7a4a7e0c4d1b0a6d45f06f43a72174f392808cf3f52e6",
+    "map.osm": "efc28c165f78778cc52e4091c49951e31d6ce928b36a1da5aa52142f7e85a36c",
+    "observed-live.view.xml": "78ebb0de871e66bdbb9c2c233ecda5ce3eef61aba5179dae010503c0fc8ef2e9",
+    "observed-profile-edge-data.add.xml": "9f8e959ec37f41dab8c791467e582201b0a2d9c9b7c3093b91f1e4a1d98185f7",
+    "scenario-edits.json": "837f6cbda692f6d2e255497a453df0a389309ad8a3b12d3961348a9ececa3a9c",
+    "scenario-full-area.rou.xml": "61c1626c929e73bd0237135f4af74965bf73b81ec32c09424ac6c3c9476e2492",
+    "scenario-observed-054474.rou.xml": "419ecccc1d495bfda6054c194097181678569d9a81773b11f736b0f420a23791",
+    "scenario-smoke.rou.xml": "e300a72567a551b4aa6ccdf3f7d10cd7c23c14ac1765bd91998e2850c458ce4a",
+    "scenario-stress.rou.xml": "8dcc082e2ce1611a62d2920b7627bebf31ba430c5b8fdbedaecdfa80482e520b",
+    "site-corrections.con.xml": "80c182a6a0ad51818a71db07d47db447f5c4f2faa2b2cb11f1f1318aa3bed386",
+    "site-corrections.edg.xml": "fc8db694925bd814a79948b4b4061df18507c39f787a6dfdb6c2d30bbbbd6afb",
+    "site-corrections.nod.xml": "ba6984538afc2aa3eb7d2145aad2f1f8bd7ff2dbde517528a05f5ed81c15a2a3",
+    "station-053166-history.json": "c2aed966d1cf69bace404f2c352e7cd45fcf0ecfd4e37d62336883f8551662ea",
+    "station-geometry.json": "64d3113d53d2abadcc33646816984ea4f834262c86b126e5ec4f9ce861225f22",
+    "station-monitoring-geometry.json": "449b731d7ef4809b6ec8e9198ec3ce90ee8d82bc932d480b2000cf35a33945f9",
+    "station-points.json": "e05427ca0954a6d8fdd6214416402c41a2ae3f4946b68d6652d0bb18563efbea",
+    "traffic-counts.csv": "825fea898fb5d4f1e26248a6a9f59c9a3c8c7a44efcdd942c9421e1148358de4",
+    "traffic-profiles.csv": "04b6eec02c5e07a9e0cc312418d5696201a95c3478378b37c33361c1c7f36415",
+    "trips.trips.xml": "29fb379b3283de0bc13b277ff73853cd0f7d5e918fb1cafaa0a0c474416bc3fe",
+    "user-network.before-lanefix-20261014.net.xml": "037af2e2cbddf800c50ffcc26c38242495d253c91994b97fdfb502bd0518824e",
+    "user-network.net.xml": "61a4178aa4f17029bd7e0d178c3bfbc0d3019ec9fa93ade5f53aec0f931b41e5"
+  },
+  "batches": {
+    "development-final": {
+      "complete": true,
+      "case_count": 10,
+      "valid_count": 2,
+      "full_window_count": 10,
+      "collision_case_count": 0,
+      "teleport_case_count": 0,
+      "strategic_stall_case_count": 8
+    },
+    "heldout-full": {
+      "complete": true,
+      "case_count": 20,
+      "valid_count": 0,
+      "full_window_count": 20,
+      "collision_case_count": 0,
+      "teleport_case_count": 0,
+      "strategic_stall_case_count": 20
+    },
+    "heldout-stress": {
+      "complete": true,
+      "case_count": 15,
+      "valid_count": 2,
+      "full_window_count": 15,
+      "collision_case_count": 0,
+      "teleport_case_count": 0,
+      "strategic_stall_case_count": 13
+    }
+  },
+  "case_inputs": [
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 201,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "179c8400c75c48afcafecfdb04b1764315117d181a7a53e7d29dbb881f862c59",
+      "driver_assignment_sha256": "879dfb76a0c861eaacab301c069f6982b055dfe77dd1dd28be201c80e333055d"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 201,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "179c8400c75c48afcafecfdb04b1764315117d181a7a53e7d29dbb881f862c59",
+      "driver_assignment_sha256": "879dfb76a0c861eaacab301c069f6982b055dfe77dd1dd28be201c80e333055d"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 201,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "179c8400c75c48afcafecfdb04b1764315117d181a7a53e7d29dbb881f862c59",
+      "driver_assignment_sha256": "879dfb76a0c861eaacab301c069f6982b055dfe77dd1dd28be201c80e333055d"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 201,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "05131cf23d29bf1463e47013e7d6b156d1f13664d4723c668bd20e30e69adbd4",
+      "driver_assignment_sha256": "fafbb26b332ecacaef9c3daf2433ff34e78ca30b5ac4fbb7eed43fbb3ef521dd"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 201,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "179c8400c75c48afcafecfdb04b1764315117d181a7a53e7d29dbb881f862c59",
+      "driver_assignment_sha256": "879dfb76a0c861eaacab301c069f6982b055dfe77dd1dd28be201c80e333055d"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 201,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "179c8400c75c48afcafecfdb04b1764315117d181a7a53e7d29dbb881f862c59",
+      "driver_assignment_sha256": "879dfb76a0c861eaacab301c069f6982b055dfe77dd1dd28be201c80e333055d"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 201,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "05131cf23d29bf1463e47013e7d6b156d1f13664d4723c668bd20e30e69adbd4",
+      "driver_assignment_sha256": "fafbb26b332ecacaef9c3daf2433ff34e78ca30b5ac4fbb7eed43fbb3ef521dd"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 201,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "05131cf23d29bf1463e47013e7d6b156d1f13664d4723c668bd20e30e69adbd4",
+      "driver_assignment_sha256": "fafbb26b332ecacaef9c3daf2433ff34e78ca30b5ac4fbb7eed43fbb3ef521dd"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 201,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "05131cf23d29bf1463e47013e7d6b156d1f13664d4723c668bd20e30e69adbd4",
+      "driver_assignment_sha256": "fafbb26b332ecacaef9c3daf2433ff34e78ca30b5ac4fbb7eed43fbb3ef521dd"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 202,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "a1185dbe7425593610c9e804e2f2ab391837299e301fe395aaf46e4c91bde500",
+      "driver_assignment_sha256": "982d577573d1f0c587b92e438040fb53c2df2bc370d24b8462674b47e377bbd9"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 202,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "a1185dbe7425593610c9e804e2f2ab391837299e301fe395aaf46e4c91bde500",
+      "driver_assignment_sha256": "982d577573d1f0c587b92e438040fb53c2df2bc370d24b8462674b47e377bbd9"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 201,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "05131cf23d29bf1463e47013e7d6b156d1f13664d4723c668bd20e30e69adbd4",
+      "driver_assignment_sha256": "fafbb26b332ecacaef9c3daf2433ff34e78ca30b5ac4fbb7eed43fbb3ef521dd"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 202,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "a1185dbe7425593610c9e804e2f2ab391837299e301fe395aaf46e4c91bde500",
+      "driver_assignment_sha256": "982d577573d1f0c587b92e438040fb53c2df2bc370d24b8462674b47e377bbd9"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 202,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "a1185dbe7425593610c9e804e2f2ab391837299e301fe395aaf46e4c91bde500",
+      "driver_assignment_sha256": "982d577573d1f0c587b92e438040fb53c2df2bc370d24b8462674b47e377bbd9"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "baseline",
+      "seed": 202,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "a1185dbe7425593610c9e804e2f2ab391837299e301fe395aaf46e4c91bde500",
+      "driver_assignment_sha256": "982d577573d1f0c587b92e438040fb53c2df2bc370d24b8462674b47e377bbd9"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 202,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "aaecad88774876292a2e3dc1893f0c79b6c0e93962e96d30e78537d8a544d0e6",
+      "driver_assignment_sha256": "4050722d149aa8df2839358920646522636e4a3eef73b6201878c8598bda4767"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 202,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "aaecad88774876292a2e3dc1893f0c79b6c0e93962e96d30e78537d8a544d0e6",
+      "driver_assignment_sha256": "4050722d149aa8df2839358920646522636e4a3eef73b6201878c8598bda4767"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 202,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "aaecad88774876292a2e3dc1893f0c79b6c0e93962e96d30e78537d8a544d0e6",
+      "driver_assignment_sha256": "4050722d149aa8df2839358920646522636e4a3eef73b6201878c8598bda4767"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 202,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "aaecad88774876292a2e3dc1893f0c79b6c0e93962e96d30e78537d8a544d0e6",
+      "driver_assignment_sha256": "4050722d149aa8df2839358920646522636e4a3eef73b6201878c8598bda4767"
+    },
+    {
+      "batch": "heldout-full",
+      "scenario": "merge",
+      "seed": 202,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "aaecad88774876292a2e3dc1893f0c79b6c0e93962e96d30e78537d8a544d0e6",
+      "driver_assignment_sha256": "4050722d149aa8df2839358920646522636e4a3eef73b6201878c8598bda4767"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "disorder",
+      "seed": 203,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "5117500d1e6fdcc5fef98504f52934231ec88974bdc8e955ea859c77ad80de76",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "disorder",
+      "seed": 203,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "5117500d1e6fdcc5fef98504f52934231ec88974bdc8e955ea859c77ad80de76",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "disorder",
+      "seed": 203,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "5117500d1e6fdcc5fef98504f52934231ec88974bdc8e955ea859c77ad80de76",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "surge",
+      "seed": 203,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "f62a61c43a5b8930630f9277a440f9d8bf9222621e49b4f929c7b5b763a5df76",
+      "driver_assignment_sha256": "56b1a18db1deb1cc27b0aa6e38f3ab8690fc7c25edad9515b5ae7804571c3cf0"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "disorder",
+      "seed": 203,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "5117500d1e6fdcc5fef98504f52934231ec88974bdc8e955ea859c77ad80de76",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "disorder",
+      "seed": 203,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "5117500d1e6fdcc5fef98504f52934231ec88974bdc8e955ea859c77ad80de76",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "surge",
+      "seed": 203,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "f62a61c43a5b8930630f9277a440f9d8bf9222621e49b4f929c7b5b763a5df76",
+      "driver_assignment_sha256": "56b1a18db1deb1cc27b0aa6e38f3ab8690fc7c25edad9515b5ae7804571c3cf0"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "surge",
+      "seed": 203,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "f62a61c43a5b8930630f9277a440f9d8bf9222621e49b4f929c7b5b763a5df76",
+      "driver_assignment_sha256": "56b1a18db1deb1cc27b0aa6e38f3ab8690fc7c25edad9515b5ae7804571c3cf0"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "surge",
+      "seed": 203,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "f62a61c43a5b8930630f9277a440f9d8bf9222621e49b4f929c7b5b763a5df76",
+      "driver_assignment_sha256": "56b1a18db1deb1cc27b0aa6e38f3ab8690fc7c25edad9515b5ae7804571c3cf0"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "incident",
+      "seed": 203,
+      "policy": "fixed",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "e7d1e4eeeae1ec2125a359af658cdf3a45f4e77ed656bd8982a9453a54a0687c",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "surge",
+      "seed": 203,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "f62a61c43a5b8930630f9277a440f9d8bf9222621e49b4f929c7b5b763a5df76",
+      "driver_assignment_sha256": "56b1a18db1deb1cc27b0aa6e38f3ab8690fc7c25edad9515b5ae7804571c3cf0"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "incident",
+      "seed": 203,
+      "policy": "max_pressure",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "e7d1e4eeeae1ec2125a359af658cdf3a45f4e77ed656bd8982a9453a54a0687c",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "incident",
+      "seed": 203,
+      "policy": "coordinated",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "e7d1e4eeeae1ec2125a359af658cdf3a45f4e77ed656bd8982a9453a54a0687c",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "incident",
+      "seed": 203,
+      "policy": "mpc",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "e7d1e4eeeae1ec2125a359af658cdf3a45f4e77ed656bd8982a9453a54a0687c",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    },
+    {
+      "batch": "heldout-stress",
+      "scenario": "incident",
+      "seed": 203,
+      "policy": "mpc_learned",
+      "network_sha256": "fa5e85262604643955325e186acd93380c7bdd74446cf0a76c1dbd31d3adc097",
+      "demand_sha256": "e7d1e4eeeae1ec2125a359af658cdf3a45f4e77ed656bd8982a9453a54a0687c",
+      "driver_assignment_sha256": "9da0877e8ca2ccfe149bc47289900ceb11c962eaf3471cd9ebacc81201625629"
+    }
+  ],
+  "limits": [
+    "All 20 full-period cases invalid for long strategic stalls; only 2/15 stress cases valid.",
+    "All 35 heldout cases completed planned windows with zero reported collisions or teleports.",
+    "Forecast error gains use invalid warmup prefixes, not peak or post-perturbation labels.",
+    "Raw receipts, full frozen snapshots and RNG checkpoints remain in the local ignored experiments directory, outside this compact handoff.",
+    "Learned model is diagnostic, not selected by the browser MPC option."
+  ]
+}

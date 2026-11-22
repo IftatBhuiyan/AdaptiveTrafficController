@@ -1,5 +1,5 @@
 {
-  "basis": "No traffic lights inferred solely from intersection size. Controls come from saved OSM tags and reviewed site corrections; timings remain assumed.",
+  "basis": "No traffic lights inferred solely from intersection size. Controls come from saved OSM tags, reviewed site corrections, and saved NYC DOT source reviews; timings remain assumed.",
   "approach_to_intersection": {
     "9236657445": "42910587",
     "cluster_42849719_6406731721": "42842303",
@@ -55,11 +55,6 @@
   },
   "unresolved": [
     {
-      "osm_node": "42842481",
-      "junction": "42842481",
-      "reason": "Stop present; approach scope unspecified. All-way stop is a provisional assumption."
-    },
-    {
       "osm_node": "42842491",
       "reason": "No unambiguous retained approach within 35 m; may be outside the retained street network."
     },
@@ -75,11 +70,6 @@
       "osm_node": "5116199182",
       "junction": "42927013",
       "reason": "Intersecting street is absent from retained network; stop not moved to an unrelated location."
-    },
-    {
-      "osm_node": "5866672576",
-      "junction": "cluster_42818218_9776116426_9776116432_9776116443_#1more",
-      "reason": "OSM stop marker conflicts with mapped signal; signal retained pending field review."
     },
     {
       "osm_node": "5866672687",
@@ -421,8 +411,9 @@
         "24th Avenue",
         "33rd Street"
       ],
-      "basis": "OSM signal / reviewed junction; OSM stop marker conflicts with mapped signal; signal retained pending field review.",
-      "review_needed": true
+      "basis": "NYC DOT Accessible Pedestrian Signal Locations: 24 Avenue and 33 Street, APS installed 2021-09-14. Signalized intersection confirmed; conflicting older OSM stop marker 5866672576 is superseded by this source.",
+      "review_needed": false,
+      "source_review": "map_control_review.json#cluster_42818218_9776116426_9776116432_9776116443_#1more"
     },
     "42818227": {
       "type": "allway_stop",
@@ -597,8 +588,9 @@
         "25th Avenue",
         "41st Street"
       ],
-      "basis": "OSM stop markers 42842481; Stop present; approach scope unspecified. All-way stop is a provisional assumption.",
-      "review_needed": true
+      "basis": "NYC DOT current STOP-sign work order C-01688681 (2024-01-06): 25 Avenue / 41 Street signs face South, East, and West, covering all three retained incoming approaches. Existing all-way stop confirmed.",
+      "review_needed": false,
+      "source_review": "map_control_review.json#42842481"
     },
     "3570224405": {
       "type": "traffic_light",
@@ -754,8 +746,9 @@
         "29th Street",
         "Dorothy Place"
       ],
-      "basis": "OSM road priority; control not field-verified",
-      "review_needed": true
+      "basis": "Private gated Dorothy Place access to 29th Street (OSM access=private and gate 2802664430). NYC DOT STOP order C-860307 is Historical (1990-10-02); current stop/yield scope remains unverified, so existing priority is provisional.",
+      "review_needed": true,
+      "source_review": "map_control_review.json#42833271"
     },
     "cluster_42888656_6406731390_6406731393_6406731437": {
       "type": "traffic_light",
@@ -854,8 +847,9 @@
       "streets": [
         "Hoyt Avenue South"
       ],
-      "basis": "OSM road priority; control not field-verified",
-      "review_needed": true
+      "basis": "OSM lane-addition junction: the 3-lane RFK exit joins 2-lane Hoyt Avenue South into 5 lanes before the separate 31st Street signal. No crossing street at this node; existing SUMO road priority retained.",
+      "review_needed": false,
+      "source_review": "map_control_review.json#588175755"
     },
     "276210711": {
       "type": "priority",
@@ -920,8 +914,9 @@
       "streets": [
         "Astoria Boulevard South"
       ],
-      "basis": "OSM road priority; control not field-verified",
-      "review_needed": true
+      "basis": "OSM channelized merge: the unnamed 31st Street slip road joins eastbound Astoria Boulevard South before the separate 33rd Street signal. Existing major-road priority 11 over slip-road priority 6 retained.",
+      "review_needed": false,
+      "source_review": "map_control_review.json#1934650076"
     },
     "8765434968": {
       "type": "priority",
@@ -1835,5 +1830,21 @@
       "basis": "Single incoming approach / road branch; no conflicting incoming street",
       "review_needed": false
     }
-  }
+  },
+  "resolved_source_conflicts": [
+    {
+      "osm_node": "5866672576",
+      "junction": "cluster_42818218_9776116426_9776116432_9776116443_#1more",
+      "reason": "OSM stop marker conflicts with mapped signal; signal retained pending field review.",
+      "resolution": "NYC DOT Accessible Pedestrian Signal Locations: 24 Avenue and 33 Street, APS installed 2021-09-14. Signalized intersection confirmed; conflicting older OSM stop marker 5866672576 is superseded by this source.",
+      "source_review": "map_control_review.json#cluster_42818218_9776116426_9776116432_9776116443_#1more"
+    },
+    {
+      "osm_node": "42842481",
+      "junction": "42842481",
+      "reason": "Stop present; approach scope unspecified. All-way stop is a provisional assumption.",
+      "resolution": "NYC DOT current STOP-sign work order C-01688681 (2024-01-06): 25 Avenue / 41 Street signs face South, East, and West, covering all three retained incoming approaches. Existing all-way stop confirmed.",
+      "source_review": "map_control_review.json#42842481"
+    }
+  ]
 }
