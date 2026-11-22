@@ -1,0 +1,73 @@
+{
+ "policy": "mpc",
+ "seed": 42,
+ "ramp_per_30min_4to6pm": [
+  124,
+  43,
+  25,
+  10
+ ],
+ "nysdot_053167": [
+  834,
+  810,
+  910,
+  837
+ ],
+ "stuck_over_3min": [
+  [
+   "4:00",
+   2
+  ],
+  [
+   "4:15",
+   0
+  ],
+  [
+   "4:30",
+   78
+  ],
+  [
+   "4:45",
+   197
+  ],
+  [
+   "5:00",
+   575
+  ],
+  [
+   "5:15",
+   644
+  ],
+  [
+   "5:30",
+   794
+  ],
+  [
+   "5:45",
+   899
+  ],
+  [
+   "6:00",
+   1007
+  ],
+  [
+   "6:15",
+   1030
+  ],
+  [
+   "6:30",
+   1030
+  ]
+ ],
+ "arrived": 8039,
+ "not_yet_entered_at_6pm": 6457,
+ "collisions": 4,
+ "first_collision": "5:15",
+ "teleports": 0,
+ "vehicle_hours_in_system_4pm_on": 10866.7,
+ "finished_trips_after_4pm": 6577,
+ "mean_delay_finished_s": 113.9,
+ "controller_cpu_seconds": 791.1,
+ "valid": false,
+ "gridlock_at_end": true
+}

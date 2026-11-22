@@ -1,0 +1,78 @@
+{
+ "policy": "webster",
+ "seed": 3,
+ "tuning": {},
+ "ramp_per_30min_4to6pm": [
+  310,
+  295,
+  334,
+  308
+ ],
+ "nysdot_053167": [
+  834,
+  810,
+  910,
+  837
+ ],
+ "stuck_over_3min": [
+  [
+   "4:00",
+   0
+  ],
+  [
+   "4:15",
+   1
+  ],
+  [
+   "4:30",
+   0
+  ],
+  [
+   "4:45",
+   24
+  ],
+  [
+   "5:00",
+   43
+  ],
+  [
+   "5:15",
+   132
+  ],
+  [
+   "5:30",
+   127
+  ],
+  [
+   "5:45",
+   41
+  ],
+  [
+   "6:00",
+   81
+  ],
+  [
+   "6:15",
+   50
+  ],
+  [
+   "6:30",
+   78
+  ]
+ ],
+ "arrived": 11389,
+ "not_yet_entered_at_6pm": 4497,
+ "collisions": 32,
+ "first_collision": "3:58",
+ "teleports": 0,
+ "vehicle_hours_in_system_4pm_on": 7897.8,
+ "finished_trips_after_4pm": 9917,
+ "mean_delay_finished_s": 334.4,
+ "controller_cpu_seconds": 0.0,
+ "mpc_decisions": 0,
+ "mpc_fallbacks": {},
+ "adjustments": null,
+ "phase_switches": 0,
+ "valid": false,
+ "gridlock_at_end": false
+}
