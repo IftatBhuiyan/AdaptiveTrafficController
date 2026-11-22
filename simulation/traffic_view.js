@@ -591,6 +591,14 @@ async function changeTraffic(){
   catch(error){requestedTraffic=null;$('driver-profile').disabled=$('peak-hour').disabled=$('traffic-mode').disabled=false;$('error').textContent=error.message;$('error').style.display='inline';}
 }
 $('peak-hour').onchange=changeTraffic;$('traffic-mode').onchange=changeTraffic;$('driver-profile').onchange=changeTraffic;
+let requestedScenario=null;
+$('network-scenario').onchange=async()=>{
+  if(dirty){$('network-scenario').value=state.network_scenario;return message('Apply your staged map changes before switching the network.',true);}
+  if(editing)closeEditor();
+  requestedScenario=$('network-scenario').value;$('network-scenario').disabled=true;
+  try{await control('scenario',requestedScenario);$('status').textContent='Loading the selected network and warming up…';}
+  catch(error){requestedScenario=null;$('network-scenario').disabled=false;$('error').textContent=error.message;$('error').style.display='inline';}
+};
 $('controller-mode').onchange=async()=>{
   if(dirty){$('controller-mode').value=state.controller_mode;return message('Apply your staged map changes before comparing controllers.',true);}
   requestedController=$('controller-mode').value;$('controller-mode').disabled=true;
@@ -611,7 +619,7 @@ window.addEventListener('keydown',event=>{
 function showEngineFailure(text) {
   engineUnavailable=true;requestedTraffic=requestedController=null;busy=false;
   $('status').textContent=text;$('dot').style.background='#b94837';
-  for(const id of ['toggle','restart','controller-mode','peak-hour','traffic-mode','driver-profile'])$(id).disabled=true;
+  for(const id of ['toggle','restart','network-scenario','controller-mode','peak-hour','traffic-mode','driver-profile'])$(id).disabled=true;
   $('error').textContent='Start the simulation launcher again. Any unapplied map changes are still staged in this page.';
   $('error').style.display='inline';updateTools();
 }
@@ -633,7 +641,13 @@ async function poll() {
       $('restart').disabled=false;
       if (document.activeElement !== $('speed')) $('speed').value = next.speed;
       if(requestedTraffic&&((next.target_hour===requestedTraffic.hour&&next.traffic_mode===requestedTraffic.mode&&next.driver_profile===requestedTraffic.driver_profile)||next.edit_error))requestedTraffic=null;
-      $('driver-profile').disabled=$('peak-hour').disabled=$('traffic-mode').disabled=!!requestedTraffic;
+      const fixedNetwork=next.network_scenario==='baseline-v2';
+      if(requestedScenario===next.network_scenario||next.edit_error)requestedScenario=null;
+      $('network-scenario').disabled=!!requestedScenario;
+      if(!requestedScenario)$('network-scenario').value=next.network_scenario;
+      for(const option of $('controller-mode').options)option.disabled=!(next.controller_modes||[]).includes(option.value);
+      $('editor-toggle').disabled=fixedNetwork;$('editor-toggle').title=fixedNetwork?'Map editing applies to the editable Astoria network.':'';
+      $('peak-hour').disabled=!!requestedTraffic;$('driver-profile').disabled=$('traffic-mode').disabled=!!requestedTraffic||fixedNetwork;
       if(!requestedTraffic&&!next.updating){$('peak-hour').value=String(next.target_hour);$('traffic-mode').value=next.traffic_mode;$('driver-profile').value=next.driver_profile;}
       if(requestedController===next.controller_mode)requestedController=null;
       $('controller-mode').disabled=!!requestedController;
@@ -643,16 +657,19 @@ async function poll() {
       $('pending').textContent=next.pending;
       $('scenario-note').textContent = next.traffic_mode!=='baseline' ? 'Assumed stress scenario: heavy mainline demand and a constrained receiving lane. Driver cooperation, demand bursts, and blockages are experimental settings. The next exit is outside this map.' : 'Count-informed baseline: collected station profiles and estimated connecting traffic.';
       if(next.driver_profile==='varied')$('scenario-note').textContent+=' Seeded legal route and driver variation; not calibrated driver behavior.';
+      if(fixedNetwork)$('scenario-note').textContent='baseline-v2: the network and evening demand with the off-ramp fixes. Traffic scenario and driver options do not apply here.';
       for (const key of ['waiting', 'arrived']) $(key).textContent = next[key].toLocaleString();
       const c=next.controller;
       if(c){
-        const label=next.controller_mode==='mpc'?'Network MPC (experimental)':next.controller_mode==='intelligent'?'Intelligent coordinator':next.controller_mode==='coordinated'?'Coordinated adaptive':next.controller_mode==='local'?'Local capacity-aware control':'Fixed-time control';
+        const learned=next.controller_mode.startsWith('ml_');
+        const label=next.controller_mode==='ml_neighborhood'?'Learned controller · neighbourhood view':next.controller_mode==='ml_local'?'Learned controller · local view only':next.controller_mode==='max_pressure'?'Max pressure':next.controller_mode==='mpc'?'Network MPC (experimental)':next.controller_mode==='intelligent'?'Intelligent coordinator':next.controller_mode==='coordinated'?'Coordinated adaptive':next.controller_mode==='local'?'Local capacity-aware control':'Fixed-time control';
         $('controller-summary').textContent=`${label} · ${c.signal_count} signals · ${next.warming?'collecting warm-up history':`${c.decisions} adaptive changes`}`;
         $('controller-diagnostics').textContent=next.warming?`Common fixed-control warm-up; the selected controller starts at ${next.target_hour===17?'5 pm':'4 pm'}. Collecting arrival, queue, and discharge history.`:`${c.horizon} s lookahead · ${c.blocked_receivers} blocked receiving links · merge discharge model estimate ${c.merge_discharge_vehicles_per_hour} vehicles/hour · ${c.neighbour_messages} neighbour messages · ${c.decision_ms} ms for the last decision · stock forecast error ${c.forecast_mae_vehicles??'—'} vehicles per observed approach. A split red/green marker means only some turns can go. All figures refer to this simulation.`;
-        const names={astoria_31st_north:'31st Street · north',astoria_31st_south:'31st Street · south',astoria_33rd:'33rd Street · ramp entry'};
+        if(learned&&!next.warming)$('controller-diagnostics').textContent=`Trained model ${c.model_id} (${c.model_variant}). Sees: ${c.sensing} Every 5 s it scores keeping the current green against moving to the next one, by how the number of vehicles upstream of this signal and its neighbours is expected to change over the next ${c.horizon} s; minimum green, yellow, all-red, maximum green and the service-gap rule are enforced outside the model. ${c.model_decisions} model decisions · ${c.forced_by_service_rules} forced by service rules · ${c.decision_ms} ms for the last decision tick (model ${c.model_ms} ms). Counts are exact simulator values, not roadside sensors.`;
+        const names={astoria_31st_north:'31st Street · north',astoria_31st_south:'31st Street · south',astoria_33rd:'33rd Street · ramp entry',cluster_5104280319_7784017526_7784017558_astoria_31st_north:'31st Street · north',cluster_6406731473_astoria_31st_south:'31st Street · south'};
         $('controller-detail').replaceChildren(...Object.entries(names).filter(([id])=>c.signals[id]).map(([id,name])=>{
           const s=c.signals[id],div=document.createElement('div');div.className='controller-junction';const title=document.createElement('strong');title.textContent=name;
-          const text=document.createElement('span');text.textContent=next.warming?`Fixed-control warm-up · ${s.queued_vehicles} queued. Collecting traffic history before the selected start time.`:next.controller_mode==='fixed'?'Repeating protected greens at fixed times, with yellow and occupied-box clearance.':`${s.stage} · phase ${s.phase+1}. ${s.queued_vehicles} queued; ${s.expected_arrivals} approaching (detector estimate). ${s.reason}. ${next.controller_mode==='mpc'?'':`Estimated service: ${s.predicted_service} vehicles.`}`;
+          const text=document.createElement('span');text.textContent=next.warming?`Fixed-control warm-up · ${s.queued_vehicles} queued. Collecting traffic history before the selected start time.`:next.controller_mode==='fixed'?'Repeating protected greens at fixed times, with yellow and occupied-box clearance.':`${s.stage} · phase ${s.phase+1}. ${s.queued_vehicles} queued; ${s.expected_arrivals} approaching (detector estimate). ${s.reason}. ${next.controller_mode==='mpc'||learned||next.controller_mode==='max_pressure'?'':`Estimated service: ${s.predicted_service} vehicles.`}`;
           div.append(title,text);return div;
         }));
       }

@@ -18,16 +18,30 @@ import threading
 import time
 import xml.etree.ElementTree as ET
 from sumo_runtime import configure
-from scenario_editor import ScenarioEditor, DRAWING_KINDS
+from scenario_editor import ScenarioEditor, DRAWING_KINDS, DEFAULT as NO_EDITS
+import baseline_v2_scenario
 from traffic_behavior import MODES
 from adaptive_controller import AdaptiveController, MODES as ADAPTIVE_MODES
 from intelligent_coordinator import IntelligentCoordinator
 
 CONTROLLER_MODES = ADAPTIVE_MODES | {"intelligent", "mpc"}
+# The learned controllers were trained on the baseline-v2 network and run there,
+# next to fixed time and max pressure on the same phase list and safety layer.
+ML_MODELS = {"ml_neighborhood": "neighborhood.json", "ml_local": "local.json"}
+BASELINE_V2_MODES = {"fixed", "max_pressure", *ML_MODELS}
+SCENARIOS = {"editor", "baseline-v2"}
+MODEL_FOLDER = Path(__file__).resolve().parent / "neighborhood-ml" / "models"
+START_SCENARIO = os.environ.get("ASTORIA_SCENARIO", "editor")
 
 
 def make_controller(network, selected):
     """The intelligent coordinator warms up on the imported plan, then decides."""
+    if selected in BASELINE_V2_MODES and scenario_name == "baseline-v2":
+        from neighborhood_ml import NeighborhoodController
+        model = MODEL_FOLDER / ML_MODELS[selected] if selected in ML_MODELS else None
+        if model is not None and not model.is_file():
+            raise ValueError(f"No trained model at {model}. Train one first (see simulation/neighborhood-ml/README.md).")
+        return NeighborhoodController(traci, network, "fixed", model=model)
     if selected == "mpc":
         from network_mpc import NetworkMPC
         return NetworkMPC(traci, network, "fixed", boundary_exits=editor.plan["exits"])
@@ -37,7 +51,21 @@ def make_controller(network, selected):
 
 
 def active_mode(selected):
-    return "coordinated" if selected == "intelligent" else selected
+    return "coordinated" if selected == "intelligent" else "ml" if selected in ML_MODELS else selected
+
+
+def build_scenario(name, scenario_editor, edits, folder, traffic_mode, start_time, driver_profile):
+    """One SUMO launch description for either network."""
+    if name != "baseline-v2":
+        return scenario_editor.build(edits, folder, traffic_mode, start_time, driver_profile=driver_profile)
+    # baseline-v2 has its own network, demand and signal timing; map edits,
+    # traffic scenarios and driver profiles belong to the editable network.
+    network = baseline_v2_scenario.merged_network(folder)
+    args = [a for a in baseline_v2_scenario.sumo_args(network, 42, start_time)]
+    args = args[:args.index("--no-warnings")] + args[args.index("--no-warnings") + 2:]
+    return {"network": network, "routes": baseline_v2_scenario.ROUTES, "args": args,
+            "edits": {**json.loads(json.dumps(NO_EDITS)), "effects": {"notes": {}}},
+            "planned": len(baseline_v2_scenario.departures(begin=start_time)), "model_repairs": {}}
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "astoria-osm-import"
@@ -50,6 +78,7 @@ commands = queue.Queue()
 snapshot = {"ready": False, "running": False, "error": None}
 network_data = None
 stop_event = threading.Event()
+scenario_name = START_SCENARIO
 editor = ScenarioEditor(network_variant="route-safe")
 edit_job = {"status": "idle", "error": None, "id": 0}
 edit_lock = threading.Lock()
@@ -138,12 +167,12 @@ def geometry(network_file, route_file, edits):
 
 
 def simulate():
-    global snapshot, network_data, editor, edit_job
+    global snapshot, network_data, editor, edit_job, scenario_name
     temporary = ExitStack()
     try:
         traffic_mode, target_time, driver_profile = "merge", 57600, "varied"
-        controller_mode = "intelligent"
-        candidate = editor.build(editor.read(), temporary.enter_context(tempfile.TemporaryDirectory(prefix="astoria-session-")), traffic_mode, driver_profile=driver_profile)
+        controller_mode = "ml_neighborhood" if scenario_name == "baseline-v2" and (MODEL_FOLDER / ML_MODELS["ml_neighborhood"]).is_file() else "fixed" if scenario_name == "baseline-v2" else "intelligent"
+        candidate = build_scenario(scenario_name, editor, editor.read(), temporary.enter_context(tempfile.TemporaryDirectory(prefix="astoria-session-")), traffic_mode, target_time - 900, driver_profile)
         network_data = geometry(candidate["network"], candidate["routes"], candidate["edits"])
         demand = json.loads((DATA / "full-area-demand.json").read_text())
         observed = candidate["planned"]
@@ -175,11 +204,12 @@ def simulate():
                     visited = set()
                     warmup_until = target_time
                     running = True
-                elif command.get("action") in {"apply-edits", "reload-network", "traffic"}:
+                elif command.get("action") in {"apply-edits", "reload-network", "traffic", "scenario"}:
                     running = False
                     snapshot = {**snapshot, "running": False, "updating": True}
                     edit_job = {"status": "building", "error": None, "id": edit_job["id"]}
                     switched = False
+                    previous_scenario, previous_mode = scenario_name, controller_mode
                     try:
                         new_editor = ScenarioEditor(network_variant=editor.network_variant)
                         edits = command["edits"] if "edits" in command else new_editor.read()
@@ -188,11 +218,20 @@ def simulate():
                         new_mode = requested.get("mode", traffic_mode)
                         new_time = requested.get("hour", target_time // 3600) * 3600
                         new_profile = requested.get("driver_profile", driver_profile)
-                        built = new_editor.build(edits, folder, new_mode, new_time - 900, driver_profile=new_profile)
+                        new_scenario = command["value"] if command.get("action") == "scenario" else scenario_name
+                        if command.get("action") == "apply-edits" and new_scenario != "editor":
+                            raise ValueError("Map edits apply to the editable network. Switch the network first.")
+                        new_controller_mode = controller_mode
+                        if new_scenario == "baseline-v2" and controller_mode not in BASELINE_V2_MODES:
+                            new_controller_mode = "ml_neighborhood" if (MODEL_FOLDER / ML_MODELS["ml_neighborhood"]).is_file() else "fixed"
+                        elif new_scenario == "editor" and controller_mode not in CONTROLLER_MODES:
+                            new_controller_mode = "intelligent"
+                        built = build_scenario(new_scenario, new_editor, edits, folder, new_mode, new_time - 900, new_profile)
                         new_geometry = geometry(built["network"], built["routes"], built["edits"])
                         new_args = built["args"] + ["--no-warnings", "true"]
                         traci.load(new_args)
                         switched = True
+                        scenario_name, controller_mode = new_scenario, new_controller_mode
                         new_controller = make_controller(built["network"], controller_mode)
                         if command.get("action") == "apply-edits":
                             new_editor.save(built["edits"])
@@ -209,6 +248,7 @@ def simulate():
                         running = True
                         edit_job = {"status": "saved", "error": None, "id": edit_job["id"]}
                     except Exception as error:
+                        scenario_name, controller_mode = previous_scenario, previous_mode
                         if switched:
                             traci.load(args)
                             controller = make_controller(candidate["network"], controller_mode)
@@ -258,6 +298,8 @@ def simulate():
                         "app": "astoria-traffic-simulation",
                         "revision": network_data["revision"], "updating": False,
                         "traffic_mode": traffic_mode, "target_hour": target_time // 3600, "driver_profile": driver_profile, "network_variant": editor.network_variant,
+                        "network_scenario": scenario_name,
+                        "controller_modes": sorted(BASELINE_V2_MODES if scenario_name == "baseline-v2" else CONTROLLER_MODES),
                         "controller_mode": controller_mode, "controller": controller.status(),
                         "safety_stop": collisions > 0 or teleports > 0,
                         "edit_error": edit_job["error"] if edit_job["status"] == "failed" else None,
@@ -347,6 +389,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send(editor.open_netedit())
                 return
             if self.path == "/apply-edits":
+                if scenario_name != "editor":
+                    raise ValueError("Map edits apply to the editable network. Switch the network first.")
                 validated = editor.validate(command)
                 with edit_lock:
                     if edit_job["status"] in {"queued", "building"}:
@@ -356,24 +400,34 @@ class Handler(BaseHTTPRequestHandler):
                 commands.put({"action": "apply-edits", "edits": validated})
                 self.send(edit_job)
                 return
-            if command.get("action") not in {"play", "pause", "restart", "speed", "reload-network", "traffic", "controller"}:
+            if command.get("action") not in {"play", "pause", "restart", "speed", "reload-network", "traffic", "controller", "scenario"}:
                 raise ValueError("Unknown action")
+            if command["action"] == "scenario" and command.get("value") not in SCENARIOS:
+                raise ValueError("Choose the editable network or baseline-v2.")
             if command["action"] == "traffic":
                 value = command.get("value")
                 if not isinstance(value, dict) or value.get("mode") not in MODES or value.get("hour") not in {16, 17} or value.get("driver_profile", "nominal") not in {"nominal", "varied"}:
                     raise ValueError("Choose 4 pm or 5 pm and a traffic scenario.")
             if command["action"] == "speed" and command.get("value") not in {1, 4, 10, 20}:
                 raise ValueError("Unsupported speed")
-            if command["action"] == "controller" and command.get("value") not in CONTROLLER_MODES:
-                raise ValueError("Choose intelligent, coordinated, local, or fixed signal control.")
+            allowed = BASELINE_V2_MODES if scenario_name == "baseline-v2" else CONTROLLER_MODES
+            if command["action"] == "controller" and command.get("value") not in allowed:
+                raise ValueError("That controller is not available on this network. Choose one of: " + ", ".join(sorted(allowed)) + ".")
+            if command["action"] == "controller" and command["value"] in ML_MODELS and not (MODEL_FOLDER / ML_MODELS[command["value"]]).is_file():
+                raise ValueError("No trained model file yet. See simulation/neighborhood-ml/README.md.")
             commands.put(command)
             self.send({"ok": True})
         except (ValueError, TypeError, KeyError, OSError, subprocess.SubprocessError) as error:
             self.send({"error": str(error)}, status=400)
 
 
-def main(port=8011, open_browser=False):
+def main(port=8011, open_browser=False, scenario=None):
     import webbrowser
+    global scenario_name
+    if scenario is not None:
+        if scenario not in SCENARIOS:
+            raise RuntimeError("Unknown scenario; use editor or baseline-v2")
+        scenario_name = scenario
     server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     worker = threading.Thread(target=simulate, daemon=True)
     worker.start()
