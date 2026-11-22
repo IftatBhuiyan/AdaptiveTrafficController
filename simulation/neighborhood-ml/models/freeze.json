@@ -1,0 +1,22 @@
+{
+ "frozen_at_unix": 1795063969,
+ "frozen_at": "2026-11-18 23:52:49 EST",
+ "selection_rule": "Round with the lowest mean validation system vehicle-hours averaged over both observation sets (seeds 211-213); the same round is used for both.",
+ "selected_round": 2,
+ "files": {
+  "fit-report.json": "35154317d86d433178a39e7a196b4dfee81915ac2213a3663af6c907d7d00ccc",
+  "local.json": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "neighborhood.json": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915"
+ },
+ "held_out_test_seeds": [
+  3,
+  5,
+  7,
+  11,
+  13,
+  21,
+  42,
+  99
+ ],
+ "note": "Written before any held-out test run was started."
+}

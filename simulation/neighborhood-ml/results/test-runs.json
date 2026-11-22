@@ -1,0 +1,7459 @@
+[
+ {
+  "label": "fixed",
+  "seed": 3,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11334,
+  "pending": 3748,
+  "system_vehicle_hours": 8241.138,
+  "stopped_vehicle_hours": 888.779,
+  "spillback_lane_hours": 48.011,
+  "off_ramp_per_30min": [
+   309,
+   247,
+   320,
+   245,
+   346,
+   176
+  ],
+  "off_ramp_total": 1643,
+  "stuck_over_3min_at_end": 159,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 3,
+    "active": 396,
+    "pending": 280,
+    "arrived": 1070
+   },
+   {
+    "time": 58500.0,
+    "stuck": 18,
+    "active": 478,
+    "pending": 622,
+    "arrived": 2262
+   },
+   {
+    "time": 59400.0,
+    "stuck": 60,
+    "active": 533,
+    "pending": 1217,
+    "arrived": 3397
+   },
+   {
+    "time": 60300.0,
+    "stuck": 91,
+    "active": 592,
+    "pending": 1738,
+    "arrived": 4512
+   },
+   {
+    "time": 61200.0,
+    "stuck": 96,
+    "active": 607,
+    "pending": 2253,
+    "arrived": 5686
+   },
+   {
+    "time": 62100.0,
+    "stuck": 66,
+    "active": 637,
+    "pending": 2783,
+    "arrived": 6848
+   },
+   {
+    "time": 63000.0,
+    "stuck": 95,
+    "active": 600,
+    "pending": 3438,
+    "arrived": 8021
+   },
+   {
+    "time": 63900.0,
+    "stuck": 86,
+    "active": 633,
+    "pending": 4109,
+    "arrived": 9124
+   },
+   {
+    "time": 64800.0,
+    "stuck": 144,
+    "active": 671,
+    "pending": 4582,
+    "arrived": 10273
+   },
+   {
+    "time": 65700.0,
+    "stuck": 92,
+    "active": 519,
+    "pending": 4177,
+    "arrived": 10830
+   },
+   {
+    "time": 66600.0,
+    "stuck": 159,
+    "active": 444,
+    "pending": 3748,
+    "arrived": 11334
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 6,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6803,
+    "mean": 146.612,
+    "p50": 75.0,
+    "p95": 497.0,
+    "max": 5963.0
+   },
+   "vehicles_stopped_over_3min": 1236
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 8.949,
+    "p50": 7.697,
+    "p95": 16.436,
+    "max": 65.71
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11434,
+    "green_states": 11457,
+    "greens_ended": 11400
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11441,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1542.4
+ },
+ {
+  "label": "fixed",
+  "seed": 5,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11422,
+  "pending": 3727,
+  "system_vehicle_hours": 7966.355,
+  "stopped_vehicle_hours": 708.971,
+  "spillback_lane_hours": 41.873,
+  "off_ramp_per_30min": [
+   336,
+   256,
+   265,
+   302,
+   294,
+   177
+  ],
+  "off_ramp_total": 1630,
+  "stuck_over_3min_at_end": 106,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 2,
+    "active": 396,
+    "pending": 277,
+    "arrived": 1073
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 485,
+    "pending": 591,
+    "arrived": 2286
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 488,
+    "pending": 1152,
+    "arrived": 3507
+   },
+   {
+    "time": 60300.0,
+    "stuck": 9,
+    "active": 536,
+    "pending": 1683,
+    "arrived": 4623
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 546,
+    "pending": 2193,
+    "arrived": 5807
+   },
+   {
+    "time": 62100.0,
+    "stuck": 3,
+    "active": 503,
+    "pending": 2805,
+    "arrived": 6960
+   },
+   {
+    "time": 63000.0,
+    "stuck": 82,
+    "active": 540,
+    "pending": 3419,
+    "arrived": 8100
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 532,
+    "pending": 4018,
+    "arrived": 9316
+   },
+   {
+    "time": 64800.0,
+    "stuck": 37,
+    "active": 561,
+    "pending": 4507,
+    "arrived": 10458
+   },
+   {
+    "time": 65700.0,
+    "stuck": 13,
+    "active": 384,
+    "pending": 4172,
+    "arrived": 10970
+   },
+   {
+    "time": 66600.0,
+    "stuck": 106,
+    "active": 377,
+    "pending": 3727,
+    "arrived": 11422
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 6,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6788,
+    "mean": 108.153,
+    "p50": 74.0,
+    "p95": 394.65,
+    "max": 828.0
+   },
+   "vehicles_stopped_over_3min": 955
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 8.88,
+    "p50": 7.379,
+    "p95": 16.754,
+    "max": 109.734
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11431,
+    "green_states": 11457,
+    "greens_ended": 11399,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11441,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1470.8
+ },
+ {
+  "label": "fixed",
+  "seed": 7,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11360,
+  "pending": 3780,
+  "system_vehicle_hours": 8086.383,
+  "stopped_vehicle_hours": 784.141,
+  "spillback_lane_hours": 44.412,
+  "off_ramp_per_30min": [
+   320,
+   304,
+   269,
+   271,
+   297,
+   177
+  ],
+  "off_ramp_total": 1638,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 2,
+    "active": 391,
+    "pending": 277,
+    "arrived": 1078
+   },
+   {
+    "time": 58500.0,
+    "stuck": 21,
+    "active": 467,
+    "pending": 608,
+    "arrived": 2287
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 485,
+    "pending": 1164,
+    "arrived": 3498
+   },
+   {
+    "time": 60300.0,
+    "stuck": 24,
+    "active": 546,
+    "pending": 1664,
+    "arrived": 4632
+   },
+   {
+    "time": 61200.0,
+    "stuck": 91,
+    "active": 587,
+    "pending": 2172,
+    "arrived": 5787
+   },
+   {
+    "time": 62100.0,
+    "stuck": 103,
+    "active": 581,
+    "pending": 2790,
+    "arrived": 6897
+   },
+   {
+    "time": 63000.0,
+    "stuck": 11,
+    "active": 618,
+    "pending": 3415,
+    "arrived": 8026
+   },
+   {
+    "time": 63900.0,
+    "stuck": 23,
+    "active": 582,
+    "pending": 4053,
+    "arrived": 9231
+   },
+   {
+    "time": 64800.0,
+    "stuck": 23,
+    "active": 620,
+    "pending": 4552,
+    "arrived": 10354
+   },
+   {
+    "time": 65700.0,
+    "stuck": 13,
+    "active": 437,
+    "pending": 4222,
+    "arrived": 10867
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 386,
+    "pending": 3780,
+    "arrived": 11360
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 21,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6735,
+    "mean": 123.662,
+    "p50": 72.0,
+    "p95": 428.0,
+    "max": 1655.0
+   },
+   "vehicles_stopped_over_3min": 1300
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 14.459,
+    "p50": 8.921,
+    "p95": 39.871,
+    "max": 576.611
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11431,
+    "green_states": 11456,
+    "greens_ended": 11398
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11442,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2235.8
+ },
+ {
+  "label": "fixed",
+  "seed": 11,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11412,
+  "pending": 3733,
+  "system_vehicle_hours": 7913.365,
+  "stopped_vehicle_hours": 674.853,
+  "spillback_lane_hours": 39.059,
+  "off_ramp_per_30min": [
+   314,
+   290,
+   326,
+   299,
+   273,
+   153
+  ],
+  "off_ramp_total": 1655,
+  "stuck_over_3min_at_end": 65,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 3,
+    "active": 400,
+    "pending": 271,
+    "arrived": 1075
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 476,
+    "pending": 621,
+    "arrived": 2265
+   },
+   {
+    "time": 59400.0,
+    "stuck": 22,
+    "active": 495,
+    "pending": 1211,
+    "arrived": 3441
+   },
+   {
+    "time": 60300.0,
+    "stuck": 8,
+    "active": 527,
+    "pending": 1721,
+    "arrived": 4594
+   },
+   {
+    "time": 61200.0,
+    "stuck": 47,
+    "active": 530,
+    "pending": 2190,
+    "arrived": 5826
+   },
+   {
+    "time": 62100.0,
+    "stuck": 7,
+    "active": 501,
+    "pending": 2711,
+    "arrived": 7056
+   },
+   {
+    "time": 63000.0,
+    "stuck": 52,
+    "active": 513,
+    "pending": 3340,
+    "arrived": 8206
+   },
+   {
+    "time": 63900.0,
+    "stuck": 11,
+    "active": 505,
+    "pending": 3982,
+    "arrived": 9379
+   },
+   {
+    "time": 64800.0,
+    "stuck": 74,
+    "active": 552,
+    "pending": 4520,
+    "arrived": 10454
+   },
+   {
+    "time": 65700.0,
+    "stuck": 40,
+    "active": 383,
+    "pending": 4150,
+    "arrived": 10993
+   },
+   {
+    "time": 66600.0,
+    "stuck": 65,
+    "active": 381,
+    "pending": 3733,
+    "arrived": 11412
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 5,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6761,
+    "mean": 102.202,
+    "p50": 61.0,
+    "p95": 388.0,
+    "max": 718.0
+   },
+   "vehicles_stopped_over_3min": 1032
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 13.219,
+    "p50": 8.425,
+    "p95": 37.941,
+    "max": 190.643
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11431,
+    "green_states": 11457,
+    "greens_ended": 11398
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11441,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2043.9
+ },
+ {
+  "label": "fixed",
+  "seed": 13,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10229,
+  "pending": 4720,
+  "system_vehicle_hours": 8248.581,
+  "stopped_vehicle_hours": 930.235,
+  "spillback_lane_hours": 47.753,
+  "off_ramp_per_30min": [
+   332,
+   314,
+   228,
+   297,
+   3,
+   0
+  ],
+  "off_ramp_total": 1174,
+  "stuck_over_3min_at_end": 577,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 1,
+    "active": 396,
+    "pending": 271,
+    "arrived": 1079
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 450,
+    "pending": 594,
+    "arrived": 2318
+   },
+   {
+    "time": 59400.0,
+    "stuck": 21,
+    "active": 468,
+    "pending": 1136,
+    "arrived": 3543
+   },
+   {
+    "time": 60300.0,
+    "stuck": 47,
+    "active": 547,
+    "pending": 1604,
+    "arrived": 4691
+   },
+   {
+    "time": 61200.0,
+    "stuck": 8,
+    "active": 588,
+    "pending": 2063,
+    "arrived": 5895
+   },
+   {
+    "time": 62100.0,
+    "stuck": 92,
+    "active": 595,
+    "pending": 2679,
+    "arrived": 6994
+   },
+   {
+    "time": 63000.0,
+    "stuck": 15,
+    "active": 554,
+    "pending": 3305,
+    "arrived": 8200
+   },
+   {
+    "time": 63900.0,
+    "stuck": 5,
+    "active": 493,
+    "pending": 3939,
+    "arrived": 9434
+   },
+   {
+    "time": 64800.0,
+    "stuck": 539,
+    "active": 645,
+    "pending": 4720,
+    "arrived": 10161
+   },
+   {
+    "time": 65700.0,
+    "stuck": 577,
+    "active": 577,
+    "pending": 4720,
+    "arrived": 10229
+   },
+   {
+    "time": 66600.0,
+    "stuck": 577,
+    "active": 577,
+    "pending": 4720,
+    "arrived": 10229
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 6,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5842,
+    "mean": 332.768,
+    "p50": 61.0,
+    "p95": 2653.95,
+    "max": 2991.0
+   },
+   "vehicles_stopped_over_3min": 1177
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 14.428,
+    "p50": 8.325,
+    "p95": 38.611,
+    "max": 487.178
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11433,
+    "green_states": 11450,
+    "greens_ended": 11400,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11443,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2243.4
+ },
+ {
+  "label": "fixed",
+  "seed": 21,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11353,
+  "pending": 3778,
+  "system_vehicle_hours": 8050.315,
+  "stopped_vehicle_hours": 764.747,
+  "spillback_lane_hours": 44.334,
+  "off_ramp_per_30min": [
+   287,
+   306,
+   269,
+   280,
+   270,
+   184
+  ],
+  "off_ramp_total": 1596,
+  "stuck_over_3min_at_end": 32,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 2,
+    "active": 397,
+    "pending": 274,
+    "arrived": 1075
+   },
+   {
+    "time": 58500.0,
+    "stuck": 2,
+    "active": 494,
+    "pending": 630,
+    "arrived": 2238
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 482,
+    "pending": 1204,
+    "arrived": 3461
+   },
+   {
+    "time": 60300.0,
+    "stuck": 9,
+    "active": 522,
+    "pending": 1716,
+    "arrived": 4604
+   },
+   {
+    "time": 61200.0,
+    "stuck": 124,
+    "active": 560,
+    "pending": 2204,
+    "arrived": 5782
+   },
+   {
+    "time": 62100.0,
+    "stuck": 47,
+    "active": 549,
+    "pending": 2792,
+    "arrived": 6927
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 547,
+    "pending": 3374,
+    "arrived": 8138
+   },
+   {
+    "time": 63900.0,
+    "stuck": 26,
+    "active": 544,
+    "pending": 4026,
+    "arrived": 9296
+   },
+   {
+    "time": 64800.0,
+    "stuck": 106,
+    "active": 584,
+    "pending": 4532,
+    "arrived": 10410
+   },
+   {
+    "time": 65700.0,
+    "stuck": 28,
+    "active": 420,
+    "pending": 4202,
+    "arrived": 10904
+   },
+   {
+    "time": 66600.0,
+    "stuck": 32,
+    "active": 395,
+    "pending": 3778,
+    "arrived": 11353
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 5,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6734,
+    "mean": 122.954,
+    "p50": 75.0,
+    "p95": 425.0,
+    "max": 1584.0
+   },
+   "vehicles_stopped_over_3min": 1417
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 12.643,
+    "p50": 8.003,
+    "p95": 37.149,
+    "max": 209.488
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11431,
+    "green_states": 11456,
+    "greens_ended": 11398
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11442,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2086.9
+ },
+ {
+  "label": "fixed",
+  "seed": 42,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11429,
+  "pending": 3721,
+  "system_vehicle_hours": 7974.492,
+  "stopped_vehicle_hours": 713.766,
+  "spillback_lane_hours": 41.06,
+  "off_ramp_per_30min": [
+   312,
+   272,
+   288,
+   307,
+   343,
+   133
+  ],
+  "off_ramp_total": 1655,
+  "stuck_over_3min_at_end": 34,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 394,
+    "pending": 283,
+    "arrived": 1069
+   },
+   {
+    "time": 58500.0,
+    "stuck": 5,
+    "active": 463,
+    "pending": 627,
+    "arrived": 2272
+   },
+   {
+    "time": 59400.0,
+    "stuck": 3,
+    "active": 480,
+    "pending": 1182,
+    "arrived": 3485
+   },
+   {
+    "time": 60300.0,
+    "stuck": 30,
+    "active": 557,
+    "pending": 1679,
+    "arrived": 4606
+   },
+   {
+    "time": 61200.0,
+    "stuck": 111,
+    "active": 545,
+    "pending": 2215,
+    "arrived": 5786
+   },
+   {
+    "time": 62100.0,
+    "stuck": 44,
+    "active": 533,
+    "pending": 2772,
+    "arrived": 6963
+   },
+   {
+    "time": 63000.0,
+    "stuck": 25,
+    "active": 554,
+    "pending": 3387,
+    "arrived": 8118
+   },
+   {
+    "time": 63900.0,
+    "stuck": 30,
+    "active": 519,
+    "pending": 4009,
+    "arrived": 9338
+   },
+   {
+    "time": 64800.0,
+    "stuck": 52,
+    "active": 551,
+    "pending": 4489,
+    "arrived": 10486
+   },
+   {
+    "time": 65700.0,
+    "stuck": 42,
+    "active": 382,
+    "pending": 4145,
+    "arrived": 10999
+   },
+   {
+    "time": 66600.0,
+    "stuck": 34,
+    "active": 376,
+    "pending": 3721,
+    "arrived": 11429
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 5,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6777,
+    "mean": 106.203,
+    "p50": 71.0,
+    "p95": 397.2,
+    "max": 733.0
+   },
+   "vehicles_stopped_over_3min": 1060
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 11.724,
+    "p50": 8.24,
+    "p95": 29.586,
+    "max": 267.648
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11437,
+    "green_states": 11464,
+    "greens_ended": 11403,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11441,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2001.8
+ },
+ {
+  "label": "fixed",
+  "seed": 99,
+  "policy": "fixed",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11368,
+  "pending": 3737,
+  "system_vehicle_hours": 8163.958,
+  "stopped_vehicle_hours": 888.191,
+  "spillback_lane_hours": 47.778,
+  "off_ramp_per_30min": [
+   319,
+   315,
+   263,
+   288,
+   331,
+   185
+  ],
+  "off_ramp_total": 1701,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 2,
+    "active": 404,
+    "pending": 276,
+    "arrived": 1066
+   },
+   {
+    "time": 58500.0,
+    "stuck": 10,
+    "active": 492,
+    "pending": 606,
+    "arrived": 2264
+   },
+   {
+    "time": 59400.0,
+    "stuck": 47,
+    "active": 500,
+    "pending": 1174,
+    "arrived": 3473
+   },
+   {
+    "time": 60300.0,
+    "stuck": 63,
+    "active": 572,
+    "pending": 1671,
+    "arrived": 4599
+   },
+   {
+    "time": 61200.0,
+    "stuck": 100,
+    "active": 619,
+    "pending": 2159,
+    "arrived": 5768
+   },
+   {
+    "time": 62100.0,
+    "stuck": 88,
+    "active": 650,
+    "pending": 2750,
+    "arrived": 6868
+   },
+   {
+    "time": 63000.0,
+    "stuck": 246,
+    "active": 681,
+    "pending": 3400,
+    "arrived": 7978
+   },
+   {
+    "time": 63900.0,
+    "stuck": 34,
+    "active": 668,
+    "pending": 4064,
+    "arrived": 9134
+   },
+   {
+    "time": 64800.0,
+    "stuck": 38,
+    "active": 655,
+    "pending": 4535,
+    "arrived": 10336
+   },
+   {
+    "time": 65700.0,
+    "stuck": 23,
+    "active": 489,
+    "pending": 4158,
+    "arrived": 10879
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 421,
+    "pending": 3737,
+    "arrived": 11368
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 13,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6800,
+    "mean": 145.705,
+    "p50": 69.0,
+    "p95": 530.05,
+    "max": 5561.0
+   },
+   "vehicles_stopped_over_3min": 1093
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 11.177,
+    "p50": 8.469,
+    "p95": 24.387,
+    "max": 314.826
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 11426,
+    "green_states": 11450,
+    "greens_ended": 11394,
+    "displayed_green_shortened_by_box_hold": 4
+   }
+  },
+  "controller": {
+   "controller": "fixed",
+   "policy": "fixed",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 0,
+   "phase_switches": 11443,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1748.3
+ },
+ {
+  "label": "fixed_native",
+  "seed": 3,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 6506,
+  "pending": 7789,
+  "system_vehicle_hours": 13732.317,
+  "stopped_vehicle_hours": 2235.617,
+  "spillback_lane_hours": 96.561,
+  "off_ramp_per_30min": [
+   255,
+   4,
+   5,
+   8,
+   3,
+   0
+  ],
+  "off_ramp_total": 275,
+  "stuck_over_3min_at_end": 1231,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 387,
+    "pending": 260,
+    "arrived": 1099
+   },
+   {
+    "time": 58500.0,
+    "stuck": 376,
+    "active": 517,
+    "pending": 716,
+    "arrived": 2129
+   },
+   {
+    "time": 59400.0,
+    "stuck": 593,
+    "active": 697,
+    "pending": 1630,
+    "arrived": 2820
+   },
+   {
+    "time": 60300.0,
+    "stuck": 703,
+    "active": 786,
+    "pending": 2588,
+    "arrived": 3468
+   },
+   {
+    "time": 61200.0,
+    "stuck": 790,
+    "active": 869,
+    "pending": 3577,
+    "arrived": 4100
+   },
+   {
+    "time": 62100.0,
+    "stuck": 898,
+    "active": 984,
+    "pending": 4584,
+    "arrived": 4700
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1015,
+    "active": 1096,
+    "pending": 5670,
+    "arrived": 5293
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1107,
+    "active": 1186,
+    "pending": 6803,
+    "arrived": 5877
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1209,
+    "active": 1281,
+    "pending": 7789,
+    "arrived": 6456
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1231,
+    "active": 1231,
+    "pending": 7789,
+    "arrived": 6506
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1231,
+    "active": 1231,
+    "pending": 7789,
+    "arrived": 6506
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 1,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2777,
+    "mean": 2847.92,
+    "p50": 82.0,
+    "p95": 8597.2,
+    "max": 8707.0
+   },
+   "vehicles_stopped_over_3min": 1231
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1618.3
+ },
+ {
+  "label": "fixed_native",
+  "seed": 5,
+  "policy": "fixed_native",
+  "valid": false,
+  "invalid_reasons": [
+   "collisions"
+  ],
+  "completed": 11473,
+  "pending": 3657,
+  "system_vehicle_hours": 7892.273,
+  "stopped_vehicle_hours": 759.029,
+  "spillback_lane_hours": 42.079,
+  "off_ramp_per_30min": [
+   350,
+   330,
+   285,
+   303,
+   291,
+   175
+  ],
+  "off_ramp_total": 1734,
+  "stuck_over_3min_at_end": 23,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 377,
+    "pending": 258,
+    "arrived": 1111
+   },
+   {
+    "time": 58500.0,
+    "stuck": 5,
+    "active": 428,
+    "pending": 586,
+    "arrived": 2348
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 478,
+    "pending": 1113,
+    "arrived": 3556
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 523,
+    "pending": 1567,
+    "arrived": 4752
+   },
+   {
+    "time": 61200.0,
+    "stuck": 80,
+    "active": 550,
+    "pending": 2106,
+    "arrived": 5890
+   },
+   {
+    "time": 62100.0,
+    "stuck": 24,
+    "active": 615,
+    "pending": 2655,
+    "arrived": 6998
+   },
+   {
+    "time": 63000.0,
+    "stuck": 132,
+    "active": 628,
+    "pending": 3312,
+    "arrived": 8119
+   },
+   {
+    "time": 63900.0,
+    "stuck": 23,
+    "active": 588,
+    "pending": 3977,
+    "arrived": 9301
+   },
+   {
+    "time": 64800.0,
+    "stuck": 24,
+    "active": 641,
+    "pending": 4513,
+    "arrived": 10372
+   },
+   {
+    "time": 65700.0,
+    "stuck": 52,
+    "active": 524,
+    "pending": 4101,
+    "arrived": 10901
+   },
+   {
+    "time": 66600.0,
+    "stuck": 23,
+    "active": 396,
+    "pending": 3657,
+    "arrived": 11473
+   }
+  ],
+  "lane_collisions": 3,
+  "junction_overlap_reports": 14,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6799,
+    "mean": 132.159,
+    "p50": 62.0,
+    "p95": 468.1,
+    "max": 5576.0
+   },
+   "vehicles_stopped_over_3min": 896
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1067.1
+ },
+ {
+  "label": "fixed_native",
+  "seed": 7,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11524,
+  "pending": 3558,
+  "system_vehicle_hours": 7862.021,
+  "stopped_vehicle_hours": 823.045,
+  "spillback_lane_hours": 44.734,
+  "off_ramp_per_30min": [
+   328,
+   338,
+   336,
+   364,
+   345,
+   157
+  ],
+  "off_ramp_total": 1868,
+  "stuck_over_3min_at_end": 23,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 380,
+    "pending": 280,
+    "arrived": 1086
+   },
+   {
+    "time": 58500.0,
+    "stuck": 7,
+    "active": 435,
+    "pending": 612,
+    "arrived": 2315
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 468,
+    "pending": 1129,
+    "arrived": 3550
+   },
+   {
+    "time": 60300.0,
+    "stuck": 46,
+    "active": 566,
+    "pending": 1579,
+    "arrived": 4697
+   },
+   {
+    "time": 61200.0,
+    "stuck": 152,
+    "active": 631,
+    "pending": 2143,
+    "arrived": 5772
+   },
+   {
+    "time": 62100.0,
+    "stuck": 24,
+    "active": 667,
+    "pending": 2656,
+    "arrived": 6945
+   },
+   {
+    "time": 63000.0,
+    "stuck": 119,
+    "active": 645,
+    "pending": 3234,
+    "arrived": 8180
+   },
+   {
+    "time": 63900.0,
+    "stuck": 134,
+    "active": 664,
+    "pending": 3876,
+    "arrived": 9326
+   },
+   {
+    "time": 64800.0,
+    "stuck": 46,
+    "active": 684,
+    "pending": 4347,
+    "arrived": 10495
+   },
+   {
+    "time": 65700.0,
+    "stuck": 23,
+    "active": 524,
+    "pending": 3918,
+    "arrived": 11084
+   },
+   {
+    "time": 66600.0,
+    "stuck": 23,
+    "active": 444,
+    "pending": 3558,
+    "arrived": 11524
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 7,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6912,
+    "mean": 144.363,
+    "p50": 54.0,
+    "p95": 540.9,
+    "max": 6787.0
+   },
+   "vehicles_stopped_over_3min": 817
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 983.5
+ },
+ {
+  "label": "fixed_native",
+  "seed": 11,
+  "policy": "fixed_native",
+  "valid": false,
+  "invalid_reasons": [
+   "collisions"
+  ],
+  "completed": 11398,
+  "pending": 3682,
+  "system_vehicle_hours": 7987.703,
+  "stopped_vehicle_hours": 843.995,
+  "spillback_lane_hours": 45.952,
+  "off_ramp_per_30min": [
+   341,
+   351,
+   309,
+   357,
+   295,
+   167
+  ],
+  "off_ramp_total": 1820,
+  "stuck_over_3min_at_end": 23,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 390,
+    "pending": 260,
+    "arrived": 1096
+   },
+   {
+    "time": 58500.0,
+    "stuck": 2,
+    "active": 476,
+    "pending": 594,
+    "arrived": 2292
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 497,
+    "pending": 1117,
+    "arrived": 3533
+   },
+   {
+    "time": 60300.0,
+    "stuck": 82,
+    "active": 586,
+    "pending": 1590,
+    "arrived": 4666
+   },
+   {
+    "time": 61200.0,
+    "stuck": 181,
+    "active": 657,
+    "pending": 2186,
+    "arrived": 5703
+   },
+   {
+    "time": 62100.0,
+    "stuck": 47,
+    "active": 653,
+    "pending": 2700,
+    "arrived": 6915
+   },
+   {
+    "time": 63000.0,
+    "stuck": 120,
+    "active": 628,
+    "pending": 3301,
+    "arrived": 8130
+   },
+   {
+    "time": 63900.0,
+    "stuck": 45,
+    "active": 643,
+    "pending": 3945,
+    "arrived": 9278
+   },
+   {
+    "time": 64800.0,
+    "stuck": 208,
+    "active": 664,
+    "pending": 4454,
+    "arrived": 10408
+   },
+   {
+    "time": 65700.0,
+    "stuck": 61,
+    "active": 511,
+    "pending": 4038,
+    "arrived": 10977
+   },
+   {
+    "time": 66600.0,
+    "stuck": 23,
+    "active": 446,
+    "pending": 3682,
+    "arrived": 11398
+   }
+  ],
+  "lane_collisions": 1,
+  "junction_overlap_reports": 13,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6775,
+    "mean": 153.527,
+    "p50": 61.0,
+    "p95": 659.2,
+    "max": 7154.0
+   },
+   "vehicles_stopped_over_3min": 994
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1090.4
+ },
+ {
+  "label": "fixed_native",
+  "seed": 13,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11447,
+  "pending": 3662,
+  "system_vehicle_hours": 7713.339,
+  "stopped_vehicle_hours": 717.891,
+  "spillback_lane_hours": 40.742,
+  "off_ramp_per_30min": [
+   344,
+   339,
+   320,
+   348,
+   206,
+   180
+  ],
+  "off_ramp_total": 1737,
+  "stuck_over_3min_at_end": 23,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 392,
+    "pending": 275,
+    "arrived": 1079
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 419,
+    "pending": 600,
+    "arrived": 2343
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 459,
+    "pending": 1119,
+    "arrived": 3569
+   },
+   {
+    "time": 60300.0,
+    "stuck": 2,
+    "active": 506,
+    "pending": 1564,
+    "arrived": 4772
+   },
+   {
+    "time": 61200.0,
+    "stuck": 51,
+    "active": 526,
+    "pending": 2052,
+    "arrived": 5968
+   },
+   {
+    "time": 62100.0,
+    "stuck": 23,
+    "active": 580,
+    "pending": 2570,
+    "arrived": 7118
+   },
+   {
+    "time": 63000.0,
+    "stuck": 80,
+    "active": 560,
+    "pending": 3156,
+    "arrived": 8343
+   },
+   {
+    "time": 63900.0,
+    "stuck": 30,
+    "active": 607,
+    "pending": 3788,
+    "arrived": 9471
+   },
+   {
+    "time": 64800.0,
+    "stuck": 80,
+    "active": 630,
+    "pending": 4476,
+    "arrived": 10420
+   },
+   {
+    "time": 65700.0,
+    "stuck": 23,
+    "active": 457,
+    "pending": 4085,
+    "arrived": 10984
+   },
+   {
+    "time": 66600.0,
+    "stuck": 23,
+    "active": 417,
+    "pending": 3662,
+    "arrived": 11447
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 8,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6804,
+    "mean": 138.83,
+    "p50": 56.0,
+    "p95": 556.85,
+    "max": 5614.0
+   },
+   "vehicles_stopped_over_3min": 1080
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1608.8
+ },
+ {
+  "label": "fixed_native",
+  "seed": 21,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11512,
+  "pending": 3599,
+  "system_vehicle_hours": 7827.548,
+  "stopped_vehicle_hours": 756.071,
+  "spillback_lane_hours": 40.768,
+  "off_ramp_per_30min": [
+   317,
+   326,
+   333,
+   346,
+   306,
+   157
+  ],
+  "off_ramp_total": 1785,
+  "stuck_over_3min_at_end": 24,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 393,
+    "pending": 265,
+    "arrived": 1088
+   },
+   {
+    "time": 58500.0,
+    "stuck": 7,
+    "active": 442,
+    "pending": 612,
+    "arrived": 2308
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 472,
+    "pending": 1123,
+    "arrived": 3552
+   },
+   {
+    "time": 60300.0,
+    "stuck": 13,
+    "active": 531,
+    "pending": 1625,
+    "arrived": 4686
+   },
+   {
+    "time": 61200.0,
+    "stuck": 51,
+    "active": 537,
+    "pending": 2137,
+    "arrived": 5872
+   },
+   {
+    "time": 62100.0,
+    "stuck": 30,
+    "active": 584,
+    "pending": 2636,
+    "arrived": 7048
+   },
+   {
+    "time": 63000.0,
+    "stuck": 143,
+    "active": 617,
+    "pending": 3248,
+    "arrived": 8194
+   },
+   {
+    "time": 63900.0,
+    "stuck": 193,
+    "active": 645,
+    "pending": 3899,
+    "arrived": 9322
+   },
+   {
+    "time": 64800.0,
+    "stuck": 122,
+    "active": 623,
+    "pending": 4387,
+    "arrived": 10516
+   },
+   {
+    "time": 65700.0,
+    "stuck": 24,
+    "active": 486,
+    "pending": 3997,
+    "arrived": 11043
+   },
+   {
+    "time": 66600.0,
+    "stuck": 24,
+    "active": 415,
+    "pending": 3599,
+    "arrived": 11512
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 14,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6825,
+    "mean": 142.77,
+    "p50": 65.0,
+    "p95": 527.0,
+    "max": 5589.0
+   },
+   "vehicles_stopped_over_3min": 995
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1297.2
+ },
+ {
+  "label": "fixed_native",
+  "seed": 42,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11411,
+  "pending": 3690,
+  "system_vehicle_hours": 7856.525,
+  "stopped_vehicle_hours": 729.21,
+  "spillback_lane_hours": 41.685,
+  "off_ramp_per_30min": [
+   347,
+   310,
+   274,
+   336,
+   264,
+   173
+  ],
+  "off_ramp_total": 1704,
+  "stuck_over_3min_at_end": 78,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 390,
+    "pending": 267,
+    "arrived": 1089
+   },
+   {
+    "time": 58500.0,
+    "stuck": 10,
+    "active": 457,
+    "pending": 596,
+    "arrived": 2309
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 470,
+    "pending": 1124,
+    "arrived": 3553
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 505,
+    "pending": 1616,
+    "arrived": 4721
+   },
+   {
+    "time": 61200.0,
+    "stuck": 81,
+    "active": 537,
+    "pending": 2191,
+    "arrived": 5818
+   },
+   {
+    "time": 62100.0,
+    "stuck": 18,
+    "active": 593,
+    "pending": 2676,
+    "arrived": 6999
+   },
+   {
+    "time": 63000.0,
+    "stuck": 71,
+    "active": 582,
+    "pending": 3271,
+    "arrived": 8206
+   },
+   {
+    "time": 63900.0,
+    "stuck": 30,
+    "active": 569,
+    "pending": 3910,
+    "arrived": 9387
+   },
+   {
+    "time": 64800.0,
+    "stuck": 147,
+    "active": 621,
+    "pending": 4441,
+    "arrived": 10464
+   },
+   {
+    "time": 65700.0,
+    "stuck": 23,
+    "active": 488,
+    "pending": 4073,
+    "arrived": 10965
+   },
+   {
+    "time": 66600.0,
+    "stuck": 78,
+    "active": 425,
+    "pending": 3690,
+    "arrived": 11411
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 11,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6743,
+    "mean": 125.886,
+    "p50": 75.0,
+    "p95": 412.8,
+    "max": 5461.0
+   },
+   "vehicles_stopped_over_3min": 986
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1496.8
+ },
+ {
+  "label": "fixed_native",
+  "seed": 99,
+  "policy": "fixed_native",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11394,
+  "pending": 3595,
+  "system_vehicle_hours": 7909.717,
+  "stopped_vehicle_hours": 850.516,
+  "spillback_lane_hours": 46.12,
+  "off_ramp_per_30min": [
+   347,
+   335,
+   313,
+   364,
+   336,
+   174
+  ],
+  "off_ramp_total": 1869,
+  "stuck_over_3min_at_end": 168,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 396,
+    "pending": 268,
+    "arrived": 1082
+   },
+   {
+    "time": 58500.0,
+    "stuck": 10,
+    "active": 443,
+    "pending": 586,
+    "arrived": 2333
+   },
+   {
+    "time": 59400.0,
+    "stuck": 2,
+    "active": 482,
+    "pending": 1098,
+    "arrived": 3567
+   },
+   {
+    "time": 60300.0,
+    "stuck": 14,
+    "active": 546,
+    "pending": 1591,
+    "arrived": 4705
+   },
+   {
+    "time": 61200.0,
+    "stuck": 133,
+    "active": 607,
+    "pending": 2147,
+    "arrived": 5792
+   },
+   {
+    "time": 62100.0,
+    "stuck": 96,
+    "active": 611,
+    "pending": 2663,
+    "arrived": 6994
+   },
+   {
+    "time": 63000.0,
+    "stuck": 118,
+    "active": 639,
+    "pending": 3246,
+    "arrived": 8174
+   },
+   {
+    "time": 63900.0,
+    "stuck": 190,
+    "active": 678,
+    "pending": 3899,
+    "arrived": 9289
+   },
+   {
+    "time": 64800.0,
+    "stuck": 256,
+    "active": 690,
+    "pending": 4400,
+    "arrived": 10436
+   },
+   {
+    "time": 65700.0,
+    "stuck": 179,
+    "active": 598,
+    "pending": 3969,
+    "arrived": 10959
+   },
+   {
+    "time": 66600.0,
+    "stuck": 168,
+    "active": 537,
+    "pending": 3595,
+    "arrived": 11394
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 16,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6837,
+    "mean": 160.667,
+    "p50": 56.0,
+    "p95": 681.0,
+    "max": 6780.0
+   },
+   "vehicles_stopped_over_3min": 850
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": null,
+  "controller": null,
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1500.5
+ },
+ {
+  "label": "max_pressure",
+  "seed": 3,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 5534,
+  "pending": 8572,
+  "system_vehicle_hours": 15756.251,
+  "stopped_vehicle_hours": 2767.828,
+  "spillback_lane_hours": 124.94,
+  "off_ramp_per_30min": [
+   79,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 79,
+  "stuck_over_3min_at_end": 1420,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 316,
+    "active": 486,
+    "pending": 390,
+    "arrived": 870
+   },
+   {
+    "time": 58500.0,
+    "stuck": 591,
+    "active": 714,
+    "pending": 1115,
+    "arrived": 1533
+   },
+   {
+    "time": 59400.0,
+    "stuck": 749,
+    "active": 854,
+    "pending": 2156,
+    "arrived": 2137
+   },
+   {
+    "time": 60300.0,
+    "stuck": 874,
+    "active": 966,
+    "pending": 3142,
+    "arrived": 2734
+   },
+   {
+    "time": 61200.0,
+    "stuck": 990,
+    "active": 1069,
+    "pending": 4166,
+    "arrived": 3311
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1123,
+    "active": 1200,
+    "pending": 5210,
+    "arrived": 3858
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1223,
+    "active": 1299,
+    "pending": 6355,
+    "arrived": 4405
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1320,
+    "active": 1392,
+    "pending": 7522,
+    "arrived": 4952
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1406,
+    "active": 1462,
+    "pending": 8572,
+    "arrived": 5492
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1420,
+    "active": 1420,
+    "pending": 8572,
+    "arrived": 5534
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1420,
+    "active": 1420,
+    "pending": 8572,
+    "arrived": 5534
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 1,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2053,
+    "mean": 4789.695,
+    "p50": 5320.0,
+    "p95": 9475.4,
+    "max": 9645.0
+   },
+   "vehicles_stopped_over_3min": 1465
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 9.092,
+    "p50": 7.824,
+    "p95": 20.885,
+    "max": 106.73
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2001,
+    "green_states": 2003,
+    "greens_ended": 1965
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2001,
+   "phase_switches": 2001,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2370.3
+ },
+ {
+  "label": "max_pressure",
+  "seed": 5,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 6713,
+  "pending": 7483,
+  "system_vehicle_hours": 13132.764,
+  "stopped_vehicle_hours": 2316.79,
+  "spillback_lane_hours": 117.961,
+  "off_ramp_per_30min": [
+   306,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 309,
+  "stuck_over_3min_at_end": 1330,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 45,
+    "active": 404,
+    "pending": 262,
+    "arrived": 1080
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 437,
+    "pending": 647,
+    "arrived": 2278
+   },
+   {
+    "time": 59400.0,
+    "stuck": 450,
+    "active": 595,
+    "pending": 1425,
+    "arrived": 3127
+   },
+   {
+    "time": 60300.0,
+    "stuck": 702,
+    "active": 825,
+    "pending": 2203,
+    "arrived": 3814
+   },
+   {
+    "time": 61200.0,
+    "stuck": 876,
+    "active": 954,
+    "pending": 3187,
+    "arrived": 4405
+   },
+   {
+    "time": 62100.0,
+    "stuck": 982,
+    "active": 1052,
+    "pending": 4225,
+    "arrived": 4991
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1080,
+    "active": 1158,
+    "pending": 5335,
+    "arrived": 5566
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1194,
+    "active": 1277,
+    "pending": 6463,
+    "arrived": 6126
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1286,
+    "active": 1371,
+    "pending": 7484,
+    "arrived": 6671
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1330,
+    "active": 1330,
+    "pending": 7483,
+    "arrived": 6713
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1330,
+    "active": 1330,
+    "pending": 7483,
+    "arrived": 6713
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 1,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 3121,
+    "mean": 2586.928,
+    "p50": 87.0,
+    "p95": 8046.0,
+    "max": 8276.0
+   },
+   "vehicles_stopped_over_3min": 1457
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 10.399,
+    "p50": 7.772,
+    "p95": 28.286,
+    "max": 112.469
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 3711,
+    "green_states": 3716,
+    "greens_ended": 3675
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 3712,
+   "phase_switches": 3712,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2043.3
+ },
+ {
+  "label": "max_pressure",
+  "seed": 7,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 5979,
+  "pending": 8087,
+  "system_vehicle_hours": 14692.968,
+  "stopped_vehicle_hours": 2783.306,
+  "spillback_lane_hours": 144.381,
+  "off_ramp_per_30min": [
+   124,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 124,
+  "stuck_over_3min_at_end": 1460,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 158,
+    "active": 417,
+    "pending": 288,
+    "arrived": 1041
+   },
+   {
+    "time": 58500.0,
+    "stuck": 423,
+    "active": 634,
+    "pending": 841,
+    "arrived": 1887
+   },
+   {
+    "time": 59400.0,
+    "stuck": 731,
+    "active": 858,
+    "pending": 1705,
+    "arrived": 2584
+   },
+   {
+    "time": 60300.0,
+    "stuck": 917,
+    "active": 1004,
+    "pending": 2673,
+    "arrived": 3165
+   },
+   {
+    "time": 61200.0,
+    "stuck": 1036,
+    "active": 1111,
+    "pending": 3688,
+    "arrived": 3747
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1158,
+    "active": 1232,
+    "pending": 4730,
+    "arrived": 4306
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1271,
+    "active": 1349,
+    "pending": 5867,
+    "arrived": 4843
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1364,
+    "active": 1435,
+    "pending": 7035,
+    "arrived": 5396
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1444,
+    "active": 1503,
+    "pending": 8087,
+    "arrived": 5936
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1460,
+    "active": 1460,
+    "pending": 8087,
+    "arrived": 5979
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1460,
+    "active": 1460,
+    "pending": 8087,
+    "arrived": 5979
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2542,
+    "mean": 3864.307,
+    "p50": 3736.0,
+    "p95": 9208.95,
+    "max": 9564.0
+   },
+   "vehicles_stopped_over_3min": 1514
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 13.854,
+    "p50": 8.296,
+    "p95": 43.537,
+    "max": 258.617
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2385,
+    "green_states": 2389,
+    "greens_ended": 2349,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2386,
+   "phase_switches": 2386,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 3579.9
+ },
+ {
+  "label": "max_pressure",
+  "seed": 11,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 5551,
+  "pending": 8564,
+  "system_vehicle_hours": 15723.339,
+  "stopped_vehicle_hours": 2730.24,
+  "spillback_lane_hours": 134.032,
+  "off_ramp_per_30min": [
+   72,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 72,
+  "stuck_over_3min_at_end": 1411,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 308,
+    "active": 458,
+    "pending": 424,
+    "arrived": 864
+   },
+   {
+    "time": 58500.0,
+    "stuck": 551,
+    "active": 682,
+    "pending": 1139,
+    "arrived": 1541
+   },
+   {
+    "time": 59400.0,
+    "stuck": 744,
+    "active": 831,
+    "pending": 2160,
+    "arrived": 2156
+   },
+   {
+    "time": 60300.0,
+    "stuck": 861,
+    "active": 951,
+    "pending": 3146,
+    "arrived": 2745
+   },
+   {
+    "time": 61200.0,
+    "stuck": 953,
+    "active": 1062,
+    "pending": 4159,
+    "arrived": 3325
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1109,
+    "active": 1186,
+    "pending": 5204,
+    "arrived": 3878
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1206,
+    "active": 1289,
+    "pending": 6351,
+    "arrived": 4419
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1307,
+    "active": 1379,
+    "pending": 7517,
+    "arrived": 4970
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1397,
+    "active": 1455,
+    "pending": 8564,
+    "arrived": 5507
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1411,
+    "active": 1411,
+    "pending": 8564,
+    "arrived": 5551
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1411,
+    "active": 1411,
+    "pending": 8564,
+    "arrived": 5551
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2058,
+    "mean": 4697.232,
+    "p50": 5245.0,
+    "p95": 9503.15,
+    "max": 9590.0
+   },
+   "vehicles_stopped_over_3min": 1449
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 14.037,
+    "p50": 8.172,
+    "p95": 44.405,
+    "max": 298.021
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2090,
+    "green_states": 2090,
+    "greens_ended": 2054,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2090,
+   "phase_switches": 2090,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 3399.1
+ },
+ {
+  "label": "max_pressure",
+  "seed": 13,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 5498,
+  "pending": 8604,
+  "system_vehicle_hours": 15840.564,
+  "stopped_vehicle_hours": 2816.562,
+  "spillback_lane_hours": 121.402,
+  "off_ramp_per_30min": [
+   81,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 81,
+  "stuck_over_3min_at_end": 1424,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 334,
+    "active": 504,
+    "pending": 383,
+    "arrived": 859
+   },
+   {
+    "time": 58500.0,
+    "stuck": 641,
+    "active": 746,
+    "pending": 1114,
+    "arrived": 1502
+   },
+   {
+    "time": 59400.0,
+    "stuck": 764,
+    "active": 875,
+    "pending": 2164,
+    "arrived": 2108
+   },
+   {
+    "time": 60300.0,
+    "stuck": 904,
+    "active": 991,
+    "pending": 3151,
+    "arrived": 2700
+   },
+   {
+    "time": 61200.0,
+    "stuck": 1006,
+    "active": 1087,
+    "pending": 4177,
+    "arrived": 3282
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1125,
+    "active": 1224,
+    "pending": 5221,
+    "arrived": 3823
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1249,
+    "active": 1323,
+    "pending": 6369,
+    "arrived": 4367
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1341,
+    "active": 1405,
+    "pending": 7542,
+    "arrived": 4919
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1410,
+    "active": 1465,
+    "pending": 8604,
+    "arrived": 5457
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1424,
+    "active": 1424,
+    "pending": 8604,
+    "arrived": 5498
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1424,
+    "active": 1424,
+    "pending": 8604,
+    "arrived": 5498
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2022,
+    "mean": 4931.82,
+    "p50": 5454.5,
+    "p95": 9469.9,
+    "max": 9652.0
+   },
+   "vehicles_stopped_over_3min": 1471
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 11.428,
+    "p50": 8.147,
+    "p95": 31.742,
+    "max": 203.09
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 1861,
+    "green_states": 1863,
+    "greens_ended": 1825
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 1862,
+   "phase_switches": 1862,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 3340.3
+ },
+ {
+  "label": "max_pressure",
+  "seed": 21,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 5772,
+  "pending": 8350,
+  "system_vehicle_hours": 15175.726,
+  "stopped_vehicle_hours": 2704.551,
+  "spillback_lane_hours": 132.402,
+  "off_ramp_per_30min": [
+   172,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 172,
+  "stuck_over_3min_at_end": 1404,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 77,
+    "active": 446,
+    "pending": 264,
+    "arrived": 1036
+   },
+   {
+    "time": 58500.0,
+    "stuck": 553,
+    "active": 692,
+    "pending": 924,
+    "arrived": 1746
+   },
+   {
+    "time": 59400.0,
+    "stuck": 732,
+    "active": 828,
+    "pending": 1950,
+    "arrived": 2369
+   },
+   {
+    "time": 60300.0,
+    "stuck": 866,
+    "active": 954,
+    "pending": 2935,
+    "arrived": 2953
+   },
+   {
+    "time": 61200.0,
+    "stuck": 980,
+    "active": 1056,
+    "pending": 3949,
+    "arrived": 3541
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1104,
+    "active": 1183,
+    "pending": 4990,
+    "arrived": 4095
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1218,
+    "active": 1291,
+    "pending": 6127,
+    "arrived": 4641
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1313,
+    "active": 1382,
+    "pending": 7295,
+    "arrived": 5189
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1386,
+    "active": 1445,
+    "pending": 8350,
+    "arrived": 5731
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1404,
+    "active": 1404,
+    "pending": 8350,
+    "arrived": 5772
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1404,
+    "active": 1404,
+    "pending": 8350,
+    "arrived": 5772
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2277,
+    "mean": 4213.191,
+    "p50": 4412.0,
+    "p95": 9078.4,
+    "max": 9314.0
+   },
+   "vehicles_stopped_over_3min": 1464
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 12.875,
+    "p50": 8.363,
+    "p95": 37.609,
+    "max": 164.411
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2283,
+    "green_states": 2288,
+    "greens_ended": 2247
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2283,
+   "phase_switches": 2283,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 3282.7
+ },
+ {
+  "label": "max_pressure",
+  "seed": 42,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 6136,
+  "pending": 7956,
+  "system_vehicle_hours": 14322.914,
+  "stopped_vehicle_hours": 2692.435,
+  "spillback_lane_hours": 146.778,
+  "off_ramp_per_30min": [
+   218,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 218,
+  "stuck_over_3min_at_end": 1434,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 408,
+    "pending": 251,
+    "arrived": 1087
+   },
+   {
+    "time": 58500.0,
+    "stuck": 408,
+    "active": 571,
+    "pending": 742,
+    "arrived": 2049
+   },
+   {
+    "time": 59400.0,
+    "stuck": 689,
+    "active": 840,
+    "pending": 1603,
+    "arrived": 2704
+   },
+   {
+    "time": 60300.0,
+    "stuck": 900,
+    "active": 985,
+    "pending": 2552,
+    "arrived": 3305
+   },
+   {
+    "time": 61200.0,
+    "stuck": 1005,
+    "active": 1076,
+    "pending": 3579,
+    "arrived": 3891
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1123,
+    "active": 1193,
+    "pending": 4621,
+    "arrived": 4454
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1240,
+    "active": 1317,
+    "pending": 5744,
+    "arrived": 4998
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1323,
+    "active": 1405,
+    "pending": 6910,
+    "arrived": 5551
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1415,
+    "active": 1478,
+    "pending": 7956,
+    "arrived": 6092
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1434,
+    "active": 1434,
+    "pending": 7956,
+    "arrived": 6136
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1434,
+    "active": 1434,
+    "pending": 7956,
+    "arrived": 6136
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 1,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2660,
+    "mean": 3564.685,
+    "p50": 2698.0,
+    "p95": 8716.1,
+    "max": 9152.0
+   },
+   "vehicles_stopped_over_3min": 1483
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 13.15,
+    "p50": 8.846,
+    "p95": 37.839,
+    "max": 222.182
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2688,
+    "green_states": 2689,
+    "greens_ended": 2652
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2689,
+   "phase_switches": 2689,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2735.2
+ },
+ {
+  "label": "max_pressure",
+  "seed": 99,
+  "policy": "max_pressure",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 6122,
+  "pending": 7966,
+  "system_vehicle_hours": 14374.931,
+  "stopped_vehicle_hours": 2710.163,
+  "spillback_lane_hours": 143.074,
+  "off_ramp_per_30min": [
+   178,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 178,
+  "stuck_over_3min_at_end": 1438,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 429,
+    "pending": 276,
+    "arrived": 1041
+   },
+   {
+    "time": 58500.0,
+    "stuck": 387,
+    "active": 617,
+    "pending": 784,
+    "arrived": 1961
+   },
+   {
+    "time": 59400.0,
+    "stuck": 695,
+    "active": 821,
+    "pending": 1606,
+    "arrived": 2720
+   },
+   {
+    "time": 60300.0,
+    "stuck": 904,
+    "active": 984,
+    "pending": 2553,
+    "arrived": 3305
+   },
+   {
+    "time": 61200.0,
+    "stuck": 1006,
+    "active": 1078,
+    "pending": 3580,
+    "arrived": 3888
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1127,
+    "active": 1202,
+    "pending": 4619,
+    "arrived": 4447
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1242,
+    "active": 1320,
+    "pending": 5747,
+    "arrived": 4992
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1334,
+    "active": 1410,
+    "pending": 6915,
+    "arrived": 5541
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1421,
+    "active": 1482,
+    "pending": 7966,
+    "arrived": 6078
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1438,
+    "active": 1438,
+    "pending": 7966,
+    "arrived": 6122
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1438,
+    "active": 1438,
+    "pending": 7966,
+    "arrived": 6122
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 2,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2660,
+    "mean": 3578.786,
+    "p50": 2801.0,
+    "p95": 8963.05,
+    "max": 9177.0
+   },
+   "vehicles_stopped_over_3min": 1510
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 10.968,
+    "p50": 8.384,
+    "p95": 27.281,
+    "max": 149.841
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 2582,
+    "green_states": 2585,
+    "greens_ended": 2546,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "max_pressure",
+   "policy": "max_pressure",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 2588,
+   "phase_switches": 2588,
+   "model_decisions": 0,
+   "forced_by_service_rules": 0,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2440.7
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 3,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10086,
+  "pending": 4947,
+  "system_vehicle_hours": 9444.519,
+  "stopped_vehicle_hours": 999.836,
+  "spillback_lane_hours": 52.013,
+  "off_ramp_per_30min": [
+   216,
+   79,
+   60,
+   68,
+   47,
+   21
+  ],
+  "off_ramp_total": 491,
+  "stuck_over_3min_at_end": 200,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 377,
+    "pending": 284,
+    "arrived": 1085
+   },
+   {
+    "time": 58500.0,
+    "stuck": 8,
+    "active": 429,
+    "pending": 700,
+    "arrived": 2233
+   },
+   {
+    "time": 59400.0,
+    "stuck": 198,
+    "active": 453,
+    "pending": 1385,
+    "arrived": 3309
+   },
+   {
+    "time": 60300.0,
+    "stuck": 11,
+    "active": 548,
+    "pending": 1952,
+    "arrived": 4342
+   },
+   {
+    "time": 61200.0,
+    "stuck": 135,
+    "active": 598,
+    "pending": 2550,
+    "arrived": 5398
+   },
+   {
+    "time": 62100.0,
+    "stuck": 54,
+    "active": 660,
+    "pending": 3205,
+    "arrived": 6403
+   },
+   {
+    "time": 63000.0,
+    "stuck": 49,
+    "active": 675,
+    "pending": 3941,
+    "arrived": 7443
+   },
+   {
+    "time": 63900.0,
+    "stuck": 27,
+    "active": 691,
+    "pending": 4708,
+    "arrived": 8467
+   },
+   {
+    "time": 64800.0,
+    "stuck": 272,
+    "active": 744,
+    "pending": 5322,
+    "arrived": 9460
+   },
+   {
+    "time": 65700.0,
+    "stuck": 84,
+    "active": 555,
+    "pending": 5185,
+    "arrived": 9786
+   },
+   {
+    "time": 66600.0,
+    "stuck": 200,
+    "active": 493,
+    "pending": 4947,
+    "arrived": 10086
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 3,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5595,
+    "mean": 165.059,
+    "p50": 68.0,
+    "p95": 632.3,
+    "max": 1349.0
+   },
+   "vehicles_stopped_over_3min": 1755
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 22.811,
+    "p50": 15.025,
+    "p95": 63.031,
+    "max": 343.731
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 12996,
+    "green_states": 13014,
+    "greens_ended": 12959,
+    "displayed_green_shortened_by_box_hold": 7
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 13011,
+   "phase_switches": 13011,
+   "model_decisions": 0,
+   "forced_by_service_rules": 1965,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2090.5
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 5,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10445,
+  "pending": 4690,
+  "system_vehicle_hours": 9055.267,
+  "stopped_vehicle_hours": 862.389,
+  "spillback_lane_hours": 45.443,
+  "off_ramp_per_30min": [
+   266,
+   105,
+   95,
+   91,
+   46,
+   26
+  ],
+  "off_ramp_total": 629,
+  "stuck_over_3min_at_end": 5,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 405,
+    "pending": 267,
+    "arrived": 1074
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 472,
+    "pending": 663,
+    "arrived": 2227
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 505,
+    "pending": 1305,
+    "arrived": 3337
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 558,
+    "pending": 1880,
+    "arrived": 4404
+   },
+   {
+    "time": 61200.0,
+    "stuck": 63,
+    "active": 577,
+    "pending": 2464,
+    "arrived": 5505
+   },
+   {
+    "time": 62100.0,
+    "stuck": 21,
+    "active": 585,
+    "pending": 3125,
+    "arrived": 6558
+   },
+   {
+    "time": 63000.0,
+    "stuck": 48,
+    "active": 628,
+    "pending": 3835,
+    "arrived": 7596
+   },
+   {
+    "time": 63900.0,
+    "stuck": 38,
+    "active": 613,
+    "pending": 4574,
+    "arrived": 8679
+   },
+   {
+    "time": 64800.0,
+    "stuck": 66,
+    "active": 662,
+    "pending": 5162,
+    "arrived": 9702
+   },
+   {
+    "time": 65700.0,
+    "stuck": 6,
+    "active": 455,
+    "pending": 4909,
+    "arrived": 10162
+   },
+   {
+    "time": 66600.0,
+    "stuck": 5,
+    "active": 391,
+    "pending": 4690,
+    "arrived": 10445
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 5,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5867,
+    "mean": 132.756,
+    "p50": 59.0,
+    "p95": 470.0,
+    "max": 881.0
+   },
+   "vehicles_stopped_over_3min": 1746
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.946,
+    "p50": 15.59,
+    "p95": 57.545,
+    "max": 225.657
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 12797,
+    "green_states": 12814,
+    "greens_ended": 12761,
+    "displayed_green_shortened_by_box_hold": 6
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 12809,
+   "phase_switches": 12809,
+   "model_decisions": 0,
+   "forced_by_service_rules": 1713,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2045.9
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 7,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 8757,
+  "pending": 5700,
+  "system_vehicle_hours": 10246.128,
+  "stopped_vehicle_hours": 1524.502,
+  "spillback_lane_hours": 71.606,
+  "off_ramp_per_30min": [
+   208,
+   79,
+   52,
+   53,
+   0,
+   0
+  ],
+  "off_ramp_total": 392,
+  "stuck_over_3min_at_end": 1069,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 395,
+    "pending": 267,
+    "arrived": 1084
+   },
+   {
+    "time": 58500.0,
+    "stuck": 2,
+    "active": 466,
+    "pending": 690,
+    "arrived": 2206
+   },
+   {
+    "time": 59400.0,
+    "stuck": 101,
+    "active": 516,
+    "pending": 1382,
+    "arrived": 3249
+   },
+   {
+    "time": 60300.0,
+    "stuck": 160,
+    "active": 619,
+    "pending": 1933,
+    "arrived": 4290
+   },
+   {
+    "time": 61200.0,
+    "stuck": 198,
+    "active": 660,
+    "pending": 2599,
+    "arrived": 5287
+   },
+   {
+    "time": 62100.0,
+    "stuck": 215,
+    "active": 684,
+    "pending": 3280,
+    "arrived": 6304
+   },
+   {
+    "time": 63000.0,
+    "stuck": 171,
+    "active": 748,
+    "pending": 4060,
+    "arrived": 7251
+   },
+   {
+    "time": 63900.0,
+    "stuck": 680,
+    "active": 888,
+    "pending": 4821,
+    "arrived": 8157
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1014,
+    "active": 1110,
+    "pending": 5703,
+    "arrived": 8713
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1069,
+    "active": 1069,
+    "pending": 5700,
+    "arrived": 8757
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1069,
+    "active": 1069,
+    "pending": 5700,
+    "arrived": 8757
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 2,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 4884,
+    "mean": 711.433,
+    "p50": 86.0,
+    "p95": 3086.0,
+    "max": 3541.0
+   },
+   "vehicles_stopped_over_3min": 1892
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.887,
+    "p50": 14.845,
+    "p95": 57.712,
+    "max": 392.646
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 13918,
+    "green_states": 13934,
+    "greens_ended": 13882,
+    "displayed_green_shortened_by_box_hold": 3
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 14132,
+   "phase_switches": 14132,
+   "model_decisions": 0,
+   "forced_by_service_rules": 3983,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2265.5
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 11,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 8619,
+  "pending": 5823,
+  "system_vehicle_hours": 10373.704,
+  "stopped_vehicle_hours": 1577.418,
+  "spillback_lane_hours": 75.993,
+  "off_ramp_per_30min": [
+   223,
+   98,
+   56,
+   28,
+   0,
+   0
+  ],
+  "off_ramp_total": 405,
+  "stuck_over_3min_at_end": 1084,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 398,
+    "pending": 272,
+    "arrived": 1076
+   },
+   {
+    "time": 58500.0,
+    "stuck": 133,
+    "active": 450,
+    "pending": 709,
+    "arrived": 2203
+   },
+   {
+    "time": 59400.0,
+    "stuck": 39,
+    "active": 510,
+    "pending": 1396,
+    "arrived": 3241
+   },
+   {
+    "time": 60300.0,
+    "stuck": 198,
+    "active": 556,
+    "pending": 2004,
+    "arrived": 4282
+   },
+   {
+    "time": 61200.0,
+    "stuck": 213,
+    "active": 664,
+    "pending": 2607,
+    "arrived": 5275
+   },
+   {
+    "time": 62100.0,
+    "stuck": 70,
+    "active": 692,
+    "pending": 3262,
+    "arrived": 6314
+   },
+   {
+    "time": 63000.0,
+    "stuck": 171,
+    "active": 796,
+    "pending": 3990,
+    "arrived": 7273
+   },
+   {
+    "time": 63900.0,
+    "stuck": 843,
+    "active": 949,
+    "pending": 4902,
+    "arrived": 8015
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1053,
+    "active": 1129,
+    "pending": 5823,
+    "arrived": 8574
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1084,
+    "active": 1084,
+    "pending": 5823,
+    "arrived": 8619
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1084,
+    "active": 1084,
+    "pending": 5823,
+    "arrived": 8619
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 4,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 4772,
+    "mean": 811.786,
+    "p50": 88.0,
+    "p95": 3419.0,
+    "max": 4139.0
+   },
+   "vehicles_stopped_over_3min": 1867
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.631,
+    "p50": 14.692,
+    "p95": 58.247,
+    "max": 451.017
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 14387,
+    "green_states": 14396,
+    "greens_ended": 14351,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 14410,
+   "phase_switches": 14410,
+   "model_decisions": 0,
+   "forced_by_service_rules": 4126,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2276.1
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 13,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10228,
+  "pending": 4864,
+  "system_vehicle_hours": 9348.6,
+  "stopped_vehicle_hours": 927.168,
+  "spillback_lane_hours": 48.312,
+  "off_ramp_per_30min": [
+   231,
+   90,
+   66,
+   62,
+   60,
+   66
+  ],
+  "off_ramp_total": 575,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 7,
+    "active": 393,
+    "pending": 276,
+    "arrived": 1077
+   },
+   {
+    "time": 58500.0,
+    "stuck": 1,
+    "active": 438,
+    "pending": 688,
+    "arrived": 2236
+   },
+   {
+    "time": 59400.0,
+    "stuck": 21,
+    "active": 479,
+    "pending": 1360,
+    "arrived": 3308
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 531,
+    "pending": 1953,
+    "arrived": 4358
+   },
+   {
+    "time": 61200.0,
+    "stuck": 35,
+    "active": 567,
+    "pending": 2542,
+    "arrived": 5437
+   },
+   {
+    "time": 62100.0,
+    "stuck": 9,
+    "active": 582,
+    "pending": 3207,
+    "arrived": 6479
+   },
+   {
+    "time": 63000.0,
+    "stuck": 163,
+    "active": 624,
+    "pending": 3963,
+    "arrived": 7472
+   },
+   {
+    "time": 63900.0,
+    "stuck": 38,
+    "active": 689,
+    "pending": 4680,
+    "arrived": 8497
+   },
+   {
+    "time": 64800.0,
+    "stuck": 191,
+    "active": 730,
+    "pending": 5287,
+    "arrived": 9509
+   },
+   {
+    "time": 65700.0,
+    "stuck": 246,
+    "active": 525,
+    "pending": 5170,
+    "arrived": 9831
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 434,
+    "pending": 4864,
+    "arrived": 10228
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 4,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5685,
+    "mean": 150.857,
+    "p50": 60.0,
+    "p95": 464.0,
+    "max": 1142.0
+   },
+   "vehicles_stopped_over_3min": 1765
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.571,
+    "p50": 14.932,
+    "p95": 58.089,
+    "max": 326.603
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 12834,
+    "green_states": 12860,
+    "greens_ended": 12798,
+    "displayed_green_shortened_by_box_hold": 8
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 12873,
+   "phase_switches": 12873,
+   "model_decisions": 0,
+   "forced_by_service_rules": 1787,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2080.4
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 21,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10353,
+  "pending": 4857,
+  "system_vehicle_hours": 9169.229,
+  "stopped_vehicle_hours": 898.3,
+  "spillback_lane_hours": 44.566,
+  "off_ramp_per_30min": [
+   229,
+   124,
+   85,
+   62,
+   49,
+   41
+  ],
+  "off_ramp_total": 590,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 386,
+    "pending": 291,
+    "arrived": 1069
+   },
+   {
+    "time": 58500.0,
+    "stuck": 14,
+    "active": 461,
+    "pending": 696,
+    "arrived": 2205
+   },
+   {
+    "time": 59400.0,
+    "stuck": 3,
+    "active": 478,
+    "pending": 1323,
+    "arrived": 3346
+   },
+   {
+    "time": 60300.0,
+    "stuck": 69,
+    "active": 522,
+    "pending": 1908,
+    "arrived": 4412
+   },
+   {
+    "time": 61200.0,
+    "stuck": 6,
+    "active": 573,
+    "pending": 2492,
+    "arrived": 5481
+   },
+   {
+    "time": 62100.0,
+    "stuck": 67,
+    "active": 587,
+    "pending": 3118,
+    "arrived": 6563
+   },
+   {
+    "time": 63000.0,
+    "stuck": 50,
+    "active": 656,
+    "pending": 3822,
+    "arrived": 7581
+   },
+   {
+    "time": 63900.0,
+    "stuck": 118,
+    "active": 687,
+    "pending": 4593,
+    "arrived": 8586
+   },
+   {
+    "time": 64800.0,
+    "stuck": 142,
+    "active": 707,
+    "pending": 5220,
+    "arrived": 9599
+   },
+   {
+    "time": 65700.0,
+    "stuck": 82,
+    "active": 491,
+    "pending": 5023,
+    "arrived": 10012
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 316,
+    "pending": 4857,
+    "arrived": 10353
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 10,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5709,
+    "mean": 146.495,
+    "p50": 63.0,
+    "p95": 489.6,
+    "max": 936.0
+   },
+   "vehicles_stopped_over_3min": 1699
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.734,
+    "p50": 14.809,
+    "p95": 55.61,
+    "max": 212.089
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 12767,
+    "green_states": 12789,
+    "greens_ended": 12731,
+    "displayed_green_shortened_by_box_hold": 8
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 12794,
+   "phase_switches": 12794,
+   "model_decisions": 0,
+   "forced_by_service_rules": 1874,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2062.1
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 42,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10324,
+  "pending": 4797,
+  "system_vehicle_hours": 9201.958,
+  "stopped_vehicle_hours": 911.9,
+  "spillback_lane_hours": 44.251,
+  "off_ramp_per_30min": [
+   241,
+   77,
+   69,
+   75,
+   52,
+   43
+  ],
+  "off_ramp_total": 557,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 391,
+    "pending": 278,
+    "arrived": 1077
+   },
+   {
+    "time": 58500.0,
+    "stuck": 10,
+    "active": 459,
+    "pending": 682,
+    "arrived": 2221
+   },
+   {
+    "time": 59400.0,
+    "stuck": 80,
+    "active": 485,
+    "pending": 1367,
+    "arrived": 3295
+   },
+   {
+    "time": 60300.0,
+    "stuck": 30,
+    "active": 541,
+    "pending": 1928,
+    "arrived": 4373
+   },
+   {
+    "time": 61200.0,
+    "stuck": 36,
+    "active": 578,
+    "pending": 2512,
+    "arrived": 5456
+   },
+   {
+    "time": 62100.0,
+    "stuck": 21,
+    "active": 634,
+    "pending": 3138,
+    "arrived": 6496
+   },
+   {
+    "time": 63000.0,
+    "stuck": 133,
+    "active": 605,
+    "pending": 3880,
+    "arrived": 7574
+   },
+   {
+    "time": 63900.0,
+    "stuck": 130,
+    "active": 623,
+    "pending": 4638,
+    "arrived": 8605
+   },
+   {
+    "time": 64800.0,
+    "stuck": 197,
+    "active": 688,
+    "pending": 5209,
+    "arrived": 9629
+   },
+   {
+    "time": 65700.0,
+    "stuck": 21,
+    "active": 495,
+    "pending": 5052,
+    "arrived": 9979
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 405,
+    "pending": 4797,
+    "arrived": 10324
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 7,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5787,
+    "mean": 147.285,
+    "p50": 66.0,
+    "p95": 520.0,
+    "max": 1095.0
+   },
+   "vehicles_stopped_over_3min": 1658
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.962,
+    "p50": 14.895,
+    "p95": 57.714,
+    "max": 346.166
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 13043,
+    "green_states": 13072,
+    "greens_ended": 13007
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 13054,
+   "phase_switches": 13054,
+   "model_decisions": 0,
+   "forced_by_service_rules": 1850,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2061.0
+ },
+ {
+  "label": "max_pressure_guarded",
+  "seed": 99,
+  "policy": "max_pressure_guarded",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 8171,
+  "pending": 6386,
+  "system_vehicle_hours": 10745.712,
+  "stopped_vehicle_hours": 1546.199,
+  "spillback_lane_hours": 59.649,
+  "off_ramp_per_30min": [
+   282,
+   78,
+   46,
+   10,
+   2,
+   0
+  ],
+  "off_ramp_total": 418,
+  "stuck_over_3min_at_end": 969,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 398,
+    "pending": 251,
+    "arrived": 1097
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 456,
+    "pending": 631,
+    "arrived": 2275
+   },
+   {
+    "time": 59400.0,
+    "stuck": 12,
+    "active": 501,
+    "pending": 1281,
+    "arrived": 3365
+   },
+   {
+    "time": 60300.0,
+    "stuck": 171,
+    "active": 547,
+    "pending": 1866,
+    "arrived": 4429
+   },
+   {
+    "time": 61200.0,
+    "stuck": 26,
+    "active": 576,
+    "pending": 2448,
+    "arrived": 5522
+   },
+   {
+    "time": 62100.0,
+    "stuck": 619,
+    "active": 722,
+    "pending": 3309,
+    "arrived": 6237
+   },
+   {
+    "time": 63000.0,
+    "stuck": 750,
+    "active": 829,
+    "pending": 4349,
+    "arrived": 6881
+   },
+   {
+    "time": 63900.0,
+    "stuck": 823,
+    "active": 910,
+    "pending": 5442,
+    "arrived": 7514
+   },
+   {
+    "time": 64800.0,
+    "stuck": 937,
+    "active": 1025,
+    "pending": 6388,
+    "arrived": 8113
+   },
+   {
+    "time": 65700.0,
+    "stuck": 969,
+    "active": 969,
+    "pending": 6386,
+    "arrived": 8171
+   },
+   {
+    "time": 66600.0,
+    "stuck": 969,
+    "active": 969,
+    "pending": 6386,
+    "arrived": 8171
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 2,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 4188,
+    "mean": 1115.087,
+    "p50": 63.5,
+    "p95": 5398.65,
+    "max": 5772.0
+   },
+   "vehicles_stopped_over_3min": 1394
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 21.356,
+    "p50": 14.404,
+    "p95": 57.327,
+    "max": 235.227
+   },
+   "model_forward": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 13391,
+    "green_states": 13392,
+    "greens_ended": 13355,
+    "displayed_green_shortened_by_box_hold": 3
+   }
+  },
+  "controller": {
+   "controller": "max_pressure_guarded",
+   "policy": "max_pressure_guarded",
+   "action_space": "phase",
+   "model_variant": null,
+   "model_id": null,
+   "signal_count": 36,
+   "decisions": 13400,
+   "phase_switches": 13400,
+   "model_decisions": 0,
+   "forced_by_service_rules": 3698,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": null,
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2223.5
+ },
+ {
+  "label": "ml_local",
+  "seed": 3,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11591,
+  "pending": 3612,
+  "system_vehicle_hours": 7615.528,
+  "stopped_vehicle_hours": 561.624,
+  "spillback_lane_hours": 34.634,
+  "off_ramp_per_30min": [
+   243,
+   185,
+   190,
+   185,
+   285,
+   191
+  ],
+  "off_ramp_total": 1279,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 349,
+    "pending": 324,
+    "arrived": 1073
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 378,
+    "pending": 675,
+    "arrived": 2309
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 411,
+    "pending": 1220,
+    "arrived": 3516
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 488,
+    "pending": 1619,
+    "arrived": 4735
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 493,
+    "pending": 2110,
+    "arrived": 5943
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 483,
+    "pending": 2634,
+    "arrived": 7151
+   },
+   {
+    "time": 63000.0,
+    "stuck": 13,
+    "active": 509,
+    "pending": 3236,
+    "arrived": 8314
+   },
+   {
+    "time": 63900.0,
+    "stuck": 10,
+    "active": 515,
+    "pending": 3859,
+    "arrived": 9492
+   },
+   {
+    "time": 64800.0,
+    "stuck": 2,
+    "active": 548,
+    "pending": 4298,
+    "arrived": 10680
+   },
+   {
+    "time": 65700.0,
+    "stuck": 40,
+    "active": 373,
+    "pending": 3943,
+    "arrived": 11210
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 323,
+    "pending": 3612,
+    "arrived": 11591
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 4,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6753,
+    "mean": 79.444,
+    "p50": 50.0,
+    "p95": 222.4,
+    "max": 1074.0
+   },
+   "vehicles_stopped_over_3min": 579
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 18.881,
+    "p50": 14.306,
+    "p95": 43.974,
+    "max": 189.594
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.11,
+    "p50": 0.092,
+    "p95": 0.114,
+    "max": 10.596
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16509,
+    "green_states": 16542,
+    "greens_ended": 16473,
+    "displayed_green_shortened_by_box_hold": 4
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16522,
+   "phase_switches": 16522,
+   "model_decisions": 37179,
+   "forced_by_service_rules": 933,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1395.9
+ },
+ {
+  "label": "ml_local",
+  "seed": 5,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 10001,
+  "pending": 4836,
+  "system_vehicle_hours": 8405.851,
+  "stopped_vehicle_hours": 956.601,
+  "spillback_lane_hours": 48.193,
+  "off_ramp_per_30min": [
+   251,
+   187,
+   138,
+   147,
+   2,
+   0
+  ],
+  "off_ramp_total": 725,
+  "stuck_over_3min_at_end": 689,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 370,
+    "pending": 281,
+    "arrived": 1095
+   },
+   {
+    "time": 58500.0,
+    "stuck": 14,
+    "active": 429,
+    "pending": 604,
+    "arrived": 2329
+   },
+   {
+    "time": 59400.0,
+    "stuck": 3,
+    "active": 436,
+    "pending": 1148,
+    "arrived": 3563
+   },
+   {
+    "time": 60300.0,
+    "stuck": 8,
+    "active": 524,
+    "pending": 1607,
+    "arrived": 4711
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 541,
+    "pending": 2133,
+    "arrived": 5872
+   },
+   {
+    "time": 62100.0,
+    "stuck": 22,
+    "active": 544,
+    "pending": 2716,
+    "arrived": 7008
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 510,
+    "pending": 3345,
+    "arrived": 8204
+   },
+   {
+    "time": 63900.0,
+    "stuck": 343,
+    "active": 577,
+    "pending": 4015,
+    "arrived": 9274
+   },
+   {
+    "time": 64800.0,
+    "stuck": 658,
+    "active": 751,
+    "pending": 4836,
+    "arrived": 9939
+   },
+   {
+    "time": 65700.0,
+    "stuck": 689,
+    "active": 689,
+    "pending": 4836,
+    "arrived": 10001
+   },
+   {
+    "time": 66600.0,
+    "stuck": 689,
+    "active": 689,
+    "pending": 4836,
+    "arrived": 10001
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 2,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 5630,
+    "mean": 402.63,
+    "p50": 53.0,
+    "p95": 2917.0,
+    "max": 3271.0
+   },
+   "vehicles_stopped_over_3min": 1194
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 18.694,
+    "p50": 13.875,
+    "p95": 44.206,
+    "max": 186.171
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.107,
+    "p50": 0.089,
+    "p95": 0.112,
+    "max": 21.114
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16993,
+    "green_states": 17007,
+    "greens_ended": 16957,
+    "displayed_green_shortened_by_box_hold": 3
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 17099,
+   "phase_switches": 17099,
+   "model_decisions": 33306,
+   "forced_by_service_rules": 3667,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1509.5
+ },
+ {
+  "label": "ml_local",
+  "seed": 7,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11491,
+  "pending": 3721,
+  "system_vehicle_hours": 7710.853,
+  "stopped_vehicle_hours": 582.829,
+  "spillback_lane_hours": 36.342,
+  "off_ramp_per_30min": [
+   225,
+   202,
+   167,
+   177,
+   206,
+   183
+  ],
+  "off_ramp_total": 1160,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 366,
+    "pending": 298,
+    "arrived": 1082
+   },
+   {
+    "time": 58500.0,
+    "stuck": 7,
+    "active": 407,
+    "pending": 643,
+    "arrived": 2312
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 423,
+    "pending": 1196,
+    "arrived": 3528
+   },
+   {
+    "time": 60300.0,
+    "stuck": 9,
+    "active": 495,
+    "pending": 1617,
+    "arrived": 4730
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 507,
+    "pending": 2118,
+    "arrived": 5921
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 463,
+    "pending": 2669,
+    "arrived": 7136
+   },
+   {
+    "time": 63000.0,
+    "stuck": 56,
+    "active": 530,
+    "pending": 3284,
+    "arrived": 8245
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 564,
+    "pending": 3890,
+    "arrived": 9412
+   },
+   {
+    "time": 64800.0,
+    "stuck": 2,
+    "active": 565,
+    "pending": 4354,
+    "arrived": 10607
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 321,
+    "pending": 4085,
+    "arrived": 11120
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 314,
+    "pending": 3721,
+    "arrived": 11491
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 6,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6688,
+    "mean": 81.333,
+    "p50": 50.0,
+    "p95": 238.0,
+    "max": 540.0
+   },
+   "vehicles_stopped_over_3min": 709
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 33.105,
+    "p50": 21.844,
+    "p95": 97.212,
+    "max": 554.471
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.204,
+    "p50": 0.095,
+    "p95": 0.214,
+    "max": 25.642
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16566,
+    "green_states": 16587,
+    "greens_ended": 16529,
+    "displayed_green_shortened_by_box_hold": 5
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16582,
+   "phase_switches": 16582,
+   "model_decisions": 36898,
+   "forced_by_service_rules": 1103,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1990.3
+ },
+ {
+  "label": "ml_local",
+  "seed": 11,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11498,
+  "pending": 3723,
+  "system_vehicle_hours": 7872.316,
+  "stopped_vehicle_hours": 635.694,
+  "spillback_lane_hours": 38.151,
+  "off_ramp_per_30min": [
+   203,
+   145,
+   156,
+   201,
+   250,
+   218
+  ],
+  "off_ramp_total": 1173,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 349,
+    "pending": 329,
+    "arrived": 1068
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 385,
+    "pending": 674,
+    "arrived": 2303
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 429,
+    "pending": 1228,
+    "arrived": 3490
+   },
+   {
+    "time": 60300.0,
+    "stuck": 2,
+    "active": 543,
+    "pending": 1673,
+    "arrived": 4626
+   },
+   {
+    "time": 61200.0,
+    "stuck": 7,
+    "active": 523,
+    "pending": 2205,
+    "arrived": 5818
+   },
+   {
+    "time": 62100.0,
+    "stuck": 11,
+    "active": 542,
+    "pending": 2758,
+    "arrived": 6968
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 552,
+    "pending": 3340,
+    "arrived": 8167
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 558,
+    "pending": 3959,
+    "arrived": 9349
+   },
+   {
+    "time": 64800.0,
+    "stuck": 52,
+    "active": 606,
+    "pending": 4381,
+    "arrived": 10539
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 362,
+    "pending": 4069,
+    "arrived": 11095
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 305,
+    "pending": 3723,
+    "arrived": 11498
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 10,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6687,
+    "mean": 90.456,
+    "p50": 54.0,
+    "p95": 295.7,
+    "max": 620.0
+   },
+   "vehicles_stopped_over_3min": 1009
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 33.525,
+    "p50": 21.45,
+    "p95": 93.378,
+    "max": 624.708
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.21,
+    "p50": 0.095,
+    "p95": 0.271,
+    "max": 77.485
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16677,
+    "green_states": 16713,
+    "greens_ended": 16641,
+    "displayed_green_shortened_by_box_hold": 3
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16689,
+   "phase_switches": 16689,
+   "model_decisions": 36421,
+   "forced_by_service_rules": 1341,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2114.2
+ },
+ {
+  "label": "ml_local",
+  "seed": 13,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11385,
+  "pending": 3779,
+  "system_vehicle_hours": 8046.341,
+  "stopped_vehicle_hours": 725.479,
+  "spillback_lane_hours": 42.9,
+  "off_ramp_per_30min": [
+   274,
+   184,
+   115,
+   230,
+   229,
+   174
+  ],
+  "off_ramp_total": 1206,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 368,
+    "pending": 285,
+    "arrived": 1093
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 406,
+    "pending": 624,
+    "arrived": 2332
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 432,
+    "pending": 1138,
+    "arrived": 3577
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 503,
+    "pending": 1607,
+    "arrived": 4732
+   },
+   {
+    "time": 61200.0,
+    "stuck": 60,
+    "active": 558,
+    "pending": 2226,
+    "arrived": 5762
+   },
+   {
+    "time": 62100.0,
+    "stuck": 12,
+    "active": 582,
+    "pending": 2812,
+    "arrived": 6874
+   },
+   {
+    "time": 63000.0,
+    "stuck": 35,
+    "active": 549,
+    "pending": 3440,
+    "arrived": 8070
+   },
+   {
+    "time": 63900.0,
+    "stuck": 122,
+    "active": 638,
+    "pending": 4030,
+    "arrived": 9198
+   },
+   {
+    "time": 64800.0,
+    "stuck": 4,
+    "active": 715,
+    "pending": 4518,
+    "arrived": 10293
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 425,
+    "pending": 4202,
+    "arrived": 10899
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 362,
+    "pending": 3779,
+    "arrived": 11385
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 7,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6649,
+    "mean": 109.788,
+    "p50": 55.0,
+    "p95": 400.6,
+    "max": 875.0
+   },
+   "vehicles_stopped_over_3min": 1112
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 28.645,
+    "p50": 17.949,
+    "p95": 86.962,
+    "max": 274.956
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.154,
+    "p50": 0.095,
+    "p95": 0.209,
+    "max": 18.014
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16698,
+    "green_states": 16733,
+    "greens_ended": 16662,
+    "displayed_green_shortened_by_box_hold": 3
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16712,
+   "phase_switches": 16712,
+   "model_decisions": 36013,
+   "forced_by_service_rules": 1712,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2100.0
+ },
+ {
+  "label": "ml_local",
+  "seed": 21,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11625,
+  "pending": 3607,
+  "system_vehicle_hours": 7559.337,
+  "stopped_vehicle_hours": 545.921,
+  "spillback_lane_hours": 34.936,
+  "off_ramp_per_30min": [
+   207,
+   203,
+   162,
+   187,
+   267,
+   210
+  ],
+  "off_ramp_total": 1236,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 373,
+    "pending": 284,
+    "arrived": 1089
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 396,
+    "pending": 641,
+    "arrived": 2325
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 401,
+    "pending": 1201,
+    "arrived": 3545
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 482,
+    "pending": 1587,
+    "arrived": 4773
+   },
+   {
+    "time": 61200.0,
+    "stuck": 30,
+    "active": 491,
+    "pending": 2089,
+    "arrived": 5966
+   },
+   {
+    "time": 62100.0,
+    "stuck": 9,
+    "active": 485,
+    "pending": 2632,
+    "arrived": 7151
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 483,
+    "pending": 3226,
+    "arrived": 8350
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 493,
+    "pending": 3841,
+    "arrived": 9532
+   },
+   {
+    "time": 64800.0,
+    "stuck": 9,
+    "active": 547,
+    "pending": 4269,
+    "arrived": 10710
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 325,
+    "pending": 3947,
+    "arrived": 11254
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 294,
+    "pending": 3607,
+    "arrived": 11625
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 10,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6787,
+    "mean": 72.001,
+    "p50": 49.0,
+    "p95": 206.7,
+    "max": 931.0
+   },
+   "vehicles_stopped_over_3min": 413
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 25.7,
+    "p50": 16.375,
+    "p95": 72.925,
+    "max": 270.76
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.137,
+    "p50": 0.095,
+    "p95": 0.215,
+    "max": 7.361
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16546,
+    "green_states": 16568,
+    "greens_ended": 16509,
+    "displayed_green_shortened_by_box_hold": 4
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16568,
+   "phase_switches": 16568,
+   "model_decisions": 37138,
+   "forced_by_service_rules": 876,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1873.7
+ },
+ {
+  "label": "ml_local",
+  "seed": 42,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 6394,
+  "pending": 7745,
+  "system_vehicle_hours": 13806.25,
+  "stopped_vehicle_hours": 2533.061,
+  "spillback_lane_hours": 137.655,
+  "off_ramp_per_30min": [
+   157,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "off_ramp_total": 157,
+  "stuck_over_3min_at_end": 1387,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 349,
+    "pending": 304,
+    "arrived": 1093
+   },
+   {
+    "time": 58500.0,
+    "stuck": 272,
+    "active": 542,
+    "pending": 740,
+    "arrived": 2080
+   },
+   {
+    "time": 59400.0,
+    "stuck": 608,
+    "active": 720,
+    "pending": 1554,
+    "arrived": 2873
+   },
+   {
+    "time": 60300.0,
+    "stuck": 804,
+    "active": 919,
+    "pending": 2373,
+    "arrived": 3550
+   },
+   {
+    "time": 61200.0,
+    "stuck": 961,
+    "active": 1033,
+    "pending": 3375,
+    "arrived": 4138
+   },
+   {
+    "time": 62100.0,
+    "stuck": 1079,
+    "active": 1152,
+    "pending": 4417,
+    "arrived": 4699
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1183,
+    "active": 1259,
+    "pending": 5550,
+    "arrived": 5250
+   },
+   {
+    "time": 63900.0,
+    "stuck": 1270,
+    "active": 1341,
+    "pending": 6714,
+    "arrived": 5811
+   },
+   {
+    "time": 64800.0,
+    "stuck": 1367,
+    "active": 1431,
+    "pending": 7745,
+    "arrived": 6350
+   },
+   {
+    "time": 65700.0,
+    "stuck": 1387,
+    "active": 1387,
+    "pending": 7745,
+    "arrived": 6394
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1387,
+    "active": 1387,
+    "pending": 7745,
+    "arrived": 6394
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 2808,
+    "mean": 3190.347,
+    "p50": 117.5,
+    "p95": 8779.65,
+    "max": 8946.0
+   },
+   "vehicles_stopped_over_3min": 1387
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 22.7,
+    "p50": 14.722,
+    "p95": 61.015,
+    "max": 372.277
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.152,
+    "p50": 0.089,
+    "p95": 0.17,
+    "max": 25.899
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 17489,
+    "green_states": 17479,
+    "greens_ended": 17453,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 17723,
+   "phase_switches": 17723,
+   "model_decisions": 25289,
+   "forced_by_service_rules": 10499,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 2533.7
+ },
+ {
+  "label": "ml_local",
+  "seed": 99,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11614,
+  "pending": 3568,
+  "system_vehicle_hours": 7668.294,
+  "stopped_vehicle_hours": 591.808,
+  "spillback_lane_hours": 38.242,
+  "off_ramp_per_30min": [
+   262,
+   167,
+   201,
+   197,
+   245,
+   195
+  ],
+  "off_ramp_total": 1267,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 347,
+    "pending": 295,
+    "arrived": 1104
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 433,
+    "pending": 609,
+    "arrived": 2320
+   },
+   {
+    "time": 59400.0,
+    "stuck": 5,
+    "active": 445,
+    "pending": 1178,
+    "arrived": 3524
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 518,
+    "pending": 1636,
+    "arrived": 4688
+   },
+   {
+    "time": 61200.0,
+    "stuck": 52,
+    "active": 521,
+    "pending": 2156,
+    "arrived": 5869
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 495,
+    "pending": 2665,
+    "arrived": 7108
+   },
+   {
+    "time": 63000.0,
+    "stuck": 23,
+    "active": 539,
+    "pending": 3270,
+    "arrived": 8250
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 514,
+    "pending": 3870,
+    "arrived": 9482
+   },
+   {
+    "time": 64800.0,
+    "stuck": 0,
+    "active": 529,
+    "pending": 4315,
+    "arrived": 10682
+   },
+   {
+    "time": 65700.0,
+    "stuck": 23,
+    "active": 392,
+    "pending": 3998,
+    "arrived": 11136
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 344,
+    "pending": 3568,
+    "arrived": 11614
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 8,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6841,
+    "mean": 82.552,
+    "p50": 48.0,
+    "p95": 265.0,
+    "max": 763.0
+   },
+   "vehicles_stopped_over_3min": 842
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 17.791,
+    "p50": 12.281,
+    "p95": 47.246,
+    "max": 400.511
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.13,
+    "p50": 0.096,
+    "p95": 0.177,
+    "max": 11.74
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16604,
+    "green_states": 16631,
+    "greens_ended": 16568,
+    "displayed_green_shortened_by_box_hold": 5
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "local",
+   "model_id": "d9217e2cd134",
+   "signal_count": 36,
+   "decisions": 16617,
+   "phase_switches": 16617,
+   "model_decisions": 36930,
+   "forced_by_service_rules": 998,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "2b83fddafe1ce7a182c4b51437cde7dd765672c4000097027ff7f966e4f7f5c5",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1451.1
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 3,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11412,
+  "pending": 3845,
+  "system_vehicle_hours": 7751.101,
+  "stopped_vehicle_hours": 552.088,
+  "spillback_lane_hours": 34.036,
+  "off_ramp_per_30min": [
+   176,
+   153,
+   153,
+   150,
+   184,
+   102
+  ],
+  "off_ramp_total": 918,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 368,
+    "pending": 304,
+    "arrived": 1074
+   },
+   {
+    "time": 58500.0,
+    "stuck": 15,
+    "active": 385,
+    "pending": 687,
+    "arrived": 2290
+   },
+   {
+    "time": 59400.0,
+    "stuck": 19,
+    "active": 427,
+    "pending": 1221,
+    "arrived": 3499
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 508,
+    "pending": 1709,
+    "arrived": 4625
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 478,
+    "pending": 2225,
+    "arrived": 5843
+   },
+   {
+    "time": 62100.0,
+    "stuck": 2,
+    "active": 497,
+    "pending": 2707,
+    "arrived": 7064
+   },
+   {
+    "time": 63000.0,
+    "stuck": 10,
+    "active": 471,
+    "pending": 3294,
+    "arrived": 8294
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 461,
+    "pending": 3906,
+    "arrived": 9499
+   },
+   {
+    "time": 64800.0,
+    "stuck": 70,
+    "active": 511,
+    "pending": 4355,
+    "arrived": 10660
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 299,
+    "pending": 4107,
+    "arrived": 11120
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 269,
+    "pending": 3845,
+    "arrived": 11412
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 3,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6602,
+    "mean": 76.514,
+    "p50": 47.0,
+    "p95": 242.0,
+    "max": 751.0
+   },
+   "vehicles_stopped_over_3min": 633
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 18.281,
+    "p50": 13.667,
+    "p95": 46.241,
+    "max": 115.011
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.12,
+    "p50": 0.096,
+    "p95": 0.121,
+    "max": 21.564
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16789,
+    "green_states": 16811,
+    "greens_ended": 16753,
+    "displayed_green_shortened_by_box_hold": 2
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16803,
+   "phase_switches": 16803,
+   "model_decisions": 36661,
+   "forced_by_service_rules": 903,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1386.3
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 5,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11392,
+  "pending": 3865,
+  "system_vehicle_hours": 7689.316,
+  "stopped_vehicle_hours": 520.24,
+  "spillback_lane_hours": 32.546,
+  "off_ramp_per_30min": [
+   184,
+   160,
+   147,
+   158,
+   153,
+   116
+  ],
+  "off_ramp_total": 918,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 363,
+    "pending": 315,
+    "arrived": 1068
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 366,
+    "pending": 680,
+    "arrived": 2316
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 403,
+    "pending": 1225,
+    "arrived": 3519
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 488,
+    "pending": 1644,
+    "arrived": 4710
+   },
+   {
+    "time": 61200.0,
+    "stuck": 7,
+    "active": 456,
+    "pending": 2165,
+    "arrived": 5925
+   },
+   {
+    "time": 62100.0,
+    "stuck": 8,
+    "active": 436,
+    "pending": 2682,
+    "arrived": 7150
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 449,
+    "pending": 3259,
+    "arrived": 8351
+   },
+   {
+    "time": 63900.0,
+    "stuck": 2,
+    "active": 492,
+    "pending": 3916,
+    "arrived": 9458
+   },
+   {
+    "time": 64800.0,
+    "stuck": 46,
+    "active": 488,
+    "pending": 4401,
+    "arrived": 10637
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 304,
+    "pending": 4147,
+    "arrived": 11075
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 269,
+    "pending": 3865,
+    "arrived": 11392
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 1,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6564,
+    "mean": 67.775,
+    "p50": 43.0,
+    "p95": 233.0,
+    "max": 588.0
+   },
+   "vehicles_stopped_over_3min": 514
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 19.059,
+    "p50": 13.96,
+    "p95": 48.311,
+    "max": 129.946
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.12,
+    "p50": 0.097,
+    "p95": 0.123,
+    "max": 20.386
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16791,
+    "green_states": 16810,
+    "greens_ended": 16755,
+    "displayed_green_shortened_by_box_hold": 1
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16798,
+   "phase_switches": 16798,
+   "model_decisions": 36816,
+   "forced_by_service_rules": 771,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1367.0
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 7,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11465,
+  "pending": 3773,
+  "system_vehicle_hours": 7635.717,
+  "stopped_vehicle_hours": 502.214,
+  "spillback_lane_hours": 31.881,
+  "off_ramp_per_30min": [
+   218,
+   197,
+   154,
+   173,
+   211,
+   99
+  ],
+  "off_ramp_total": 1052,
+  "stuck_over_3min_at_end": 3,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 342,
+    "pending": 331,
+    "arrived": 1073
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 361,
+    "pending": 692,
+    "arrived": 2309
+   },
+   {
+    "time": 59400.0,
+    "stuck": 2,
+    "active": 397,
+    "pending": 1219,
+    "arrived": 3531
+   },
+   {
+    "time": 60300.0,
+    "stuck": 2,
+    "active": 489,
+    "pending": 1662,
+    "arrived": 4691
+   },
+   {
+    "time": 61200.0,
+    "stuck": 9,
+    "active": 415,
+    "pending": 2171,
+    "arrived": 5960
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 461,
+    "pending": 2688,
+    "arrived": 7119
+   },
+   {
+    "time": 63000.0,
+    "stuck": 22,
+    "active": 474,
+    "pending": 3260,
+    "arrived": 8325
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 493,
+    "pending": 3875,
+    "arrived": 9498
+   },
+   {
+    "time": 64800.0,
+    "stuck": 0,
+    "active": 470,
+    "pending": 4314,
+    "arrived": 10742
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 304,
+    "pending": 4058,
+    "arrived": 11164
+   },
+   {
+    "time": 66600.0,
+    "stuck": 3,
+    "active": 288,
+    "pending": 3773,
+    "arrived": 11465
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 5,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6665,
+    "mean": 69.169,
+    "p50": 44.0,
+    "p95": 219.0,
+    "max": 619.0
+   },
+   "vehicles_stopped_over_3min": 549
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 32.091,
+    "p50": 20.256,
+    "p95": 91.727,
+    "max": 739.867
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.246,
+    "p50": 0.1,
+    "p95": 0.25,
+    "max": 90.774
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16727,
+    "green_states": 16748,
+    "greens_ended": 16691,
+    "displayed_green_shortened_by_box_hold": 4
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16754,
+   "phase_switches": 16754,
+   "model_decisions": 36931,
+   "forced_by_service_rules": 726,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1945.3
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 11,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11480,
+  "pending": 3766,
+  "system_vehicle_hours": 7658.861,
+  "stopped_vehicle_hours": 551.669,
+  "spillback_lane_hours": 34.747,
+  "off_ramp_per_30min": [
+   197,
+   147,
+   206,
+   193,
+   158,
+   117
+  ],
+  "off_ramp_total": 1018,
+  "stuck_over_3min_at_end": 5,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 11,
+    "active": 380,
+    "pending": 298,
+    "arrived": 1068
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 387,
+    "pending": 667,
+    "arrived": 2308
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 415,
+    "pending": 1229,
+    "arrived": 3503
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 479,
+    "pending": 1666,
+    "arrived": 4697
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 476,
+    "pending": 2146,
+    "arrived": 5924
+   },
+   {
+    "time": 62100.0,
+    "stuck": 44,
+    "active": 470,
+    "pending": 2660,
+    "arrived": 7138
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 465,
+    "pending": 3249,
+    "arrived": 8345
+   },
+   {
+    "time": 63900.0,
+    "stuck": 8,
+    "active": 479,
+    "pending": 3871,
+    "arrived": 9516
+   },
+   {
+    "time": 64800.0,
+    "stuck": 13,
+    "active": 511,
+    "pending": 4320,
+    "arrived": 10695
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 361,
+    "pending": 4051,
+    "arrived": 11114
+   },
+   {
+    "time": 66600.0,
+    "stuck": 5,
+    "active": 280,
+    "pending": 3766,
+    "arrived": 11480
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 3,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6661,
+    "mean": 70.578,
+    "p50": 48.0,
+    "p95": 187.0,
+    "max": 646.0
+   },
+   "vehicles_stopped_over_3min": 368
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 34.099,
+    "p50": 21.553,
+    "p95": 93.654,
+    "max": 2561.073
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.181,
+    "p50": 0.1,
+    "p95": 0.235,
+    "max": 34.047
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16750,
+    "green_states": 16778,
+    "greens_ended": 16714,
+    "displayed_green_shortened_by_box_hold": 2
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16764,
+   "phase_switches": 16764,
+   "model_decisions": 36740,
+   "forced_by_service_rules": 877,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1974.9
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 13,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11378,
+  "pending": 3881,
+  "system_vehicle_hours": 7843.492,
+  "stopped_vehicle_hours": 534.381,
+  "spillback_lane_hours": 32.409,
+  "off_ramp_per_30min": [
+   172,
+   137,
+   137,
+   158,
+   230,
+   89
+  ],
+  "off_ramp_total": 923,
+  "stuck_over_3min_at_end": 1,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 345,
+    "pending": 323,
+    "arrived": 1078
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 375,
+    "pending": 685,
+    "arrived": 2302
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 427,
+    "pending": 1239,
+    "arrived": 3481
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 469,
+    "pending": 1688,
+    "arrived": 4685
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 466,
+    "pending": 2211,
+    "arrived": 5869
+   },
+   {
+    "time": 62100.0,
+    "stuck": 14,
+    "active": 458,
+    "pending": 2788,
+    "arrived": 7022
+   },
+   {
+    "time": 63000.0,
+    "stuck": 47,
+    "active": 463,
+    "pending": 3401,
+    "arrived": 8195
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 491,
+    "pending": 4026,
+    "arrived": 9349
+   },
+   {
+    "time": 64800.0,
+    "stuck": 0,
+    "active": 496,
+    "pending": 4430,
+    "arrived": 10600
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 330,
+    "pending": 4134,
+    "arrived": 11062
+   },
+   {
+    "time": 66600.0,
+    "stuck": 1,
+    "active": 267,
+    "pending": 3881,
+    "arrived": 11378
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 0,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6554,
+    "mean": 68.953,
+    "p50": 44.5,
+    "p95": 181.0,
+    "max": 647.0
+   },
+   "vehicles_stopped_over_3min": 330
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 28.19,
+    "p50": 17.307,
+    "p95": 83.199,
+    "max": 300.651
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.163,
+    "p50": 0.1,
+    "p95": 0.223,
+    "max": 21.233
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16603,
+    "green_states": 16625,
+    "greens_ended": 16567,
+    "displayed_green_shortened_by_box_hold": 2
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16614,
+   "phase_switches": 16614,
+   "model_decisions": 37159,
+   "forced_by_service_rules": 791,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1882.3
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 21,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11484,
+  "pending": 3764,
+  "system_vehicle_hours": 7564.158,
+  "stopped_vehicle_hours": 464.911,
+  "spillback_lane_hours": 29.231,
+  "off_ramp_per_30min": [
+   203,
+   152,
+   201,
+   183,
+   182,
+   90
+  ],
+  "off_ramp_total": 1011,
+  "stuck_over_3min_at_end": 5,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 355,
+    "pending": 315,
+    "arrived": 1076
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 386,
+    "pending": 688,
+    "arrived": 2288
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 390,
+    "pending": 1252,
+    "arrived": 3505
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 442,
+    "pending": 1694,
+    "arrived": 4706
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 408,
+    "pending": 2187,
+    "arrived": 5951
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 430,
+    "pending": 2658,
+    "arrived": 7180
+   },
+   {
+    "time": 63000.0,
+    "stuck": 1,
+    "active": 437,
+    "pending": 3221,
+    "arrived": 8401
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 468,
+    "pending": 3810,
+    "arrived": 9588
+   },
+   {
+    "time": 64800.0,
+    "stuck": 9,
+    "active": 488,
+    "pending": 4252,
+    "arrived": 10786
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 288,
+    "pending": 4030,
+    "arrived": 11208
+   },
+   {
+    "time": 66600.0,
+    "stuck": 5,
+    "active": 278,
+    "pending": 3764,
+    "arrived": 11484
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 2,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6690,
+    "mean": 59.529,
+    "p50": 43.0,
+    "p95": 169.0,
+    "max": 924.0
+   },
+   "vehicles_stopped_over_3min": 305
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 28.222,
+    "p50": 17.645,
+    "p95": 83.103,
+    "max": 265.69
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.162,
+    "p50": 0.1,
+    "p95": 0.217,
+    "max": 18.391
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16927,
+    "green_states": 16941,
+    "greens_ended": 16891,
+    "displayed_green_shortened_by_box_hold": 2
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16943,
+   "phase_switches": 16943,
+   "model_decisions": 36661,
+   "forced_by_service_rules": 636,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1761.3
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 42,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11425,
+  "pending": 3824,
+  "system_vehicle_hours": 7688.556,
+  "stopped_vehicle_hours": 518.17,
+  "spillback_lane_hours": 32.292,
+  "off_ramp_per_30min": [
+   196,
+   162,
+   172,
+   165,
+   192,
+   138
+  ],
+  "off_ramp_total": 1025,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 333,
+    "pending": 333,
+    "arrived": 1080
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 367,
+    "pending": 688,
+    "arrived": 2307
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 408,
+    "pending": 1224,
+    "arrived": 3515
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 498,
+    "pending": 1679,
+    "arrived": 4665
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 476,
+    "pending": 2162,
+    "arrived": 5908
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 448,
+    "pending": 2699,
+    "arrived": 7121
+   },
+   {
+    "time": 63000.0,
+    "stuck": 0,
+    "active": 474,
+    "pending": 3293,
+    "arrived": 8292
+   },
+   {
+    "time": 63900.0,
+    "stuck": 0,
+    "active": 473,
+    "pending": 3909,
+    "arrived": 9484
+   },
+   {
+    "time": 64800.0,
+    "stuck": 0,
+    "active": 477,
+    "pending": 4360,
+    "arrived": 10689
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 327,
+    "pending": 4070,
+    "arrived": 11129
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 277,
+    "pending": 3824,
+    "arrived": 11425
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 8,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6633,
+    "mean": 66.747,
+    "p50": 46.0,
+    "p95": 184.4,
+    "max": 465.0
+   },
+   "vehicles_stopped_over_3min": 368
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 22.83,
+    "p50": 15.727,
+    "p95": 58.805,
+    "max": 479.565
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.14,
+    "p50": 0.102,
+    "p95": 0.223,
+    "max": 12.607
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16821,
+    "green_states": 16834,
+    "greens_ended": 16785,
+    "displayed_green_shortened_by_box_hold": 2
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16832,
+   "phase_switches": 16832,
+   "model_decisions": 36741,
+   "forced_by_service_rules": 776,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1647.9
+ },
+ {
+  "label": "ml_neighborhood",
+  "seed": 99,
+  "policy": "ml",
+  "valid": true,
+  "invalid_reasons": [],
+  "completed": 11257,
+  "pending": 3958,
+  "system_vehicle_hours": 7857.086,
+  "stopped_vehicle_hours": 586.246,
+  "spillback_lane_hours": 36.006,
+  "off_ramp_per_30min": [
+   230,
+   176,
+   160,
+   78,
+   155,
+   124
+  ],
+  "off_ramp_total": 923,
+  "stuck_over_3min_at_end": 0,
+  "stuck_trace": [
+   {
+    "time": 57600.0,
+    "stuck": 0,
+    "active": 353,
+    "pending": 310,
+    "arrived": 1083
+   },
+   {
+    "time": 58500.0,
+    "stuck": 0,
+    "active": 372,
+    "pending": 665,
+    "arrived": 2325
+   },
+   {
+    "time": 59400.0,
+    "stuck": 0,
+    "active": 405,
+    "pending": 1198,
+    "arrived": 3544
+   },
+   {
+    "time": 60300.0,
+    "stuck": 0,
+    "active": 475,
+    "pending": 1663,
+    "arrived": 4704
+   },
+   {
+    "time": 61200.0,
+    "stuck": 0,
+    "active": 453,
+    "pending": 2155,
+    "arrived": 5938
+   },
+   {
+    "time": 62100.0,
+    "stuck": 0,
+    "active": 431,
+    "pending": 2682,
+    "arrived": 7155
+   },
+   {
+    "time": 63000.0,
+    "stuck": 9,
+    "active": 495,
+    "pending": 3295,
+    "arrived": 8269
+   },
+   {
+    "time": 63900.0,
+    "stuck": 40,
+    "active": 536,
+    "pending": 4015,
+    "arrived": 9315
+   },
+   {
+    "time": 64800.0,
+    "stuck": 101,
+    "active": 560,
+    "pending": 4551,
+    "arrived": 10415
+   },
+   {
+    "time": 65700.0,
+    "stuck": 0,
+    "active": 333,
+    "pending": 4278,
+    "arrived": 10915
+   },
+   {
+    "time": 66600.0,
+    "stuck": 0,
+    "active": 311,
+    "pending": 3958,
+    "arrived": 11257
+   }
+  ],
+  "lane_collisions": 0,
+  "junction_overlap_reports": 4,
+  "fairness": {
+   "vehicle_longest_stop_seconds": {
+    "count": 6476,
+    "mean": 83.47,
+    "p50": 45.0,
+    "p95": 291.25,
+    "max": 1157.0
+   },
+   "vehicles_stopped_over_3min": 582
+  },
+  "latency_ms": {
+   "decision_tick": {
+    "count": 1980,
+    "mean": 17.466,
+    "p50": 11.332,
+    "p95": 48.843,
+    "max": 267.532
+   },
+   "model_forward": {
+    "count": 1980,
+    "mean": 0.175,
+    "p50": 0.102,
+    "p95": 0.254,
+    "max": 31.469
+   }
+  },
+  "signal_audit": {
+   "violations": 0,
+   "checks": {
+    "yellows_ended": 16699,
+    "green_states": 16718,
+    "greens_ended": 16663
+   }
+  },
+  "controller": {
+   "controller": "neighborhood_ml",
+   "policy": "ml",
+   "action_space": "advance",
+   "model_variant": "neighborhood",
+   "model_id": "f47792df94ad",
+   "signal_count": 36,
+   "decisions": 16708,
+   "phase_switches": 16708,
+   "model_decisions": 36599,
+   "forced_by_service_rules": 1143,
+   "random_actions": 0,
+   "control_evaluations": 71280
+  },
+  "model_sha256": "d3ca0b7e0ce977cb8400f199f39316773a6bde666bd3fc4cf27f682c632d6915",
+  "inputs": {
+   "baseline-v2.net.xml": "d7ff384a7c0c07aa437319b268d5b2b00109a4ce1dda66ae63ace3d93fdf42b0",
+   "baseline-v2.rou.xml": "5be7abb3249b4501f5ab4e02f6b68a3903969084c282dde9919ecdaad87014ba",
+   "baseline-v2-signals.add.xml": "52b68be17f5a03f8007a9d574da63a18fd5d37aea3329a8037ec6c436ce4cb1b"
+  },
+  "wall_seconds": 1356.3
+ }
+]

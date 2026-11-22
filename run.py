@@ -7,11 +7,13 @@ import sys
 parser = argparse.ArgumentParser(description="Run the Astoria traffic simulation in your browser")
 parser.add_argument("--port", type=int, default=8011)
 parser.add_argument("--no-browser", action="store_true")
+parser.add_argument("--scenario", choices=["editor", "baseline-v2"], default="editor",
+                    help="editor: the editable Astoria network (default). baseline-v2: the off-ramp-fixed network with the learned controllers")
 args = parser.parse_args()
 sys.path.insert(0, str(Path(__file__).resolve().parent / "simulation"))
 try:
     from browser_simulation import main
-    main(port=args.port, open_browser=not args.no_browser)
+    main(port=args.port, open_browser=not args.no_browser, scenario=args.scenario)
 except RuntimeError as error:
     parser.exit(1, f"{error}\n")
 except OSError as error:

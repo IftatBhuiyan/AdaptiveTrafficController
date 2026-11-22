@@ -89,6 +89,20 @@ The previous coordinated adaptive, local, and fixed browser modes share protecte
 
 The controller reads **present observations and history**, not hidden vehicle routes or future scheduled departures. The evaluator alone reads the demand roster to count vehicles still waiting outside the network. These are ideal simulated observations, not deployed roadside sensors. This is a research prototype: controller phase programmes change the imported fixed cycle, drawn crossings can add SUMO-generated pedestrian phases, and real signal plans, pedestrian timing, and driver behaviour still need field calibration.
 
+### Learned controller on baseline-v2
+
+A small learned signal controller, trained on the baseline-v2 network and
+demand, compares a local-only view with a few-block neighbourhood view using the
+same model. Run it in the browser with:
+
+```sh
+python3 run.py --scenario baseline-v2
+```
+
+Method, training commands and held-out results (including where it does worse,
+such as off-ramp throughput) are in
+[simulation/neighborhood-ml/README.md](simulation/neighborhood-ml/README.md).
+
 ## 5. Edit roads, lights, and traffic
 
 Click **Edit map**. The simulation pauses so you can work.
